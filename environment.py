@@ -4,6 +4,7 @@
 from agent import *
 import copy
 import random
+import math
 
 class Environment:
 
@@ -74,5 +75,45 @@ class Environment:
         for i in range(self.agent.energy):
             str2=str2+"H"
         print(str2)
+
+    def update(self,direction):
+        x=self.agent.coord[0]
+        y=self.agent.coord[1]
+        #print("x: {0} y: {1}".format(x,y))
+        if direction == "q": #move west
+            y -= 1
+        elif direction == "d": #move east
+            y += 1
+        elif direction == "z": #move north
+            x -= 1
+        elif direction == "s": #move south
+            x += 1
+        #print("x: {0} y: {1}".format(x,y))   
+            
+        if x>0 and x<25 and y>0 and y<25 and self.map[x][y]!='O':
+            self.agent.move(x,y)
+            if self.map[x][y]=='$':
+                self.agent.eat()
+                self.map[x][y]=" "
+                self.food_counter-=1
+                print(self.food_counter)
+        #self.move_ennemies() #TODO
+        if [x,y] in self.enemies:
+            print("You loose")
+            return False
+        else:
+            return True
+        
+
+    """"
+    TODO
+    def move_ennemies(self):
+        prob=random.random()
+        #if prob<0.2
+        a=self.agent.coord
+        for e in self.enemies:
+        w=(180-abs(a))/180
+        dist=math.sqrt((a[0]-e[0])*(a[0]-e[0])+(a[1]-e[1])*(a[1]-e[1]))"""
+            
                 
 
