@@ -13,14 +13,24 @@ class Agent:
 
     def __init__(self): #constructor
 
-        self.coord = [8,12]
-        self.energy = 40
+        self.coord = [18,12] # list[int,int] : coordinates [x,y]
+        self.energy = 40 # int: initial energy level
+        self.obstacle_sensor = [] # list[int*]
+        self.food_sensor = [] # list[int*]
+        self.enemies_sensor = [] # list[int*]
 
     def move(self,x,y):
+        """
+        int*int->null
+        Change the position of the agent
+        """
         self.energy-=1
         self.coord=[x,y]
 
     def eat(self):
+        """
+        Increase energy level by 15
+        """
         self.energy+=15    #is there a max level ?
 
           
