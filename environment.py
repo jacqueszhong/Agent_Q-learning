@@ -54,8 +54,8 @@ class Environment:
         """ add food into the map
         TODO: verif no food into the map at the beginning"""
         while self.food_counter<15:
-            x=int(random.uniform(0,25))
-            y=int(random.uniform(0,25))
+            x=int(random.uniform(0,self.size))
+            y=int(random.uniform(0,self.size))
             #print("x:{0}  y:{1}".format(x,y))
             if self.map[x][y]==' ':
                 self.map[x][y]='$'
@@ -66,7 +66,7 @@ class Environment:
         Show alle the components of the environment
         """
         c_map=copy.deepcopy(self.map[:])
-        c_map[self.agent.coord[0]][self.agent.coord[1]]="I"
+        c_map[self.agent.pos[0]][self.agent.pos[1]]="I"
         for e in self.enemies:
             c_map[e[0]][e[1]]="E"
         #print(c_map)
@@ -88,8 +88,8 @@ class Environment:
         Char->Bool
         Update all the elements of the environment
         """
-        x=self.agent.coord[0]
-        y=self.agent.coord[1]
+        x=self.agent.pos[0]
+        y=self.agent.pos[1]
         state=True
         #print("x: {0} y: {1}".format(x,y))
         if direction == "q": #move west
@@ -101,14 +101,14 @@ class Environment:
         elif direction == "s": #move south
             x += 1
         #print("x: {0} y: {1}".format(x,y))   
-            
-        if x>0 and x<25 and y>0 and y<25 and self.map[x][y]!='O':
+        self.agent.detect(self.map,self.size)    
+        if x>=0 and x<self.size and y>=0 and y<self.size and self.map[x][y]!='O':
             self.agent.move(x,y)
             if self.map[x][y]=='$':
                 self.agent.eat()
                 self.map[x][y]=" "
                 self.food_counter-=1
-                print(self.food_counter)
+                #print(self.food_counter)
         if [x,y] in self.enemies:
             return False
         else:         
@@ -118,7 +118,7 @@ class Environment:
         """
         Move all the enemies of the environment toward the agent
         """
-        a=self.agent.coord
+        a=self.agent.pos
         action=[[1,0],[0,1],[-1,0],[0,-1]]
         for e in self.enemies:
             prob=random.random()
@@ -127,7 +127,7 @@ class Environment:
                 P=[]
                 for ac in action:
                     tmp=[e[0]+ac[0],e[1]+ac[1]]
-                    if tmp==self.agent.coord:
+                    if tmp==self.agent.pos:
                         return False
                     elif self.map[tmp[0]][tmp[1]]!='O':
                         angle=vect.angle(ac,[a[0]-e[0],a[1]-e[1]])
@@ -148,7 +148,7 @@ class Environment:
         return True
 
     def move_ennemy(self,n):
-        a=self.agent.coord
+        a=self.agent.pos
         action=[[1,0],[0,1],[-1,0],[0,-1]] # south east north west 
         e=self.enemies[n]
         dist=vect.dist(a,e)
