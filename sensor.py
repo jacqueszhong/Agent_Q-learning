@@ -6,10 +6,10 @@ class Sensor:
 
     """
     Robot class with:
-    - type
-    - field
-    - position regarding the agent owner
-    - response
+    - type: Char
+    - field: Char
+    - position regarding the agent owner: [Int,Int]
+    - response: Bool 
     
     """
 
@@ -23,34 +23,31 @@ class Sensor:
         #return "(T:{0}  F:{1} Pos:{2}  ON? {3})".format(self.type_s,self.field,self.pos,self.response)
         return "{2}".format(self.type_s,self.field,self.pos,self.response)
 
-    def detect(self,a_pos,e_map,size): #TODO: vérifier qu'on regarde dans la map size
+    def detect(self,a_pos,e_map,size):
+        """
+        [Int,Int]*List[List[Char]*Int
+        Look if the sensor detect something of type self.type in the map e_map
+        """
         area=[]
         self.response=False
         x=a_pos[0]+self.pos[0]
         y=a_pos[1]+self.pos[1]
         self.response=self.detect_xy(e_map,[x,y],size)
+        
         if self.response:
-            print('o')
             return
         if self.field!='o':
-            area=[[-1,0],[0,-1],[1,0],[0,1]]
+            area=[[-1,0],[0,-1],[1,0],[0,1]] # X
             
             if self.field!='X':
-                area=area+[[-1,-1],[1,-1],[1,1],[-1,1]]
+                area=area+[[-1,-1],[1,-1],[1,1],[-1,1]] # O
             
                 if self.field!='O':
-                    area=area+[[-2,0],[0,-2],[2,0],[0,2]]
-                    print('Y')
-                else:
-                    print('O')
-            else:
-                print('X')
-        else:
-            print('o')
+                    area=area+[[-2,0],[0,-2],[2,0],[0,2]] # Y
+        else: # o           
             return
-        
 
-        i=0
+        i=0 
         while not self.response and i<len(area):
             x=self.pos[0]+area[i][0]
             y=self.pos[1]+area[i][1]
@@ -58,6 +55,9 @@ class Sensor:
             i+=1
 
     def detect_xy(self,e_map,coord,size):
+        """
+        Look if the sensor detect something of type self.type in e_map at coord
+        """
         x=coord[0]
         y=coord[1]
         if x>=0 and x<size and y>=0 and y<size:

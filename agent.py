@@ -54,14 +54,10 @@ class Agent:
         """
         List[int][int]->null
         """
-        print("Food")
         for f in self.food_sensor:
             f.detect(self.pos,e_map,size)
-        print("Enemies")
         for e in self.enemies_sensor:
             e.detect(self.pos,e_map,size)
-            
-        print("Obstacles")
         for o in self.obstacles_sensor:
             o.detect(self.pos,e_map,size)
 

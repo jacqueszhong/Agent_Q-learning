@@ -36,7 +36,21 @@ class Environment:
         for i in range(len(lignes)):
             self.map.append(list(lignes[i])[:self.size])
         f.close()
-        self.charge_food()    
+        if self.food_counter<15:
+            self.charge_food()
+
+    def save_map(self,name):
+        """
+        String -> null
+        Save the current map (obstacles and food position) in a file named name
+        """
+        f=open(name,'w')
+        for line in self.map:
+            str=''
+            for c in line:
+                str=str+c
+            f.write(str+'\n')
+        f.close
 
     def load_map(self, name):
         """
@@ -46,13 +60,20 @@ class Environment:
         """
         f=open(name,'r')
         lignes =f.readlines()
+        self.map=[]
         for i in range(len(lignes)):
             self.map.append(list(lignes[i])[:self.size])
         f.close()
+        self.food_counter=0
+        for l in self.map:
+            for c in l:
+                if c=='$':
+                    self.food_counter+=1
         
     def charge_food(self):
-        """ add food into the map
-        TODO: verif no food into the map at the beginning"""
+        """
+        Add food into the map
+        verif no food into the map at the beginning"""
         while self.food_counter<15:
             x=int(random.uniform(0,self.size))
             y=int(random.uniform(0,self.size))
@@ -63,7 +84,7 @@ class Environment:
                 
     def show(self):
         """
-        Show alle the components of the environment
+        Show all the components of the environment
         """
         c_map=copy.deepcopy(self.map[:])
         c_map[self.agent.pos[0]][self.agent.pos[1]]="I"
@@ -85,8 +106,9 @@ class Environment:
 
     def update(self,direction):
         """
-        Char->Bool
+        Char->Int
         Update all the elements of the environment
+        Return 0 if the game can continue, 1 if the agent won or -1 if he lost
         """
         x=self.agent.pos[0]
         y=self.agent.pos[1]
@@ -109,9 +131,11 @@ class Environment:
                 self.map[x][y]=" "
                 self.food_counter-=1
                 #print(self.food_counter)
-        if [x,y] in self.enemies:
-            return False
-        else:         
+        if ([x,y] in self.enemies) or self.agent.energy==0:
+            return -1
+        elif self.food_counter==0:
+            return 1
+        else:
             return self.move_all_ennemies() 
         
     def move_all_ennemies(self):
@@ -128,7 +152,7 @@ class Environment:
                 for ac in action:
                     tmp=[e[0]+ac[0],e[1]+ac[1]]
                     if tmp==self.agent.pos:
-                        return False
+                        return -1
                     elif self.map[tmp[0]][tmp[1]]!='O':
                         angle=vect.angle(ac,[a[0]-e[0],a[1]-e[1]])
                         w=(180-abs(angle))/180
@@ -145,9 +169,13 @@ class Environment:
                 move=P.index(max(P))
                 e[0]+=action[move][0]
                 e[1]+=action[move][1]
-        return True
+        return 0
 
     def move_ennemy(self,n):
+        """
+        Int -> null
+        Generate the motion of enemy number n
+        """
         a=self.agent.pos
         action=[[1,0],[0,1],[-1,0],[0,-1]] # south east north west 
         e=self.enemies[n]
@@ -168,7 +196,6 @@ class Environment:
             sum=sum+p
         for i in range(len(P)):
             P[i]=P[i]/sum
-        #print(P)
         move=P.index(max(P))
         self.enemies[n][0]=e[0]+action[move][0]
         self.enemies[n][1]=e[1]+action[move][1]
