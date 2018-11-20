@@ -4,6 +4,8 @@ import tensorflow as tf
 from tensorflow.keras import layers, models
 import numpy as np
 
+from constant import *
+
 import gym #pip install gym
 import time
 
@@ -13,6 +15,13 @@ class AgentBrain :
 	nbInput = 5
 	nbHidden = 10
 	nbOutput = 2
+
+	#Qlearning parameters
+	T_inv = 20
+	T_inv_max = 60
+	discount = 0.9
+	lr = 0.3
+
 
 	def __init__(self):
 		print("Initiating UtilityNetwork")
@@ -25,6 +34,7 @@ class AgentBrain :
 		self.model.compile(loss='mse', optimizer='adam', metrics=['mae'])
 
 
+	""" NN save/load functions """
 	def save(self, name):
 		start = time.time()
 		self.model.save(name)
@@ -45,6 +55,130 @@ class AgentBrain :
 		start = time.time()
 		self.model.load_weights(name)
 		print("Load time : " + str(time.time() - start))
+
+
+	def predict(self,vec):
+		print("predicted")
+		return 0.1
+
+	def rotate_sensors(self,sensor_arr_type, sensor_arr_vec, angle):
+		""" 
+		Rotates the input representation of the sensor array
+		(algo général mais un peu lourd)
+		
+		:param sensor_arr_type: Type of sensor. 0 = food, 1 = enemy, 2 = obstacle
+		:param sensor_arr_ vec: Input representation of the sensor array
+		:param angle: Rotation angle of the sensor array, counterclockwise. Possible values : 90,180,270
+		:return: Rotated input representation of the sensor array
+		
+		"""
+
+		if sensor_arr_type == 0 :
+			ref_array = SENSOR_X + SENSOR_O + sensor_Y 
+		elif sensor_arr_type == 1 :
+			ref_array = SENSOR_X + SENSOR_O
+		elif sensor_arr_type == 2 :
+			ref_array = SENSOR_o
+		else :
+			print("ERROR : unknown sensor_arr_type n°" + str(sensor_arr_type))
+
+		if angle == 90:
+			rot_mat = [[0,-1],[1,0]]
+		elif angle == 180:
+			rot_mat = [[-1,0],[0,-1]]
+		elif angle == 270:
+			rot_mat = [[0,1],[-1,0]]
+		else :
+			print("ERROR : unknown angle value = " + str(angle))
+
+		rot_array = np.dot(ref_array,rot_mat)
+
+		rot_vec = []
+		for pos in rot_array :
+			ind = ref_array.index(list(pos))
+			rot_vec.append(sensor_arr_vec[ind])
+
+		return rot_vec
+
+	def compute_input_vectors(self, input_vec):
+		"""
+		Gives the input representation in the four directions (N,E,S,W)
+
+		:param input_vec: input representation, current state of the agent 
+		:return: a list of the input representation in each direction 
+		"""
+
+		input_vectors = []
+		input_vectors.append(input_vec)
+
+		angle = 0
+		for i in range(1,4):
+			angle += 90
+			vec = []
+			vec.append(rotate_sensors(0,input_vec[:53],angle)) #Food sensors
+			vec.append(rotate_sensors(1,input_vec[53:85],angle)) #Enemy sensors
+			vec.append(rotate_sensors(2,input_vec[85:125],angle)) #Obstacle sensors
+			vec.append(input_vec[125:]) #Energy, previous choice, collision
+
+			input_vectors.append(vec)
+
+		return input_vectors
+
+
+
+	def select_action(self, input_vec):
+		"""
+		Chooses the action to perform.
+
+		This is the first step of the Q learning process. It evaluates the utility of each possible action. 
+		Then, a stochastic selector computes the probability of each action to be elected, based on its utility and the temperature. 
+		
+		:param input_vec: input representation, current state of the agent
+		:return: selected action
+
+		"""
+
+		# Compute utilities
+		merits = []
+		input_vectors = compute_input_vectors(input_vec) #surement redondant 
+		for vec in input_vectors :
+			merits.append(self.predict(vec))
+
+		# Choose action with a stochastic selector
+		sum = 0.0
+		for m in merits :
+			sum += np.exp(m*T_inv)
+
+		proba = []
+		for m in merits :
+			proba.append( np.exp(m*T_inv)/sum )
+
+		self.action = int( np.random.choice(4, 1, p=proba) )
+		return self.action
+
+
+	def adjust_network(self, new_input_vec, reward):
+		"""
+		Adjusts the utility network of the agent after one simulation step.
+
+		This is the second step of the Q learning process.
+
+		:param new_input_vec:
+		:param reward:
+
+		"""
+
+
+		merits = []
+		input_vectors = compute_input_vectors(new_input_vec)
+		for vec in input_vectors :
+			merits.append(self.predict(vec))
+
+		target = reward + self.discount*np.max(merits)
+
+		target_vec = self.model.predict(np.identity(5)[s:s + 1])[0]
+		target_vec[self.action] = target	
+
 
 
 	def test_tuto(self):
@@ -98,9 +232,9 @@ class AgentBrain :
 
 
 
-net = UtilityNetwork()
-net.loadw('test_tuto_w.h5')
-net.test_tuto()
-net.savew('test_tuto_w.h5')
+brain = AgentBrain()
+#brain.load('test_tuto.h5')
+brain.test_tuto()
+brain.save('test_tuto.h5')
 
 

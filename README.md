@@ -35,4 +35,4 @@ To exit use:
 
 * **Maëva A.** - [BarbeBleue](https://github.com/barbebleue)
 
-* **Jacques Z.** 
+* **Jacques Z.** - [Jaquapi](https://github.com/jacqueszhong)
