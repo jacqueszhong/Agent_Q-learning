@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*
 
 import tensorflow as tf
-from tensorflow.keras import layers, models
+from tensorflow.keras import layers, models, optimizers
 import numpy as np
 
 from constant import *
@@ -16,22 +16,28 @@ class AgentBrain :
 	nbHidden = 10
 	nbOutput = 2
 
-	#Qlearning parameters
-	T_inv = 20
-	T_inv_max = 60
-	discount = 0.9
-	lr = 0.3
+	#Tunable parameters
+	T_inv = 20 # Inverse of temperature
+	T_inv_max = 60 # Max value of the inverse of temperature
+	discount = 0.9 
+	momentum = 0.9 # Momentum factor of the backpropagation algorithm
+	lr = 0.3 # Learning rate of the backpropagation algorithm
+	r_w = 0.1 # Range of the initial weights
 
 
 	def __init__(self):
-		print("Initiating UtilityNetwork")
+		print("Initialization of AgentBrain")
+
 		#Model of utility network
 		self.model = tf.keras.Sequential()
 		#self.model.add(layers.InputLayer(batch_input_shape=(1,self.nbInput)) )
 		self.model.add(layers.Dense(self.nbInput, input_dim=self.nbInput, activation='linear'))
 		self.model.add(layers.Dense(self.nbHidden, activation='sigmoid') ) 
 		self.model.add(layers.Dense(self.nbOutput,activation='linear') )
-		self.model.compile(loss='mse', optimizer='adam', metrics=['mae'])
+
+		sgd = optimizers.SGD(lr = self.lr, momentum = self.momentum)
+
+		self.model.compile(loss='mae', optimizer='sgd', metrics=['mae'])
 
 
 	""" NN save/load functions """
@@ -140,8 +146,8 @@ class AgentBrain :
 
 		# Compute utilities
 		merits = []
-		input_vectors = compute_input_vectors(input_vec) #surement redondant 
-		for vec in input_vectors :
+		self.input_vectors = compute_input_vectors(input_vec) #surement redondant 
+		for vec in self.input_vectors :
 			merits.append(self.predict(vec))
 
 		# Choose action with a stochastic selector
@@ -168,22 +174,25 @@ class AgentBrain :
 
 		"""
 
+		prev_input_vec = self.input_vectors[self.action] #save for now the input representation of the previous state and action
 
 		merits = []
-		input_vectors = compute_input_vectors(new_input_vec)
-		for vec in input_vectors :
+		self.input_vectors = compute_input_vectors(new_input_vec)
+		for vec in self.input_vectors :
 			merits.append(self.predict(vec))
 
-		target = reward + self.discount*np.max(merits)
+		target = reward + self.discount * np.max(merits)
 
-		target_vec = self.model.predict(np.identity(5)[s:s + 1])[0]
-		target_vec[self.action] = target	
+		# try to fit the utilities before and after performing the action.
+		self.model.fit(prev_input_vec,target, epochs=1, verbose=0)
+
+
 
 
 
 	def test_tuto(self):
 		# now execute the q learning
-		y = 0.95 #
+		y = 0.95 # discount
 		eps = 0.5
 		decay_factor = 0.999 #Taux de diminution du epsilon
 		r_avg_list = []
