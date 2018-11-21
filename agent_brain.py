@@ -281,12 +281,12 @@ class AgentBrain :
 
 
 
-
+"""
 brain = AgentBrain()
-#brain.load('test_tuto.h5')
+#brain.loadw('test_tuto.h5')
 brain.test_tuto()
-brain.save('test_tuto.h5')
-
+brain.savew('test_tuto_w.h5')
+"""
 
 """
 #Piste intégration d'AgentBrain

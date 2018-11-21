@@ -23,7 +23,7 @@ class Sensor:
         #return "(T:{0}  F:{1} Pos:{2}  ON? {3})".format(self.type_s,self.field,self.pos,self.response)
         return "{2}".format(self.type_s,self.field,self.pos,self.response)
 
-    def detect(self,a_pos,e_map,size):
+    def detect(self,a_pos,e_map,size,enemies):
         """
         [Int,Int]*List[List[Char]*Int
         Look if the sensor detect something of type self.type in the map e_map
@@ -32,7 +32,8 @@ class Sensor:
         self.response=False
         x=a_pos[0]+self.pos[0]
         y=a_pos[1]+self.pos[1]
-        self.response=self.detect_xy(e_map,[x,y],size)
+
+        self.response=self.detect_xy(e_map,[x,y],size,enemies) #Test sensor position
         
         if self.response:
             return
@@ -49,19 +50,25 @@ class Sensor:
 
         i=0 
         while not self.response and i<len(area):
-            x=self.pos[0]+area[i][0]
-            y=self.pos[1]+area[i][1]
-            self.response=self.detect_xy(e_map,[x,y],size)
+            x=a_pos[0]+self.pos[0]+area[i][0]
+            y=a_pos[1]+self.pos[1]+area[i][1]
+            self.response=self.detect_xy(e_map,[x,y],size,enemies)
             i+=1
 
-    def detect_xy(self,e_map,coord,size):
+        #print("{0}, {1}, {2}".format(x,y))
+
+    def detect_xy(self,e_map,coord,size,enemies):
         """
         Look if the sensor detect something of type self.type in e_map at coord
         """
         x=coord[0]
         y=coord[1]
         if x>=0 and x<size and y>=0 and y<size:
-            if e_map[x][y]==self.type_s:
+
+            if self.type_s == 'E' and coord in enemies : #Enemy sensor
                 return True
-            else:
-                return False
+
+            elif e_map[x][y]==self.type_s: #Food / obstacle sensor
+                return True
+
+        return False

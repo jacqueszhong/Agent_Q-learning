@@ -1,4 +1,9 @@
 """Run to play the simulation of an agent in a maze full of obstacles, ennemies and food"""
+"""Virtual environnement :
+virtualenv --system-site-packages -p python3 ./venv
+source ./venv/bin/activate  # sh, bash, ksh, or zsh   
+"""
+
 
 from environment import *
 
@@ -18,7 +23,7 @@ while c_input!='x' and game_state==0:
     c_input=input()
     #Update the simulation
     if c_input in ['z','q','s','d']:
-        game_state=env.update(c_input)
+        game_state=env.update_manual_old(c_input)
         
 #End of the game
 if game_state==-1:        

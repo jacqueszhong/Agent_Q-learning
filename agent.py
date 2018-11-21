@@ -1,8 +1,11 @@
 
 """This module contains the Agent class"""
 
+import numpy as np
+
 from constant import *
 from sensor import *
+from agent_brain import AgentBrain
 
 class Agent:
 
@@ -15,12 +18,17 @@ class Agent:
 
     def __init__(self): #constructor
 
+        self.has_collided = False
+        self.action = -1
+
         self.pos = [18,12] # list[int,int] : coordinates [x,y]
         self.energy = 40 # int: initial energy level
         self.food_sensor = []
         self.enemies_sensor = []
         self.obstacles_sensor = [] #40
         self.init_sensors()
+
+        self.brain = AgentBrain()
 
     def init_sensors(self):
         for coord in SENSOR_X:
@@ -34,6 +42,56 @@ class Agent:
         for coord in SENSOR_o:           
             self.obstacles_sensor.append(Sensor('O','o',coord))
         
+
+    def compute_input_vec(self, e_map, e_size):
+
+        #Observe environnement
+        self.detect(e_map,e_size)
+
+        #Constructs state vector
+        #Sensors input units
+        input_vec = np.zeros(145,np.int)
+        i = 0
+        for f in self.food_sensor:
+            input_vec[i] = f.response
+            i+=1
+
+        for e in self.enemies_sensor:
+            input_vec[i] = e.response
+            i+=1
+
+        for o in self.obstacles_sensor:
+            input_vec[i] = o.response
+            i+=1
+
+        #Energy input units
+        ind = floor((self.energy+3)/7)
+        if ind > 15:
+            ind = 15
+        input_vec[124 + ind] = 1
+
+        #History input units
+        if self.action != -1 :
+            input_vec[140 + self.action] = 1
+
+        #Collision input unit
+        input_vec[144] = self.has_collided
+
+        return input_vec
+
+
+    def select_action(self,input_vec):
+        """
+        Wrapper of AgentBrain.select_action
+        """
+        return self.brain.select_action(input_vec)
+
+    def adjust_network(self,new_input_vec,reward):
+        """
+        Wrapper of AgentBrain.adjust_network
+        """
+        self.brain.adjust_network(new_input_vec, reward)
+
 
     def move(self,x,y):
         """
@@ -50,16 +108,16 @@ class Agent:
         self.energy+=15    #is there a max level ?
 
 
-    def detect(self,e_map,size):
+    def detect(self,e_map,size,enemies):
         """
         List[int][int]->null
         """
         for f in self.food_sensor:
-            f.detect(self.pos,e_map,size)
+            f.detect(self.pos,e_map,size,enemies)
         for e in self.enemies_sensor:
-            e.detect(self.pos,e_map,size)
+            e.detect(self.pos,e_map,size,enemies)
         for o in self.obstacles_sensor:
-            o.detect(self.pos,e_map,size)
+            o.detect(self.pos,e_map,size,enemies)
 
     def show_sensors(self,type):
         map=[[] for i in range(21)]

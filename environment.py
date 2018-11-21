@@ -104,7 +104,10 @@ class Environment:
             str2=str2+"H"
         print(str2)
 
-    def update(self,direction):
+
+
+    """ Meta functions """
+    def update_manual(self,direction):
         """
         Char->Int
         Update all the elements of the environment
@@ -123,20 +126,154 @@ class Environment:
         elif direction == "s": #move south
             x += 1
         #print("x: {0} y: {1}".format(x,y))   
-        self.agent.detect(self.map,self.size)    
-        if x>=0 and x<self.size and y>=0 and y<self.size and self.map[x][y]!='O':
-            self.agent.move(x,y)
-            if self.map[x][y]=='$':
-                self.agent.eat()
-                self.map[x][y]=" "
-                self.food_counter-=1
-                #print(self.food_counter)
+
+        status, reward, new_input_vec = self.step(x,y)
+
+        return status
+
+    def update_manual_debug(self,direction):
+        """
+        Char->Int
+        Update all the elements of the environment
+        Return 0 if the game can continue, 1 if the agent won or -1 if he lost
+        """
+        x=self.agent.pos[0]
+        y=self.agent.pos[1]
+        state=True
+        #print("x: {0} y: {1}".format(x,y))
+        if direction == "q": #move west
+            y -= 1
+        elif direction == "d": #move east
+            y += 1
+        elif direction == "z": #move north
+            x -= 1
+        elif direction == "s": #move south
+            x += 1
+        #print("x: {0} y: {1}".format(x,y))   
+
+
+        self.move_agent(x,y)
+
+        self.agent.detect(self.map,self.size,self.enemies)
+        i=0
+        for o in self.agent.obstacles_sensor :
+
+            print(" {0}, {1}, sensor_pos : {2}, sensor_type : {3}".format(o.response, [o.pos[0]+x, o.pos[1] + y],o.pos, o.field))
+
+            i += 1
+
+        print([x,y])
+        print(self.enemies)
+        print(self.agent.energy)
         if ([x,y] in self.enemies) or self.agent.energy==0:
             return -1
         elif self.food_counter==0:
             return 1
         else:
             return self.move_all_ennemies() 
+            
+
+    def move_agent(self, x, y):
+        """
+        Wrapper for agent.move()
+
+        Check position validity. Check food presence and eat food.
+        """
+
+        if self.map[x][y] == 'O':
+            self.agent.has_collided = True
+        else :
+            self.agent.has_collided = False
+
+        if x>=0 and x<self.size and y>=0 and y<self.size and self.map[x][y]!='O':
+            self.agent.move(x,y)
+            if self.map[x][y]=='$':
+                self.agent.eat()
+                self.map[x][y]=" "
+                self.food_counter-=1 
+
+
+    def update_q(self):
+        status = 0 # 0=nothing special, -1=dead, 1=got all food
+        
+        # Agent selects an action
+        input_vec = self.agent.get_input_vec(self.map, self.size)
+        action = self.agent.select_action(input_vec)
+
+        # Environnement performs the action
+        x=self.agent.pos[0]
+        y=self.agent.pos[1]
+        if action == 0 : #north
+            x -= 1
+        elif action == 1 : #east
+            y += 1
+        elif action == 2 : #south
+            x += 1
+        elif action == 3 : #west
+            y -= 1
+        else :
+            print("(update_q) ERROR, unknown action " + str(action))
+
+        self.move_agent(x,y)
+        print("--- NEW TURN ---")
+        print([x,y])
+        print(self.enemies)
+        print(self.agent.energy)
+
+        if ([x,y] in self.enemies) or self.agent.energy==0:
+            status = -1
+            reward = -1
+        elif self.food_counter==0:
+            status = 1
+        else:
+            status = self.move_all_ennemies() 
+
+
+
+        #Agent adjusts its network
+        self.agent.adjust_network()
+
+
+
+
+        return status
+
+    """ Environnement simulation """
+    def step(self,x,y):
+
+        #Move the agent
+        if self.map[x][y] == 'O':
+            self.agent.has_collided = True
+        else :
+            self.agent.has_collided = False
+
+        if x>=0 and x<self.size and y>=0 and y<self.size and self.map[x][y]!='O':
+            self.agent.move(x,y)
+            if self.map[x][y]=='$':
+                self.agent.eat()
+                self.map[x][y]=" "
+                self.food_counter-=1  
+
+        #Check game status, reward
+        if ([x,y] in self.enemies) or self.agent.energy==0:
+            status = -1
+            reward = -1
+        elif self.food_counter==0:
+            status = 1
+        else:
+            status = self.move_all_ennemies()
+
+        #Compute agent new state
+        new_input_vec = self.agent.compute_input_vec(self.map, self.size)
+
+        #Quelques verifs
+        print("--- NEW TURN ---")
+        print([x,y])
+        print(self.enemies)
+        print(self.agent.energy)
+
+        return (status,reward, new_input_vec)
+       
         
     def move_all_ennemies(self):
         """
@@ -199,7 +336,6 @@ class Environment:
         move=P.index(max(P))
         self.enemies[n][0]=e[0]+action[move][0]
         self.enemies[n][1]=e[1]+action[move][1]
-
     
 def t(dist):
     """
