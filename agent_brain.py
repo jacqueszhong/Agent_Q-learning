@@ -13,23 +13,26 @@ import time
 
 def centered_sigmoid(x):
 	""" Customized activation function """
-    return (backend.sigmoid(x)) - 0.5
-
+	return (backend.sigmoid(x)) - 0.5
 
 class AgentBrain :
 
 	#Number of neurons
-	nbInput = 5
-	nbHidden = 10
-	nbOutput = 2
+	_nbInput = 5
+	_nbHidden = 10
+	_nbOutput = 2
+
+	_reward_sum = 0
 
 	#Tunable parameters
-	T_inv = 20 # Inverse of temperature
-	T_inv_max = 60 # Max value of the inverse of temperature
-	discount = 0.9 
-	momentum = 0.9 # Momentum factor of the backpropagation algorithm
-	lr = 0.3 # Learning rate of the backpropagation algorithm
-	r_w = 0.1 # Range of the initial weights
+	_T_inv = 20 # Inverse of temperature
+	_T_inv_max = 60 # Max value of the inverse of temperature
+	_discount = 0.9 
+	_momentum = 0.9 # Momentum factor of the backpropagation algorithm
+	_lr = 0.3 # Learning rate of the backpropagation algorithm
+	_r_w = 0.1 # Range of the initial weights
+
+	_no_learning = False
 
 
 	def __init__(self):
@@ -39,15 +42,14 @@ class AgentBrain :
 		self.model = tf.keras.Sequential()
 
 		get_custom_objects().update({'centered_sigmoid': layers.Activation(centered_sigmoid)})
-
 		self.model.add(layers.Activation(centered_sigmoid))
 
 		#self.model.add(layers.InputLayer(batch_input_shape=(1,self.nbInput)) )
-		self.model.add(layers.Dense(self.nbInput, input_dim=self.nbInput, activation='linear'))
-		self.model.add(layers.Dense(self.nbHidden, activation=centered_sigmoid) ) 
-		self.model.add(layers.Dense(self.nbOutput,activation='linear') )
+		self.model.add(layers.Dense(self._nbInput, input_dim=self._nbInput, activation='linear'))
+		self.model.add(layers.Dense(self._nbHidden, activation=centered_sigmoid) ) 
+		self.model.add(layers.Dense(self._nbOutput,activation='linear') )
 
-		sgd = optimizers.SGD(lr = self.lr, momentum = self.momentum)
+		sgd = optimizers.SGD(lr = self._lr, momentum = self._momentum)
 
 		self.model.compile(loss='mae', optimizer='sgd', metrics=['mae'])
 
@@ -60,7 +62,7 @@ class AgentBrain :
 
 	def load(self, name):
 		start = time.time()
-		#self.model = models.load_model(name)
+		self.model = models.load_model(name)
 		print("Load time : " + str(time.time() - start))
 
 
@@ -74,15 +76,34 @@ class AgentBrain :
 		self.model.load_weights(name)
 		print("Load time : " + str(time.time() - start))
 
+	def reset(self):
+		self._no_learning = False
+		self._T_inv = 20
+		self._input_vectors = []
+		self._reward_sum = 0
+
+	def reset_no_learning(self):
+		self._no_learning = True
+		self._T_inv = 20
+		self._input_vectors = []
+		self._reward_sum = 0
 
 
 	def predict(self,vec):
+		"""
+		Wrapper for the model.predict
+		"""
+
 		print("predicted")
-		return 0.1
+		return self.model.predict(vec)[0]
+		#return 0.1
+
+	def add_reward(self,reward):
+		self._reward_sum += reward
 
 	""" Functions for input representation processing """
 	def rotate_sensors(self,sensor_arr_type, sensor_arr_vec, angle):
-		""" 
+		"""
 		Rotates the input representation of the sensor array
 		(algo général mais un peu lourd)
 		
@@ -90,7 +111,6 @@ class AgentBrain :
 		:param sensor_arr_ vec: Input representation of the sensor array
 		:param angle: Rotation angle of the sensor array, counterclockwise. Possible values : 90,180,270
 		:return: Rotated input representation of the sensor array
-		
 		"""
 
 		if sensor_arr_type == 0 :
@@ -160,21 +180,27 @@ class AgentBrain :
 
 		# Compute utilities
 		merits = []
-		self.input_vectors = compute_input_vectors(input_vec) #surement redondant 
-		for vec in self.input_vectors :
+		if not self._input_vectors : #Input vectors have already been computed in adjust_network of the previous step
+			self._input_vectors = compute_input_vectors(input_vec) 
+		for vec in self._input_vectors :
 			merits.append(self.predict(vec))
 
-		# Choose action with a stochastic selector
-		sum = 0.0
-		for m in merits :
-			sum += np.exp(m*T_inv)
+		if self._no_learning :
+			# Choose action with maximum merit
+			self._action = np.argmax(merits)
 
-		proba = []
-		for m in merits :
-			proba.append( np.exp(m*T_inv)/sum )
+		else : 
+			# Choose action with a stochastic selector
+			sum = 0.0
+			for m in merits :
+				sum += np.exp(m*T_inv)
 
-		self.action = int( np.random.choice(4, 1, p=proba) )
-		return self.action
+			proba = []
+			for m in merits :
+				proba.append( np.exp(m*T_inv)/sum )
+
+			self._action = int( np.random.choice(4, 1, p=proba) )
+		return self._action
 
 
 	def adjust_network(self, new_input_vec, reward):
@@ -188,14 +214,15 @@ class AgentBrain :
 
 		"""
 
-		prev_input_vec = self.input_vectors[self.action] #save for now the input representation of the previous state and action
+		prev_input_vec = self._input_vectors[self.action] #save for now the input representation of the previous state and action
 
 		merits = []
-		self.input_vectors = compute_input_vectors(new_input_vec)
-		for vec in self.input_vectors :
+		self._input_vectors = compute_input_vectors(new_input_vec)
+		for vec in self._input_vectors :
 			merits.append(self.predict(vec))
 
-		target = reward + self.discount * np.max(merits)
+		target = reward + self._discount * np.max(merits)
+		self._reward_sum += reward
 
 		# try to fit the utilities before and after performing the action.
 		self.model.fit(prev_input_vec,target, epochs=1, verbose=0)
@@ -261,3 +288,38 @@ brain.test_tuto()
 brain.save('test_tuto.h5')
 
 
+"""
+#Piste intégration d'AgentBrain
+
+#Init
+brain = AgentBrain()
+nb_simu = 300
+
+if do_load : 
+	brain.load("simu.h5")
+
+#Tour du simulateur
+for i in range(nb_simu):
+	brain.reset()
+	x = env.reset()
+	
+	while( not dead):
+		a = brain.select_action(x)
+		(y,r,dead) = env.step(a)
+		brain.adjust_network(y,r)
+
+	brain.save("simu.h5")
+
+	#Test de l'agent sur les 50 environnements de test
+	if(nb_simu % 20):
+		for j in range(50):
+			brain.reset_no_learning()
+			x = env.reset()
+
+			while( not dead ):
+				a = brain.select_action()
+				(y,r,dead) = env.step(a)
+
+			
+
+"""
