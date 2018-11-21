@@ -1,13 +1,20 @@
 # -*- coding: utf-8 -*
 
 import tensorflow as tf
-from tensorflow.keras import layers, models, optimizers
+from tensorflow.keras import layers, models, optimizers, backend
+from keras.utils.generic_utils import get_custom_objects
 import numpy as np
 
 from constant import *
 
 import gym #pip install gym
 import time
+
+
+def centered_sigmoid(x):
+	""" Customized activation function """
+    return (backend.sigmoid(x)) - 0.5
+
 
 class AgentBrain :
 
@@ -30,9 +37,14 @@ class AgentBrain :
 
 		#Model of utility network
 		self.model = tf.keras.Sequential()
+
+		get_custom_objects().update({'centered_sigmoid': layers.Activation(centered_sigmoid)})
+
+		self.model.add(layers.Activation(centered_sigmoid))
+
 		#self.model.add(layers.InputLayer(batch_input_shape=(1,self.nbInput)) )
 		self.model.add(layers.Dense(self.nbInput, input_dim=self.nbInput, activation='linear'))
-		self.model.add(layers.Dense(self.nbHidden, activation='sigmoid') ) 
+		self.model.add(layers.Dense(self.nbHidden, activation=centered_sigmoid) ) 
 		self.model.add(layers.Dense(self.nbOutput,activation='linear') )
 
 		sgd = optimizers.SGD(lr = self.lr, momentum = self.momentum)
@@ -63,10 +75,12 @@ class AgentBrain :
 		print("Load time : " + str(time.time() - start))
 
 
+
 	def predict(self,vec):
 		print("predicted")
 		return 0.1
 
+	""" Functions for input representation processing """
 	def rotate_sensors(self,sensor_arr_type, sensor_arr_vec, angle):
 		""" 
 		Rotates the input representation of the sensor array
