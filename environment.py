@@ -118,12 +118,16 @@ class Environment:
         state=True
         #print("x: {0} y: {1}".format(x,y))
         if direction == "q": #move west
+            self.agent.action = 3
             y -= 1
         elif direction == "d": #move east
+            self.agent.action = 1
             y += 1
         elif direction == "z": #move north
+            self.agent.action = 0
             x -= 1
         elif direction == "s": #move south
+            self.agent.action = 2
             x += 1
         #print("x: {0} y: {1}".format(x,y))   
 
@@ -131,6 +135,7 @@ class Environment:
 
         return status
 
+    """ DEPRECATED """
     def update_manual_debug(self,direction):
         """
         Char->Int
@@ -171,8 +176,8 @@ class Environment:
             return 1
         else:
             return self.move_all_ennemies() 
-            
 
+    """ DEPRECATED """
     def move_agent(self, x, y):
         """
         Wrapper for agent.move()
@@ -241,36 +246,38 @@ class Environment:
     """ Environnement simulation """
     def step(self,x,y):
 
-        #Move the agent
-        if self.map[x][y] == 'O':
-            self.agent.has_collided = True
-        else :
-            self.agent.has_collided = False
+        reward = 0
+        status = 0
 
+        #Move the agent
         if x>=0 and x<self.size and y>=0 and y<self.size and self.map[x][y]!='O':
+            self.agent.has_collided = False
             self.agent.move(x,y)
             if self.map[x][y]=='$':
                 self.agent.eat()
                 self.map[x][y]=" "
                 self.food_counter-=1  
+                reward = 0.4
+        else : 
+            self.agent.has_collided = True
 
         #Check game status, reward
-        if ([x,y] in self.enemies) or self.agent.energy==0:
+        if ([x,y] in self.enemies) or self.agent.energy==0: 
             status = -1
             reward = -1
         elif self.food_counter==0:
             status = 1
         else:
             status = self.move_all_ennemies()
+            if status == -1:
+                reward = -1
 
         #Compute agent new state
-        new_input_vec = self.agent.compute_input_vec(self.map, self.size)
+        new_input_vec = self.agent.compute_input_vec(self.map, self.size, self.enemies)
 
         #Quelques verifs
         print("--- NEW TURN ---")
-        print([x,y])
-        print(self.enemies)
-        print(self.agent.energy)
+        print("Input vector : " + str(new_input_vec))
 
         return (status,reward, new_input_vec)
        

@@ -23,7 +23,7 @@ while c_input!='x' and game_state==0:
     c_input=input()
     #Update the simulation
     if c_input in ['z','q','s','d']:
-        game_state=env.update_manual_old(c_input)
+        game_state=env.update_manual(c_input)
         
 #End of the game
 if game_state==-1:        

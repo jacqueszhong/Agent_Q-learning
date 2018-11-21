@@ -2,6 +2,7 @@
 """This module contains the Agent class"""
 
 import numpy as np
+from math import floor
 
 from constant import *
 from sensor import *
@@ -43,10 +44,10 @@ class Agent:
             self.obstacles_sensor.append(Sensor('O','o',coord))
         
 
-    def compute_input_vec(self, e_map, e_size):
+    def compute_input_vec(self, e_map, e_size, enemies):
 
         #Observe environnement
-        self.detect(e_map,e_size)
+        self.detect(e_map,e_size, enemies)
 
         #Constructs state vector
         #Sensors input units
