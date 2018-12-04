@@ -10,6 +10,7 @@ from constant import *
 import gym #pip install gym
 import time
 
+DEBUG = 0
 
 def centered_sigmoid(x):
 	""" Customized activation function """
@@ -18,9 +19,9 @@ def centered_sigmoid(x):
 class AgentBrain :
 
 	#Number of neurons
-	_nbInput = 5
+	_nbInput = 145
 	_nbHidden = 10
-	_nbOutput = 2
+	_nbOutput = 1
 
 	_reward_sum = 0
 
@@ -34,9 +35,16 @@ class AgentBrain :
 
 	_no_learning = False
 
+	_input_vectors = []
+
 
 	def __init__(self):
 		print("Initialization of AgentBrain")
+		if DEBUG:	
+			self._nbInput = 5
+			self._nbHidden = 10
+			self._nbOutput = 2
+
 
 		#Model of utility network
 		self.model = tf.keras.Sequential()
@@ -93,9 +101,10 @@ class AgentBrain :
 		"""
 		Wrapper for the model.predict
 		"""
+		vec = np.array([vec])
+		print("Predicting : {0} \n {1}".format(len(vec),vec))
 
-		print("predicted")
-		return self.model.predict(vec)[0]
+		return self.model.predict(vec)
 		#return 0.1
 
 	def add_reward(self,reward):
@@ -114,7 +123,7 @@ class AgentBrain :
 		"""
 
 		if sensor_arr_type == 0 :
-			ref_array = SENSOR_X + SENSOR_O + sensor_Y 
+			ref_array = SENSOR_X + SENSOR_O + SENSOR_Y 
 		elif sensor_arr_type == 1 :
 			ref_array = SENSOR_X + SENSOR_O
 		elif sensor_arr_type == 2 :
@@ -154,11 +163,10 @@ class AgentBrain :
 		angle = 0
 		for i in range(1,4):
 			angle += 90
-			vec = []
-			vec.append(rotate_sensors(0,input_vec[:53],angle)) #Food sensors
-			vec.append(rotate_sensors(1,input_vec[53:85],angle)) #Enemy sensors
-			vec.append(rotate_sensors(2,input_vec[85:125],angle)) #Obstacle sensors
-			vec.append(input_vec[125:]) #Energy, previous choice, collision
+			vec = (self.rotate_sensors(0,input_vec[:53],angle)) #Food sensors
+			vec += (self.rotate_sensors(1,input_vec[53:85],angle)) #Enemy sensors
+			vec += (self.rotate_sensors(2,input_vec[85:125],angle)) #Obstacle sensors
+			vec += list(input_vec[125:]) #Energy, previous choice, collision
 
 			input_vectors.append(vec)
 
@@ -181,7 +189,8 @@ class AgentBrain :
 		# Compute utilities
 		merits = []
 		if not self._input_vectors : #Input vectors have already been computed in adjust_network of the previous step
-			self._input_vectors = compute_input_vectors(input_vec) 
+			self._input_vectors = self.compute_input_vectors(input_vec)
+		#print("vectors : {0} ".format(self._input_vectors))
 		for vec in self._input_vectors :
 			merits.append(self.predict(vec))
 
@@ -199,6 +208,7 @@ class AgentBrain :
 			for m in merits :
 				proba.append( np.exp(m*T_inv)/sum )
 
+			print("merits proba : {0}".format(proba))
 			self._action = int( np.random.choice(4, 1, p=proba) )
 		return self._action
 
@@ -266,7 +276,10 @@ class AgentBrain :
 				target = r + y * np.max(self.model.predict(np.identity(5)[new_s:new_s + 1]))
 				
 				# On construit le vecteur de sortie attendu target_vec
-				target_vec = self.model.predict(np.identity(5)[s:s + 1])[0]
+				input_vec = np.identity(5)[s:s + 1]
+				print(input_vec)
+				print(type(input_vec))
+				target_vec = self.model.predict(input_vec)[0]
 				target_vec[a] = target
 				# On lance un tour d'apprentissage, avec en entrée l'état s, de label target_vec.
 				# model.fit devrait calculer l'erreur entre la sortie du NN (utilité estimée avant action) et l'utilité après action (target_vec)
@@ -279,14 +292,12 @@ class AgentBrain :
 
 		print(r_avg_list)
 
+if DEBUG:
+	brain = AgentBrain()
+	#brain.loadw('test_tuto.h5')
+	brain.test_tuto()
+	brain.savew('test_tuto_w.h5')
 
-
-"""
-brain = AgentBrain()
-#brain.loadw('test_tuto.h5')
-brain.test_tuto()
-brain.savew('test_tuto_w.h5')
-"""
 
 """
 #Piste intégration d'AgentBrain

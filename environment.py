@@ -202,7 +202,7 @@ class Environment:
         status = 0 # 0=nothing special, -1=dead, 1=got all food
         
         # Agent selects an action
-        input_vec = self.agent.get_input_vec(self.map, self.size)
+        input_vec = self.agent.compute_input_vec(self.map, self.size,self.enemies)
         action = self.agent.select_action(input_vec)
 
         # Environnement performs the action
@@ -224,22 +224,12 @@ class Environment:
         print([x,y])
         print(self.enemies)
         print(self.agent.energy)
-
-        if ([x,y] in self.enemies) or self.agent.energy==0:
-            status = -1
-            reward = -1
-        elif self.food_counter==0:
-            status = 1
-        else:
-            status = self.move_all_ennemies() 
-
-
+        
+        #Performs one environnement step
+        status, reward, new_input_vec = self.step(x,y)
 
         #Agent adjusts its network
-        self.agent.adjust_network()
-
-
-
+        self.agent.adjust_network(new_input_vec,reward)
 
         return status
 
