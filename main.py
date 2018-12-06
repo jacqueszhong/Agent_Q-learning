@@ -7,28 +7,39 @@ source ./venv/bin/activate  # sh, bash, ksh, or zsh
 
 from environment import *
 
-#Creation of the environment of the game
-env=Environment()
-#Variable to save the input of the player
-c_input=''
-#Variable to follow the state of the game
-game_state=0
+def run_manual():
+    #Creation of the environment of the game
+    env=Environment()
+    #Variable to save the input of the player
+    c_input=''
+    #Variable to follow the state of the game
+    game_state=0
 
-#Loop of the game
-while c_input!='x' and game_state==0:
-    #Show the map on the terminal
-    env.show()
-    #Ask the player
-    print("Press z, q, s or d to move or x to exit:")
-    c_input=input()
-    #Update the simulation
-    if c_input in ['z','q','s','d']:
-        #game_state=env.update_manual(c_input)
+    #Loop of the game
+    while c_input!='x' and game_state==0:
+        #Show the map on the terminal
+        env.show()
+        #Ask the player
+        print("Press z, q, s or d to move or x to exit:")
+        c_input=input()
+        #Update the simulation
+        if c_input in ['z','q','s','d']:
+            #game_state=env.update_manual(c_input)
+            game_state = env.update_q()
+
+    #End of the game
+    if game_state==-1:        
+        print("Loser")
+    if game_state==1:        
+        print("Winner")    
+
+def run_simulation():
+
+    env = Environment()
+    game_state = 0
+    #Loop of the game
+    while game_state == 0:
+        env.show()
         game_state = env.update_q()
 
-#End of the game
-if game_state==-1:        
-    print("Loser")
-if game_state==1:        
-    print("Winner")
-
+run_simulation()

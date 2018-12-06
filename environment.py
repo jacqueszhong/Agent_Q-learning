@@ -7,6 +7,8 @@ import random
 import math
 import vect
 
+DEBUG = 0
+
 class Environment:
 
     """
@@ -197,6 +199,8 @@ class Environment:
                 self.map[x][y]=" "
                 self.food_counter-=1 
 
+        if DEBUG :
+            print("LEAVING environment.move_agent : \n\tpos={0}\n\tenemy_pos={1}\n\tenergy={2}".format([x,y],self.enemies,self.agent.energy))
 
     def update_q(self):
         status = 0 # 0=nothing special, -1=dead, 1=got all food
@@ -220,10 +224,6 @@ class Environment:
             print("(update_q) ERROR, unknown action " + str(action))
 
         self.move_agent(x,y)
-        print("--- NEW TURN ---")
-        print([x,y])
-        print(self.enemies)
-        print(self.agent.energy)
         
         #Performs one environnement step
         status, reward, new_input_vec = self.step(x,y)
@@ -265,9 +265,8 @@ class Environment:
         #Compute agent new state
         new_input_vec = self.agent.compute_input_vec(self.map, self.size, self.enemies)
 
-        #Quelques verifs
-        print("--- NEW TURN ---")
-        print("Input vector : " + str(new_input_vec))
+        if DEBUG :
+            print("LEAVING environment.step : \n\t status={0}\n\t reward={1}\n\tnew_input_vec={2}".format(status,reward,new_input_vec))
 
         return (status,reward, new_input_vec)
        

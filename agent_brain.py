@@ -10,6 +10,7 @@ from constant import *
 import gym #pip install gym
 import time
 
+TUTO = 0
 DEBUG = 0
 
 def centered_sigmoid(x):
@@ -40,7 +41,7 @@ class AgentBrain :
 
 	def __init__(self):
 		print("Initialization of AgentBrain")
-		if DEBUG:	
+		if TUTO:	
 			self._nbInput = 5
 			self._nbHidden = 10
 			self._nbOutput = 2
@@ -100,11 +101,13 @@ class AgentBrain :
 	def predict(self,vec):
 		"""
 		Wrapper for the model.predict
-		"""
-		vec = np.array([vec])
-		print("Predicting : {0} \n {1}".format(len(vec),vec))
+		""" 
+		if type(vec) == list :
+			print("WARNING - agent_brain.predict : conversion from list to numpy.array")
 
-		return self.model.predict(vec)
+		#print("Predicting : {0}, type = {1} \n {2}".format(len(vec),type(vec),vec))
+
+		return self.model.predict(vec.reshape(1,self._nbInput))
 		#return 0.1
 
 	def add_reward(self,reward):
@@ -118,7 +121,7 @@ class AgentBrain :
 		
 		:param sensor_arr_type: Type of sensor. 0 = food, 1 = enemy, 2 = obstacle
 		:param sensor_arr_ vec: Input representation of the sensor array
-		:param angle: Rotation angle of the sensor array, counterclockwise. Possible values : 90,180,270
+		:param angle: Rotation angle of the sensor array, clockwise. Possible values : 90,180,270
 		:return: Rotated input representation of the sensor array
 		"""
 
@@ -154,24 +157,32 @@ class AgentBrain :
 		Gives the input representation in the four directions (N,E,S,W)
 
 		:param input_vec: input representation, current state of the agent 
-		:return: a list of the input representation in each direction 
+		:return: a list of numpy.ndarray, the input representations in each direction 
 		"""
-
 		input_vectors = []
-		input_vectors.append(input_vec)
-
+		if (type(input_vec) == list):
+			input_vectors.append(np.array(input_vec))
+		elif (type(input_vec) == np.ndarray):
+			input_vectors.append(input_vec)
+		else :
+			print("WARNING - agent_brain.compute_input_vectors : unknown input_vec")
+		
 		angle = 0
 		for i in range(1,4):
 			angle += 90
-			vec = (self.rotate_sensors(0,input_vec[:53],angle)) #Food sensors
-			vec += (self.rotate_sensors(1,input_vec[53:85],angle)) #Enemy sensors
-			vec += (self.rotate_sensors(2,input_vec[85:125],angle)) #Obstacle sensors
-			vec += list(input_vec[125:]) #Energy, previous choice, collision
 
-			input_vectors.append(vec)
+			vec = (self.rotate_sensors(0,input_vec[:52],angle)) #Food sensors
+			vec += (self.rotate_sensors(1,input_vec[52:84],angle)) #Enemy sensors
+			vec += (self.rotate_sensors(2,input_vec[84:124],angle)) #Obstacle sensors
+			vec += list(input_vec[124:]) #Energy, previous choice, collision
+			input_vectors.append(np.array(vec))
 
 		return input_vectors
 
+	def show_vectors(self):
+		print("Showing vectors")
+		for vec in self._input_vectors :
+			print("Vector : {0}\n".format(vec))
 
 
 	def select_action(self, input_vec):
@@ -187,12 +198,13 @@ class AgentBrain :
 		"""
 
 		# Compute utilities
-		merits = []
+		merits = np.zeros(4)
 		if not self._input_vectors : #Input vectors have already been computed in adjust_network of the previous step
 			self._input_vectors = self.compute_input_vectors(input_vec)
-		#print("vectors : {0} ".format(self._input_vectors))
-		for vec in self._input_vectors :
-			merits.append(self.predict(vec))
+		
+		#self.show_vectors()
+		for i,vec in enumerate(self._input_vectors) :
+			merits[i] = self.predict(vec)
 
 		if self._no_learning :
 			# Choose action with maximum merit
@@ -202,15 +214,18 @@ class AgentBrain :
 			# Choose action with a stochastic selector
 			sum = 0.0
 			for m in merits :
-				sum += np.exp(m*T_inv)
+				sum += np.exp(m*self._T_inv)
 
 			proba = []
 			for m in merits :
-				proba.append( np.exp(m*T_inv)/sum )
+				proba.append( np.exp(m*self._T_inv)/sum )
 
-			print("merits proba : {0}".format(proba))
 			self._action = int( np.random.choice(4, 1, p=proba) )
-		return self._action
+
+			if DEBUG :
+				print("LEAVING agent_brain.select_action : \n\t Merits={0}\n\tProba={1}\n\tAction={2}".format(merits,proba,self._action))
+		
+		return self._action 	
 
 
 	def adjust_network(self, new_input_vec, reward):
@@ -224,18 +239,26 @@ class AgentBrain :
 
 		"""
 
-		prev_input_vec = self._input_vectors[self.action] #save for now the input representation of the previous state and action
-
-		merits = []
-		self._input_vectors = compute_input_vectors(new_input_vec)
-		for vec in self._input_vectors :
-			merits.append(self.predict(vec))
-
-		target = reward + self._discount * np.max(merits)
 		self._reward_sum += reward
 
+		prev_input_vec = self._input_vectors[self._action] #save for now the input representation of the previous state and action
+
+		merits = np.zeros(4)
+		self._input_vectors = self.compute_input_vectors(new_input_vec)
+		for i,vec in enumerate(self._input_vectors) :
+			merits[i] = self.predict(vec)
+
+		target = reward + self._discount * np.max(merits)
+		target = np.array(target).reshape(1,1)
+
+		if DEBUG :
+			print("LEAVING agent_brain.adjust_network :\
+			\n\tMerits={0}\n\ttargetU={1}\n\treward_sum={2}"\
+			.format(merits,target,self._reward_sum))
+
+
 		# try to fit the utilities before and after performing the action.
-		self.model.fit(prev_input_vec,target, epochs=1, verbose=0)
+		self.model.fit(prev_input_vec.reshape(1,self._nbInput),np.array(target), epochs=1, verbose=0)
 
 
 
@@ -272,19 +295,21 @@ class AgentBrain :
 
 				new_s, r, done, _ = env.step(a)
 
-				# Calcul de récompense du nouvel état
+		 		# Calcul de récompense du nouvel état
 				target = r + y * np.max(self.model.predict(np.identity(5)[new_s:new_s + 1]))
 				
 				# On construit le vecteur de sortie attendu target_vec
 				input_vec = np.identity(5)[s:s + 1]
-				print(input_vec)
-				print(type(input_vec))
+				#print(input_vec)
+				#print(type(input_vec))
 				target_vec = self.model.predict(input_vec)[0]
 				target_vec[a] = target
 				# On lance un tour d'apprentissage, avec en entrée l'état s, de label target_vec.
 				# model.fit devrait calculer l'erreur entre la sortie du NN (utilité estimée avant action) et l'utilité après action (target_vec)
 				#, puis faire la backpropagation de cette erreur.
-				self.model.fit(np.identity(5)[s:s + 1], target_vec.reshape(-1, 2), epochs=1, verbose=0)
+				tar = target_vec.reshape(-1, 2)
+				print("tarte:",tar)
+				self.model.fit(np.identity(5)[s:s + 1], tar, epochs=1, verbose=0)
 				
 				s = new_s
 				r_sum += r
@@ -292,7 +317,7 @@ class AgentBrain :
 
 		print(r_avg_list)
 
-if DEBUG:
+if TUTO:
 	brain = AgentBrain()
 	#brain.loadw('test_tuto.h5')
 	brain.test_tuto()

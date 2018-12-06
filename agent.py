@@ -45,6 +45,11 @@ class Agent:
         
 
     def compute_input_vec(self, e_map, e_size, enemies):
+        """
+        Return the input representation given some information about the environement.
+
+        :return: numpy.ndarray, shape (1x145)
+        """
 
         #Observe environnement
         self.detect(e_map,e_size, enemies)
