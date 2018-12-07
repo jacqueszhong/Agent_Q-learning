@@ -3,6 +3,7 @@
 
 import numpy as np
 from math import floor
+import time #sauvegarde de poids
 
 from constant import *
 from sensor import *
@@ -97,6 +98,28 @@ class Agent:
         Wrapper of AgentBrain.adjust_network
         """
         self.brain.adjust_network(new_input_vec, reward)
+
+    def save_step(self,step):
+        """ Wrapper of agent_brain.savew """
+        name = "Hidden"+str(self.brain.get_nbHidden())+"_Step" + str(step) + "_"
+        s = str(time.time())
+        s = s.replace(".","")
+        s = s[4:]
+        name = "NN_save/" + name + s + ".h5"
+        self.brain.savew(name)
+        self.brain.savew("NN_save/quicksave.h5")
+
+    def load_step(self,filename):
+        """ Wrapper of agent_brain.loadw """
+        self.brain.loadw(filename)
+
+    def reset(self):
+        self.has_collided = False
+        self.action = -1
+        self.pos = [18,12]
+        self.energy = 40
+        
+        self.brain.reset()
 
 
     def move(self,x,y):

@@ -240,6 +240,7 @@ class AgentBrain :
 		"""
 
 		self._reward_sum += reward
+		print("Reward sum : {0}".format(self._reward_sum))
 
 		prev_input_vec = self._input_vectors[self._action] #save for now the input representation of the previous state and action
 
@@ -260,7 +261,8 @@ class AgentBrain :
 		# try to fit the utilities before and after performing the action.
 		self.model.fit(prev_input_vec.reshape(1,self._nbInput),np.array(target), epochs=1, verbose=0)
 
-
+	def get_nbHidden(self):
+		return self._nbHidden
 
 
 

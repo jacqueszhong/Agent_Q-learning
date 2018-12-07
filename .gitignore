@@ -1,2 +1,4 @@
 __pycache__/
-venv/
+venv
+*.pyc
+test_tuto*

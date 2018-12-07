@@ -4,42 +4,21 @@ virtualenv --system-site-packages -p python3 ./venv
 source ./venv/bin/activate  # sh, bash, ksh, or zsh   
 """
 
-
+import time
 from environment import *
 
-def run_manual():
-    #Creation of the environment of the game
-    env=Environment()
-    #Variable to save the input of the player
-    c_input=''
-    #Variable to follow the state of the game
-    game_state=0
+maxstep = 200
 
-    #Loop of the game
-    while c_input!='x' and game_state==0:
-        #Show the map on the terminal
-        env.show()
-        #Ask the player
-        print("Press z, q, s or d to move or x to exit:")
-        c_input=input()
-        #Update the simulation
-        if c_input in ['z','q','s','d']:
-            #game_state=env.update_manual(c_input)
-            game_state = env.update_q()
+env = Environment()
 
-    #End of the game
-    if game_state==-1:        
-        print("Loser")
-    if game_state==1:        
-        print("Winner")    
+step = 0
+while (step<maxstep):
 
-def run_simulation():
 
-    env = Environment()
-    game_state = 0
-    #Loop of the game
-    while game_state == 0:
-        env.show()
-        game_state = env.update_q()
+    env.run_simulation()
 
-run_simulation()
+    env.save_step(step)
+    env.reset()
+
+
+    step += 1
