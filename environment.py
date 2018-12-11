@@ -36,14 +36,12 @@ class Environment:
         """Initialize a clean map of size 25x25 with just obstacles"""
         f=open("clean_map.txt",'r')
         lignes =f.readlines()
+        self.map = []
         for i in range(len(lignes)):
             self.map.append(list(lignes[i])[:self.size])
         f.close()
         if self.food_counter<15:
             self.charge_food()
-
-    def generate_map(self,nbMap,folder):
-        print("Generating maps")
 
     def save_map(self,name):
         """
@@ -56,7 +54,7 @@ class Environment:
             for c in line:
                 str=str+c
             f.write(str+'\n')
-        f.close
+        f.close()
 
     def load_map(self, name):
         """
@@ -76,11 +74,14 @@ class Environment:
                 if c=='$':
                     self.food_counter+=1
 
-    def save_step(self,n):
-        self.agent.save_step(n)
+    def save_nn(self,path,name):
+        """
+        Saves neural network information in file given path and name.
+        """
+        self.agent.save_nn(path,name)
 
-    def load_step(self,filename):
-        self.agent.load_step(filename)
+    def load_nn(self,filename):
+        self.agent.load_nn(filename)
 
         
         
@@ -145,33 +146,15 @@ class Environment:
             print("Winner")   
 
     def run_simulation(self, nomap = False, delay = 0):
+        #Run one simulation of the game
+
         game_state = 0
-        step = 0
-        #Loop of the game
         while game_state == 0:
             if nomap == False :
                 self.show()
-                time.sleep(delay)
+
             game_state = self.update_q()
-
-
-        self.save_step(step)
-        step += 1
-
-    def run_simulations(self,maxstep,offsetstep = 0):
-        step=0 + offsetstep
-
-        while (step<maxstep):
-
-
-            self.run_simulation()
-
-            self.save_step(step)
-            self.reset()
-
-
-            step += 1
-
+            time.sleep(delay)
 
     def reset(self):
         self.map = []

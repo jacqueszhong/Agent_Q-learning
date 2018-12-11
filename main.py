@@ -5,26 +5,12 @@ source ./venv/bin/activate  # sh, bash, ksh, or zsh
 """
 
 import time
-from environment import *
-
-maxstep = 200
-
-env = Environment()
-
-try :
-	env.load_step("NN_save/quicksave.h5")
-except :
-	print("Couldn't load last quicksave. Create new")
-
-step = 0
-while (step<maxstep):
+from simulator import *
 
 
-    env.run_simulation(nomap = False, delay = 0.01)
+sim = Simulator()
 
-    env.save_step(step)
-    env.reset()
+sim.test_run(10)
 
-    step += 1
-
+#sim.generate_maps(300,50)
 

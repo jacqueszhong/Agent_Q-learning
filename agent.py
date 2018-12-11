@@ -99,17 +99,18 @@ class Agent:
         """
         self.brain.adjust_network(new_input_vec, reward)
 
-    def save_step(self,step):
+    def save_nn(self,path,name):
         """ Wrapper of agent_brain.savew """
-        name = "Hidden"+str(self.brain.get_nbHidden())+"_Step" + str(step) + "_"
         s = str(time.time())
         s = s.replace(".","")
-        s = s[4:]
-        name = "NN_save/" + name + s + ".h5"
-        self.brain.savew(name)
-        self.brain.savew("NN_save/quicksave.h5")
+        s = s[4:13]
 
-    def load_step(self,filename):
+        n = str(name) + "Hid=" + str(self.brain.get_nbHidden())
+        n = path + s + n + ".h5"
+        self.brain.savew(n)
+        self.brain.savew(path+"quicksave.h5")
+
+    def load_nn(self,filename):
         """ Wrapper of agent_brain.loadw """
 
         self.brain.loadw(filename)
