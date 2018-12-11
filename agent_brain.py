@@ -21,7 +21,7 @@ class AgentBrain :
 
 	#Number of neurons
 	_nbInput = 145
-	_nbHidden = 10
+	_nbHidden = 500
 	_nbOutput = 1
 
 	_reward_sum = 0
@@ -38,7 +38,6 @@ class AgentBrain :
 
 	_input_vectors = []
 
-
 	def __init__(self):
 		print("Initialization of AgentBrain")
 		if TUTO:	
@@ -46,43 +45,48 @@ class AgentBrain :
 			self._nbHidden = 10
 			self._nbOutput = 2
 
+		self._model = self.build_model()
+		print("Builded NN model : {0}".format(self._model.summary()))
 
-		#Model of utility network
-		self.model = tf.keras.Sequential()
+
+
+	def build_model(self):
+		model = tf.keras.Sequential()
 
 		get_custom_objects().update({'centered_sigmoid': layers.Activation(centered_sigmoid)})
-		self.model.add(layers.Activation(centered_sigmoid))
 
 		#self.model.add(layers.InputLayer(batch_input_shape=(1,self.nbInput)) )
-		self.model.add(layers.Dense(self._nbInput, input_dim=self._nbInput, activation='linear'))
-		self.model.add(layers.Dense(self._nbHidden, activation=centered_sigmoid) ) 
-		self.model.add(layers.Dense(self._nbOutput,activation='linear') )
+		model.add(layers.Dense(self._nbInput, input_dim=self._nbInput, activation='linear'))
+		model.add(layers.Dense(self._nbHidden, activation=centered_sigmoid) ) 
+		model.add(layers.Dense(self._nbOutput,activation='linear') )
 
 		sgd = optimizers.SGD(lr = self._lr, momentum = self._momentum)
 
-		self.model.compile(loss='mae', optimizer='sgd', metrics=['mae'])
+		model.compile(loss='mae', optimizer='sgd', metrics=['mae'])
+
+		return model
 
 
 	""" NN save/load functions """
 	def save(self, name):
 		start = time.time()
-		self.model.save(name)
+		self._model.save(name)
 		print("Save time : " + str(time.time() - start))
 
 	def load(self, name):
 		start = time.time()
-		self.model = models.load_model(name)
+		self._model = models.load_model(name)
 		print("Load time : " + str(time.time() - start))
 
 
 	def savew(self, name):
 		start = time.time()
-		self.model.save_weights(name)
+		self._model.save_weights(name)
 		print("Save time : " + str(time.time() - start))
 
 	def loadw(self, name):
 		start = time.time()
-		self.model.load_weights(name)
+		self._model.load_weights(name)
 		print("Load time : " + str(time.time() - start))
 
 	def reset(self):
@@ -107,7 +111,7 @@ class AgentBrain :
 
 		#print("Predicting : {0}, type = {1} \n {2}".format(len(vec),type(vec),vec))
 
-		return self.model.predict(vec.reshape(1,self._nbInput))
+		return self._model.predict(vec.reshape(1,self._nbInput))
 		#return 0.1
 
 	def add_reward(self,reward):
@@ -239,6 +243,8 @@ class AgentBrain :
 
 		"""
 
+		self.reduce_temperature()
+
 		self._reward_sum += reward
 		print("Reward sum : {0}".format(self._reward_sum))
 
@@ -259,7 +265,14 @@ class AgentBrain :
 
 
 		# try to fit the utilities before and after performing the action.
-		self.model.fit(prev_input_vec.reshape(1,self._nbInput),np.array(target), epochs=1, verbose=0)
+		self._model.fit(prev_input_vec.reshape(1,self._nbInput),np.array(target), epochs=1, verbose=0)
+
+	def reduce_temperature(self):
+		if self._T_inv < 60 :
+			self._T_inv += 1
+
+		print(self._T_inv)
+
 
 	def get_nbHidden(self):
 		return self._nbHidden
@@ -293,25 +306,25 @@ class AgentBrain :
 				else:
 					# Le réseau peut avoir plusieurs sorties, une par action. On prend l'action ayant la plus forte activation.
 					# 'predict' mange un vecteur (taille = nbInput) et renvoie un vecteur (taille = nbOutput)
-					a = np.argmax(self.model.predict(np.identity(5)[s:s + 1])) 
+					a = np.argmax(self._model.predict(np.identity(5)[s:s + 1])) 
 
 				new_s, r, done, _ = env.step(a)
 
 		 		# Calcul de récompense du nouvel état
-				target = r + y * np.max(self.model.predict(np.identity(5)[new_s:new_s + 1]))
+				target = r + y * np.max(self._model.predict(np.identity(5)[new_s:new_s + 1]))
 				
 				# On construit le vecteur de sortie attendu target_vec
 				input_vec = np.identity(5)[s:s + 1]
 				#print(input_vec)
 				#print(type(input_vec))
-				target_vec = self.model.predict(input_vec)[0]
+				target_vec = self._model.predict(input_vec)[0]
 				target_vec[a] = target
 				# On lance un tour d'apprentissage, avec en entrée l'état s, de label target_vec.
 				# model.fit devrait calculer l'erreur entre la sortie du NN (utilité estimée avant action) et l'utilité après action (target_vec)
 				#, puis faire la backpropagation de cette erreur.
 				tar = target_vec.reshape(-1, 2)
-				print("tarte:",tar)
-				self.model.fit(np.identity(5)[s:s + 1], tar, epochs=1, verbose=0)
+				#print("tarte:",tar)
+				self._model.fit(np.identity(5)[s:s + 1], tar, epochs=1, verbose=0)
 				
 				s = new_s
 				r_sum += r
@@ -321,10 +334,11 @@ class AgentBrain :
 
 if TUTO:
 	brain = AgentBrain()
-	#brain.loadw('test_tuto.h5')
+	
 	brain.test_tuto()
+	brain.loadw('test_tuto_w.h5')
 	brain.savew('test_tuto_w.h5')
-
+	
 
 """
 #Piste intégration d'AgentBrain

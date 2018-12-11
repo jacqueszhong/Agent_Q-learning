@@ -111,7 +111,16 @@ class Agent:
 
     def load_step(self,filename):
         """ Wrapper of agent_brain.loadw """
+
         self.brain.loadw(filename)
+
+    """
+        try :
+            self.brain.loadw(filename)
+        except ValueError :
+            print("ERROR - agent.load_step : couldn't load {0}".format(filename) )
+            time.sleep(5)
+    """
 
     def reset(self):
         self.has_collided = False

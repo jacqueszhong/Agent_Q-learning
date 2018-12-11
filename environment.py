@@ -6,8 +6,9 @@ import copy
 import random
 import math
 import vect
+import time
 
-DEBUG = 1
+DEBUG = 0
 
 class Environment:
 
@@ -80,6 +81,7 @@ class Environment:
 
     def load_step(self,filename):
         self.agent.load_step(filename)
+
         
         
     def charge_food(self):
@@ -142,12 +144,14 @@ class Environment:
         if game_state==1:
             print("Winner")   
 
-    def run_simulation(self):
+    def run_simulation(self, nomap = False, delay = 0):
         game_state = 0
         step = 0
         #Loop of the game
         while game_state == 0:
-            self.show()
+            if nomap == False :
+                self.show()
+                time.sleep(delay)
             game_state = self.update_q()
 
 

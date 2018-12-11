@@ -11,14 +11,20 @@ maxstep = 200
 
 env = Environment()
 
+try :
+	env.load_step("NN_save/quicksave.h5")
+except :
+	print("Couldn't load last quicksave. Create new")
+
 step = 0
 while (step<maxstep):
 
 
-    env.run_simulation()
+    env.run_simulation(nomap = False, delay = 0.01)
 
     env.save_step(step)
     env.reset()
 
-
     step += 1
+
+
