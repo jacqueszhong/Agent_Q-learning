@@ -123,13 +123,12 @@ class Agent:
             time.sleep(5)
     """
 
-    def reset(self):
+    def reset(self,learning=True):
         self.has_collided = False
         self.action = -1
         self.pos = [18,12]
         self.energy = 40
-        
-        self.brain.reset()
+        self.brain.reset(learning)
 
 
     def move(self,x,y):

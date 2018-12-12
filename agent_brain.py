@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*
 
 import tensorflow as tf
-from tensorflow.keras import layers, models, optimizers, backend
+from tensorflow.keras import layers, models, optimizers, backend, initializers
 from keras.utils.generic_utils import get_custom_objects
 import numpy as np
 
@@ -34,7 +34,7 @@ class AgentBrain :
 	_lr = 0.3 # Learning rate of the backpropagation algorithm
 	_r_w = 0.1 # Range of the initial weights
 
-	_no_learning = False
+	_learning = True
 
 	_input_vectors = []
 
@@ -55,8 +55,10 @@ class AgentBrain :
 
 		get_custom_objects().update({'centered_sigmoid': layers.Activation(centered_sigmoid)})
 
+		randUnif = initializers.RandomUniform(minval=-0.1, maxval=0.1)
+
 		#self.model.add(layers.InputLayer(batch_input_shape=(1,self.nbInput)) )
-		model.add(layers.Dense(self._nbInput, input_dim=self._nbInput, activation='linear'))
+		model.add(layers.Dense(self._nbInput, input_dim=self._nbInput, kernel_initializer=randUnif,activation='linear'))
 		model.add(layers.Dense(self._nbHidden, activation=centered_sigmoid) ) 
 		model.add(layers.Dense(self._nbOutput,activation='linear') )
 
@@ -89,18 +91,11 @@ class AgentBrain :
 		self._model.load_weights(name)
 		print("Load time : " + str(time.time() - start))
 
-	def reset(self):
-		self._no_learning = False
+	def reset(self,learning=True):
+		self._learning = learning
 		self._T_inv = 20
 		self._input_vectors = []
 		self._reward_sum = 0
-
-	def reset_no_learning(self):
-		self._no_learning = True
-		self._T_inv = 20
-		self._input_vectors = []
-		self._reward_sum = 0
-
 
 	def predict(self,vec):
 		"""
@@ -210,8 +205,9 @@ class AgentBrain :
 		for i,vec in enumerate(self._input_vectors) :
 			merits[i] = self.predict(vec)
 
-		if self._no_learning :
+		if not self._learning :
 			# Choose action with maximum merit
+			print("CHOOSE MAX ACTION")
 			self._action = np.argmax(merits)
 
 		else : 
@@ -263,9 +259,12 @@ class AgentBrain :
 			\n\tMerits={0}\n\ttargetU={1}\n\treward_sum={2}"\
 			.format(merits,target,self._reward_sum))
 
+		if self._learning :
+			# try to fit the utilities before and after performing the action.
+			self._model.fit(prev_input_vec.reshape(1,self._nbInput),np.array(target), epochs=1, verbose=0)
+		else:
+			print("NO LEARNING IN ADJUST WEIGHTS")
 
-		# try to fit the utilities before and after performing the action.
-		self._model.fit(prev_input_vec.reshape(1,self._nbInput),np.array(target), epochs=1, verbose=0)
 
 	def reduce_temperature(self):
 		if self._T_inv < 60 :

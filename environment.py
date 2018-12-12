@@ -119,6 +119,12 @@ class Environment:
             str2=str2+"H"
         print(str2)
 
+    def activate_learning(self):
+        self.agent.reset(learning=True)
+
+    def desactivate_learning(self):
+        self.agent.reset(learning=False)
+
 
     """ Meta meta functions """
     def run_manual(self):
@@ -145,16 +151,6 @@ class Environment:
         if game_state==1:
             print("Winner")   
 
-    def run_simulation(self, nomap = False, delay = 0):
-        #Run one simulation of the game
-
-        game_state = 0
-        while game_state == 0:
-            if nomap == False :
-                self.show()
-
-            game_state = self.update_q()
-            time.sleep(delay)
 
     def reset(self):
         self.map = []
@@ -195,6 +191,10 @@ class Environment:
 
 
     def update_q(self):
+        """
+        Complete Qlearning algorithm
+        """
+
         status = 0 # 0=nothing special, -1=dead, 1=got all food
         
         # Agent selects an action
@@ -215,8 +215,6 @@ class Environment:
         else :
             print("(update_q) ERROR, unknown action " + str(action))
 
-        #self.move_agent(x,y)
-        
         #Performs one environnement step
         status, reward, new_input_vec = self.step(x,y)
 
@@ -224,6 +222,16 @@ class Environment:
         self.agent.adjust_network(new_input_vec,reward)
 
         return status
+
+    def update_q_replay(self):
+        """
+        Complete Qlearning algorithm with experience replay
+        TO BE DONE
+        """
+        status = 0
+
+        return status
+
 
     """ Environnement simulation """
     def step(self,x,y):
@@ -278,6 +286,9 @@ class Environment:
                     tmp=[e[0]+ac[0],e[1]+ac[1]]
                     if tmp==self.agent.pos:
                         return -1
+                    elif self.is_outside_map(tmp):
+                        P.append(0)
+
                     elif self.map[tmp[0]][tmp[1]]!='O':
                         angle=vect.angle(ac,[a[0]-e[0],a[1]-e[1]])
                         w=(180-abs(angle))/180
@@ -295,6 +306,15 @@ class Environment:
                 e[0]+=action[move][0]
                 e[1]+=action[move][1]
         return 0
+
+    def is_outside_map(self,pos):
+        if (pos[0]<0) or (pos[0]>=self.size):
+            return True
+
+        if (pos[1]<0) or (pos[1]>=self.size):
+            return True
+
+        return False
 
     def move_ennemy(self,n):
         """

@@ -1,40 +1,114 @@
 
-
 from environment import *
-
+import csv
 
 class Simulator:
 
 	#Useful paths for file manipulation
 	save_path = "NN_save/"
 	map_path="maps/"
+	csv_path="csv/"
 	train_map_path = map_path+"training/"
 	test_map_path = map_path+"testing/"
+
+	delay = 0.01
 
 	def __init__(self):
 		print("Initializing Simulator")
 		self.env = Environment()
 
 
-	def experiment_run(self):
+	def run_simulation(self, nomap = False, delay = delay):
+		"""
+		Run one simulation of the game
+		"""
+		game_state = 0
+		while game_state == 0:
+			if nomap == False :
+				self.env.show()
+
+			game_state = self.env.update_q()
+			time.sleep(delay)
+
+
+	def experiment_run(self,nb_train=300,nb_test=20,period_test=20, replay=False):
 		save_path = self.save_path + "experimentrun/"
+		mean_food = []
+
 		try :
 			self.env.load_nn(save_path + "quicksave.h5")
 		except :
 			print("Couldn't load last quicksave. Create new")
+		time.sleep(1)
 
 		step=0
-		while (step<nbrun):
-			self.env.run_simulation(nomap = False, delay = 0.15)
+		while (step<nb_train):
+			#Load corresponding map
+			m = self.train_map_path+str(step)+".txt"
+			self.env.load_map(m)
+			print("Loaded : "+m)
 
-			#Save neural networks (in case of crash)
+			#Run one simulation turn
+			if not replay:
+				self.run_simulation(delay=0)
+
+			#Save and reset
 			name = "exp_step"+str(step)+"_"
 			self.env.save_nn(save_path, name)
-
-
 			self.env.reset()
-			step += 1		
+			
 
+			#Run tests every 'period_test' steps
+			if (step % period_test == 0):
+				food_array = np.zeros(nb_test)
+				self.env.desactivate_learning()
+
+				for i in range(0,nb_test):
+					print("##Test "+str(i)+" of step "+str(step)+"##")
+					
+					#Load corresponding map
+					m = self.test_map_path+str(i)+".txt"
+					self.env.load_map(m)
+					print("Loaded : "+m)
+					#time.sleep(1)
+
+					#Run one simulation turn
+					if not replay:
+						self.run_simulation(delay=0)
+
+					#Save and reset
+					food_array[i] = (15-self.env.food_counter)
+					self.env.reset()
+
+					
+				#Retrieve mean food
+				self.env.activate_learning()
+				print("Step="+str(step)+"Foods = "+str(food_array))
+				mean_food.append(np.mean(food_array))
+				time.sleep(2)
+
+			step += 1
+
+
+		self.toCSV("exp",mean_food)
+
+	def toCSV(self,name,mean_food):
+
+		s = str(time.time())
+		s = s.replace(".","")
+		s = s[4:12]
+		filename = self.csv_path+s+"_"+name+".csv"
+
+		np.savetxt(filename,mean_food,fmt='%1.5f',delimiter=',')
+		"""
+		csvfile = open(filename, 'wb')
+
+		csvwriter = csv.writer(csvfile,delimiter=',')
+		print(str(type(mean_food)) + " and "+str(mean_food))
+		csvwriter.writerow(mean_food)
+
+		csvfile.close()
+		"""
 
 
 	def test_run(self, nbrun):
@@ -46,7 +120,7 @@ class Simulator:
 
 		step = 0
 		while (step<nbrun):
-			self.env.run_simulation(nomap = False, delay = 0.15)
+			self.run_simulation(delay = 0.15)
 
 			#Save neural networks (in case of crash)
 			name = "testrun_step"+str(step)+"_"
