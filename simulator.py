@@ -31,7 +31,7 @@ class Simulator:
 			time.sleep(delay)
 
 
-	def experiment_run(self,nb_train=300,nb_test=20,period_test=20, replay=False):
+	def experiment_run(self,nb_train=300,nb_test=50,period_test=20, replay=False):
 		save_path = self.save_path + "experimentrun/"
 		mean_food = []
 
@@ -42,7 +42,7 @@ class Simulator:
 		time.sleep(1)
 
 		step=0
-		while (step<nb_train):
+		while (step<=nb_train):
 			#Load corresponding map
 			m = self.train_map_path+str(step)+".txt"
 			self.env.load_map(m)
@@ -61,8 +61,8 @@ class Simulator:
 			#Run tests every 'period_test' steps
 			if (step % period_test == 0):
 				food_array = np.zeros(nb_test)
+				
 				self.env.desactivate_learning()
-
 				for i in range(0,nb_test):
 					print("##Test "+str(i)+" of step "+str(step)+"##")
 					

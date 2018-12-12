@@ -21,7 +21,7 @@ class AgentBrain :
 
 	#Number of neurons
 	_nbInput = 145
-	_nbHidden = 500
+	_nbHidden = 100
 	_nbOutput = 1
 
 	_reward_sum = 0
@@ -91,8 +91,7 @@ class AgentBrain :
 		self._model.load_weights(name)
 		print("Load time : " + str(time.time() - start))
 
-	def reset(self,learning=True):
-		self._learning = learning
+	def reset(self):
 		self._T_inv = 20
 		self._input_vectors = []
 		self._reward_sum = 0

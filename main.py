@@ -11,6 +11,6 @@ from simulator import *
 sim = Simulator()
 
 #sim.test_run(10)
-#sim.experiment_run()
-#sim.generate_maps(300,50)
+sim.experiment_run()
+#sim.generate_maps(301,50)
 

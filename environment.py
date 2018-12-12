@@ -120,10 +120,12 @@ class Environment:
         print(str2)
 
     def activate_learning(self):
-        self.agent.reset(learning=True)
+        #self.agent.reset(learning=True)
+        self.agent.brain._learning = True
 
     def desactivate_learning(self):
-        self.agent.reset(learning=False)
+        #self.agent.reset(learning=False)
+        self.agent.brain._learning = False
 
 
     """ Meta meta functions """
@@ -216,6 +218,7 @@ class Environment:
             print("(update_q) ERROR, unknown action " + str(action))
 
         #Performs one environnement step
+        #print("Action="+str(action))
         status, reward, new_input_vec = self.step(x,y)
 
         #Agent adjusts its network
@@ -250,6 +253,7 @@ class Environment:
                 reward = 0.4
         else : 
             self.agent.has_collided = True
+            self.agent.energy-=1
 
         #Check game status, reward
         if ([x,y] in self.enemies) or self.agent.energy==0: 
