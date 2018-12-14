@@ -77,7 +77,7 @@ class Agent:
             ind = 15
         input_vec[124 + ind] = 1
 
-        #History input units
+        #History input units. N->E->S->W
         if self.action != -1 :
             input_vec[140 + self.action] = 1
 
@@ -91,7 +91,8 @@ class Agent:
         """
         Wrapper of AgentBrain.select_action
         """
-        return self.brain.select_action(input_vec)
+        self.action = self.brain.select_action(input_vec)
+        return self.action
 
     def adjust_network(self,new_input_vec,reward):
         """

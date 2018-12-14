@@ -35,6 +35,8 @@ class Simulator:
 		save_path = self.save_path + "experimentrun/"
 		mean_food = []
 
+		no_map = False
+
 		try :
 			self.env.load_nn(save_path + "quicksave.h5")
 		except :
@@ -50,7 +52,7 @@ class Simulator:
 
 			#Run one simulation turn
 			if not replay:
-				self.run_simulation(delay=0)
+				self.run_simulation(delay=0.0,nomap=no_map)
 
 			#Save and reset
 			name = "exp_step"+str(step)+"_"
@@ -73,8 +75,7 @@ class Simulator:
 					#time.sleep(1)
 
 					#Run one simulation turn
-					if not replay:
-						self.run_simulation(delay=0)
+					self.run_simulation(delay=0.0,nomap=no_map)
 
 					#Save and reset
 					food_array[i] = (15-self.env.food_counter)

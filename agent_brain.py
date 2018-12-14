@@ -21,7 +21,7 @@ class AgentBrain :
 
 	#Number of neurons
 	_nbInput = 145
-	_nbHidden = 100
+	_nbHidden = 30
 	_nbOutput = 1
 
 	_reward_sum = 0
@@ -54,17 +54,24 @@ class AgentBrain :
 		model = tf.keras.Sequential()
 
 		get_custom_objects().update({'centered_sigmoid': layers.Activation(centered_sigmoid)})
-
 		randUnif = initializers.RandomUniform(minval=-0.1, maxval=0.1)
 
 		#self.model.add(layers.InputLayer(batch_input_shape=(1,self.nbInput)) )
-		model.add(layers.Dense(self._nbInput, input_dim=self._nbInput, kernel_initializer=randUnif,activation='linear'))
-		model.add(layers.Dense(self._nbHidden, activation=centered_sigmoid) ) 
-		model.add(layers.Dense(self._nbOutput,activation='linear') )
+
+		#Previous version
+		#model.add(layers.Dense(self._nbInput, input_dim=self._nbInput,kernel_initializer=randUnif))
+		#model.add(layers.Activation(centered_sigmoid))
+		#model.add(layers.Dense(self._nbHidden) ) 
+		#model.add(layers.Activation(centered_sigmoid,kernel_initializer=randUnif))
+		#model.add(layers.Dense(self._nbOutput,activation='linear') )
+
+		model.add(layers.Dense(self._nbHidden, input_dim=self._nbInput, kernel_initializer=randUnif))
+		model.add(layers.Activation(centered_sigmoid))
+		model.add(layers.Dense(self._nbOutput, kernel_initializer=randUnif))
+		model.add(layers.Activation(centered_sigmoid))
 
 		sgd = optimizers.SGD(lr = self._lr, momentum = self._momentum)
-
-		model.compile(loss='mae', optimizer='sgd', metrics=['mae'])
+		model.compile(loss='mae', optimizer='adam', metrics=['mae'])
 
 		return model
 
@@ -172,10 +179,25 @@ class AgentBrain :
 			vec = (self.rotate_sensors(0,input_vec[:52],angle)) #Food sensors
 			vec += (self.rotate_sensors(1,input_vec[52:84],angle)) #Enemy sensors
 			vec += (self.rotate_sensors(2,input_vec[84:124],angle)) #Obstacle sensors
-			vec += list(input_vec[124:]) #Energy, previous choice, collision
+			vec += list(input_vec[124:140]) #Energy
+			vec += (self.rotate_action(input_vec[140:144],angle)) #Action
+			vec += list(input_vec[144:145]) #Has collision
 			input_vectors.append(np.array(vec))
 
 		return input_vectors
+
+	def rotate_action(self,input_vec, angle):
+
+		if angle == 90:
+			res = np.roll(input_vec,-1)
+		elif angle == 180:
+			res = np.roll(input_vec,-2)
+		elif angle == 270:
+			res = np.roll(input_vec,-3) 		 
+		else :
+			raise ValueError('Invalid angle'+str(angle))
+
+		return list(res)
 
 	def show_vectors(self):
 		print("Showing vectors")
@@ -199,7 +221,7 @@ class AgentBrain :
 		merits = np.zeros(4)
 		if not self._input_vectors : #Input vectors have already been computed in adjust_network of the previous step
 			self._input_vectors = self.compute_input_vectors(input_vec)
-		
+
 		#self.show_vectors()
 		for i,vec in enumerate(self._input_vectors) :
 			merits[i] = self.predict(vec)
