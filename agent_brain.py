@@ -11,7 +11,7 @@ import gym #pip install gym
 import time
 
 TUTO = 0
-DEBUG = 0
+DEBUG = 1
 
 def centered_sigmoid(x):
 	""" Customized activation function """
@@ -31,7 +31,7 @@ class AgentBrain :
 	_T_inv_max = 60 # Max value of the inverse of temperature
 	_discount = 0.9
 	_momentum = 0.9 # Momentum factor of the backpropagation algorithm
-	_lr = 0.3 # Learning rate of the backpropagation algorithm
+	_lr = 0.05 # Learning rate of the backpropagation algorithm
 	_r_w = 0.1 # Range of the initial weights
 
 	_learning = True
@@ -41,6 +41,7 @@ class AgentBrain :
 	def __init__(self):
 		print("Initialization of AgentBrain")
 		self._T_inv = self._T_inv_min
+		self._input_vectors = []
 		if TUTO:	
 			self._nbInput = 5
 			self._nbHidden = 10
@@ -71,9 +72,10 @@ class AgentBrain :
 		model.add(layers.Activation(centered_sigmoid))
 
 		#sgd = optimizers.SGD(lr = self._lr, momentum = self._momentum)
-		sgd = optimizers.SGD(momentum = self._momentum, nesterov=True)
-				
-		model.compile(loss='mae', optimizer='adam', metrics=['mae'])
+		#sgd = optimizers.SGD(momentum = self._momentum, nesterov=True)
+		sgd = optimizers.SGD(lr = self._lr, momentum = self._momentum)
+		
+		model.compile(loss='mae', optimizer=sgd, metrics=['mae'])
 
 		return model
 
