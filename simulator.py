@@ -34,6 +34,7 @@ class Simulator:
 	def experiment_run(self,nb_train=300,nb_test=50,period_test=20, replay=False):
 		save_path = self.save_path + "experimentrun/"
 		mean_food = []
+		std_food = []
 
 		no_map = False
 
@@ -86,12 +87,13 @@ class Simulator:
 				self.env.activate_learning()
 				print("Step="+str(step)+"Foods = "+str(food_array))
 				mean_food.append(np.mean(food_array))
+				std_food.append(np.std(food_array))
 				time.sleep(2)
 
 			step += 1
 
 
-		self.toCSV("exp",mean_food)
+		self.toCSV2("exp",mean_food,std_food)
 
 	def toCSV(self,name,mean_food):
 
@@ -101,6 +103,26 @@ class Simulator:
 		filename = self.csv_path+s+"_"+name+".csv"
 
 		np.savetxt(filename,mean_food,fmt='%1.5f',delimiter=',')
+		"""
+		csvfile = open(filename, 'wb')
+
+		csvwriter = csv.writer(csvfile,delimiter=',')
+		print(str(type(mean_food)) + " and "+str(mean_food))
+		csvwriter.writerow(mean_food)
+
+		csvfile.close()
+		"""
+
+	def toCSV2(self,name,mean_food,std_food):
+
+		s = str(time.time())
+		s = s.replace(".","")
+		s = s[4:12]
+		filename = self.csv_path+s+"_"+name+".csv"
+
+		arr = np.stack((mean_food,std_food))
+
+		np.savetxt(filename,arr,fmt='%1.5f',delimiter=',')
 		"""
 		csvfile = open(filename, 'wb')
 

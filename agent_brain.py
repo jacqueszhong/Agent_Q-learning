@@ -27,9 +27,9 @@ class AgentBrain :
 	_reward_sum = 0
 
 	#Tunable parameters
-	_T_inv = 20 # Inverse of temperature
+	_T_inv_min = 20 # Inverse of temperature
 	_T_inv_max = 60 # Max value of the inverse of temperature
-	_discount = 0.9 
+	_discount = 0.9
 	_momentum = 0.9 # Momentum factor of the backpropagation algorithm
 	_lr = 0.3 # Learning rate of the backpropagation algorithm
 	_r_w = 0.1 # Range of the initial weights
@@ -40,6 +40,7 @@ class AgentBrain :
 
 	def __init__(self):
 		print("Initialization of AgentBrain")
+		self._T_inv = self._T_inv_min
 		if TUTO:	
 			self._nbInput = 5
 			self._nbHidden = 10
@@ -47,7 +48,6 @@ class AgentBrain :
 
 		self._model = self.build_model()
 		print("Builded NN model : {0}".format(self._model.summary()))
-
 
 
 	def build_model(self):
@@ -70,7 +70,9 @@ class AgentBrain :
 		model.add(layers.Dense(self._nbOutput, kernel_initializer=randUnif))
 		model.add(layers.Activation(centered_sigmoid))
 
-		sgd = optimizers.SGD(lr = self._lr, momentum = self._momentum)
+		#sgd = optimizers.SGD(lr = self._lr, momentum = self._momentum)
+		sgd = optimizers.SGD(momentum = self._momentum, nesterov=True)
+				
 		model.compile(loss='mae', optimizer='adam', metrics=['mae'])
 
 		return model
@@ -99,7 +101,7 @@ class AgentBrain :
 		print("Load time : " + str(time.time() - start))
 
 	def reset(self):
-		self._T_inv = 20
+		self._T_inv = self._T_inv_min
 		self._input_vectors = []
 		self._reward_sum = 0
 
@@ -243,6 +245,8 @@ class AgentBrain :
 
 			self._action = int( np.random.choice(4, 1, p=proba) )
 
+			print("ok")
+
 			if DEBUG :
 				print("LEAVING agent_brain.select_action : \n\t Merits={0}\n\tProba={1}\n\tAction={2}".format(merits,proba,self._action))
 		
@@ -288,8 +292,10 @@ class AgentBrain :
 
 
 	def reduce_temperature(self):
-		if self._T_inv < 60 :
-			self._T_inv += 1
+		if self._T_inv < self._T_inv_max :
+			self._T_inv *= 1.05
+			#self._T_inv += 1
+			
 
 		print(self._T_inv)
 

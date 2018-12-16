@@ -12,7 +12,7 @@ sim = Simulator()
 
 #sim.test_run(10)
 i=0
-while(i<20):
+while(i<1):
 	sim.experiment_run()
 	i+=1
 #sim.generate_maps(301,50)
