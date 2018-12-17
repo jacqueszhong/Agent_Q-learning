@@ -11,7 +11,7 @@ import gym #pip install gym
 import time
 
 TUTO = 0
-DEBUG = 1
+DEBUG = 0
 
 def centered_sigmoid(x):
 	""" Customized activation function """
