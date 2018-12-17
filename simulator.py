@@ -38,7 +38,7 @@ class Simulator:
 		mean_food = []
 		std_food = []
 
-		no_map = False
+		no_map = True
 
 		try :
 			self.env.load_nn(save_path + "quicksave.h5")

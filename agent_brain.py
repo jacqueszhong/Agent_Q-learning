@@ -43,7 +43,7 @@ class AgentBrain :
 
 	#Tunable parameters
 	_T_inv_min = 20 # Inverse of temperature
-	_T_inv_max = 60 # Max value of the inverse of temperature
+	_T_inv_max = 20 # Max value of the inverse of temperature
 	_discount = 0.9
 	_momentum = 0.9 # Momentum factor of the backpropagation algorithm
 	_lr = 0.01 # Learning rate of the backpropagation algorithm
@@ -90,7 +90,7 @@ class AgentBrain :
 
 		#sgd = optimizers.SGD(lr = self._lr, momentum = self._momentum)
 		#sgd = optimizers.SGD(momentum = self._momentum, nesterov=True)
-		sgd = optimizers.SGD(lr = self._lr, momentum = self._momentum, nesterov=True)
+		sgd = optimizers.SGD(lr = self._lr, momentum = self._momentum)
 
 		model.compile(loss='mae', optimizer=sgd, metrics=['mae'])
 
@@ -285,7 +285,8 @@ class AgentBrain :
 		self.reduce_temperature()
 
 		self._reward_sum += reward
-		print("Reward sum : {0}".format(self._reward_sum))
+		if DEBUG :
+			print("Reward sum : {0}".format(self._reward_sum))
 
 		prev_input_vec = self._input_vectors[self._action] #save for now the input representation of the previous state and action
 
@@ -374,7 +375,6 @@ class AgentBrain :
 
 		if DEBUG :
 			print(self._T_inv)
-
 
 	def get_nbHidden(self):
 		return self._nbHidden

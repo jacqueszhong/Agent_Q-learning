@@ -293,7 +293,6 @@ class Environment:
                 #Give lesson to adjust_network_replay
                 self.agent.adjust_network_replay(input_vec,action,new_input_vec,reward)
 
-                
 
 
 
