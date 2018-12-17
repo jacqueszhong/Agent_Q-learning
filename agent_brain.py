@@ -17,6 +17,21 @@ def centered_sigmoid(x):
 	""" Customized activation function """
 	return (backend.sigmoid(x)) - 0.5
 
+def centered_sigmoid_double(x):
+	""" Customized activation function """
+	return 2*((backend.sigmoid(x)) - 0.5)
+
+def truncated_output(x):
+	""" Activation function for -1 to +1 outputs """
+	if x > 1:
+		x = 1
+
+	if x < -1:
+		x = -1
+
+	return x
+
+
 class AgentBrain :
 
 	#Number of neurons
@@ -31,7 +46,7 @@ class AgentBrain :
 	_T_inv_max = 60 # Max value of the inverse of temperature
 	_discount = 0.9
 	_momentum = 0.9 # Momentum factor of the backpropagation algorithm
-	_lr = 0.05 # Learning rate of the backpropagation algorithm
+	_lr = 0.01 # Learning rate of the backpropagation algorithm
 	_r_w = 0.1 # Range of the initial weights
 
 	_learning = True
@@ -54,7 +69,9 @@ class AgentBrain :
 	def build_model(self):
 		model = tf.keras.Sequential()
 
+		get_custom_objects().update({'centered_sigmoid_double': layers.Activation(centered_sigmoid_double)})
 		get_custom_objects().update({'centered_sigmoid': layers.Activation(centered_sigmoid)})
+		#get_custom_objects().update({'truncated_output': layers.Activation(truncated_output)})
 		randUnif = initializers.RandomUniform(minval=-0.1, maxval=0.1)
 
 		#self.model.add(layers.InputLayer(batch_input_shape=(1,self.nbInput)) )
@@ -67,14 +84,14 @@ class AgentBrain :
 		#model.add(layers.Dense(self._nbOutput,activation='linear') )
 
 		model.add(layers.Dense(self._nbHidden, input_dim=self._nbInput, kernel_initializer=randUnif))
-		model.add(layers.Activation(centered_sigmoid))
+		model.add(layers.Activation(centered_sigmoid_double))
 		model.add(layers.Dense(self._nbOutput, kernel_initializer=randUnif))
-		model.add(layers.Activation(centered_sigmoid))
+		model.add(layers.Activation(centered_sigmoid_double))
 
 		#sgd = optimizers.SGD(lr = self._lr, momentum = self._momentum)
 		#sgd = optimizers.SGD(momentum = self._momentum, nesterov=True)
-		sgd = optimizers.SGD(lr = self._lr, momentum = self._momentum)
-		
+		sgd = optimizers.SGD(lr = self._lr, momentum = self._momentum, nesterov=True)
+
 		model.compile(loss='mae', optimizer=sgd, metrics=['mae'])
 
 		return model
@@ -232,7 +249,8 @@ class AgentBrain :
 
 		if not self._learning :
 			# Choose action with maximum merit
-			print("CHOOSE MAX ACTION")
+			if DEBUG: 
+				print("CHOOSE MAX ACTION")
 			self._action = np.argmax(merits)
 
 		else : 
@@ -246,8 +264,6 @@ class AgentBrain :
 				proba.append( np.exp(m*self._T_inv)/sum )
 
 			self._action = int( np.random.choice(4, 1, p=proba) )
-
-			print("ok")
 
 			if DEBUG :
 				print("LEAVING agent_brain.select_action : \n\t Merits={0}\n\tProba={1}\n\tAction={2}".format(merits,proba,self._action))
@@ -279,6 +295,10 @@ class AgentBrain :
 			merits[i] = self.predict(vec)
 
 		target = reward + self._discount * np.max(merits)
+		if target > 1 : #That way, the optimizer can fit target value with predicted value
+			target = 1
+		if target < -1:
+			target = -1
 		target = np.array(target).reshape(1,1)
 
 		if DEBUG :
@@ -290,7 +310,60 @@ class AgentBrain :
 			# try to fit the utilities before and after performing the action.
 			self._model.fit(prev_input_vec.reshape(1,self._nbInput),np.array(target), epochs=1, verbose=0)
 		else:
-			print("NO LEARNING IN ADJUST WEIGHTS")
+			if DEBUG :
+				print("NO LEARNING IN ADJUST WEIGHTS")
+
+
+	def is_on_policy(self,input_vec,action):
+		"""
+		Tells if action is on policy considering the input vector and current NN weights.
+		"""
+
+		on_policy = False
+
+		# Compute utilities
+		merits = np.zeros(4)
+		vectors = self.compute_input_vectors(input_vec)
+		for i,vec in enumerate(vectors) :
+			merits[i] = self.predict(vec)
+
+		# Test action probability
+		sum = 0.0
+		for m in merits :
+			sum += np.exp(m*self._T_inv)
+
+		proba = []
+		for m in merits :
+			proba.append( np.exp(m*self._T_inv)/sum )
+
+		if proba[action] >= 0.01:
+			on_policy = True
+
+		if DEBUG :
+			print("LEAVING agent_brain.select_action : \n\t Merits={0}\n\tProba={1}\n\tAction={2}".format(merits,proba,action))
+		
+		return on_policy
+
+
+	def adjust_network_replay(self,input_vec,action,new_input_vec,reward):
+		
+		#Compute qmax of new state
+		merits = np.zeros(4)
+		self._input_vectors = self.compute_input_vectors(new_input_vec)
+		for i,vec in enumerate(self._input_vectors) :
+			merits[i] = self.predict(vec)
+
+		#Compute expected output
+		target = reward + self._discount * np.max(merits)
+		if target > 1 : #That way, the optimizer can fit target value with predicted value
+			target = 1
+		if target < -1:
+			target = -1
+		target = np.array(target).reshape(1,1)
+
+		#Fit previous state prediction with new state target
+		self._model.fit(input_vec.reshape(1,self._nbInput),np.array(target), epochs=1, verbose=0)
+
 
 
 	def reduce_temperature(self):
@@ -299,7 +372,8 @@ class AgentBrain :
 			#self._T_inv += 1
 			
 
-		print(self._T_inv)
+		if DEBUG :
+			print(self._T_inv)
 
 
 	def get_nbHidden(self):

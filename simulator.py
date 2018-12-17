@@ -2,6 +2,8 @@
 from environment import *
 import csv
 
+DEBUG = 0
+
 class Simulator:
 
 	#Useful paths for file manipulation
@@ -49,7 +51,8 @@ class Simulator:
 			#Load corresponding map
 			m = self.train_map_path+str(step)+".txt"
 			self.env.load_map(m)
-			print("Loaded : "+m)
+			if DEBUG :
+				print("Loaded : "+m)
 
 			#Run one simulation turn
 			if not replay:
@@ -67,13 +70,14 @@ class Simulator:
 				
 				self.env.desactivate_learning()
 				for i in range(0,nb_test):
-					print("##Test "+str(i)+" of step "+str(step)+"##")
-					
+
 					#Load corresponding map
 					m = self.test_map_path+str(i)+".txt"
+					if DEBUG:
+						print("##Test "+str(i)+" of step "+str(step)+"##")
+						print("Loading : "+m)
 					self.env.load_map(m)
-					print("Loaded : "+m)
-					#time.sleep(1)
+
 
 					#Run one simulation turn
 					self.run_simulation(delay=0.0,nomap=no_map)

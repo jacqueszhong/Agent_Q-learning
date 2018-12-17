@@ -100,6 +100,19 @@ class Agent:
         """
         self.brain.adjust_network(new_input_vec, reward)
 
+    def is_on_policy(self,input_vec,action):
+        
+        is_on_policy = self.brain.select_action_replay(input_vec,action)
+        return is_on_policy
+
+    def adjust_network_replay(self,input_vec,action,new_input_vec,reward):
+        """
+        Wrapper of AgentBrain.adjust_network_replay
+        """
+        self.brain.adjust_network_replay(input_vec,action,new_input_vec,reward)
+
+
+
     def save_nn(self,path,name):
         """ Wrapper of agent_brain.savew """
         s = str(time.time())

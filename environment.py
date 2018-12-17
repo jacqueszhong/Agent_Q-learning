@@ -32,6 +32,8 @@ class Environment:
         self.init_map()
         self.enemies = [[1,12],[6,12],[6,6],[6,18]]
 
+        self.lessons = []
+
     def init_map(self):
         """Initialize a clean map of size 25x25 with just obstacles"""
         f=open("clean_map.txt",'r')
@@ -161,6 +163,8 @@ class Environment:
         self.enemies = [[1,12],[6,12],[6,6],[6,18]]
         self.agent.reset()
 
+        self.lessons = []
+
 
     """ Meta functions """
     def update_manual(self,direction):
@@ -231,7 +235,67 @@ class Environment:
         Complete Qlearning algorithm with experience replay
         TO BE DONE
         """
-        status = 0
+        status = 0 # 0=nothing special, -1=dead, 1=got all food
+        
+
+        """
+        Action part
+        """
+        # Agent selects an action
+        input_vec = self.agent.compute_input_vec(self.map, self.size,self.enemies)
+        action = self.agent.select_action(input_vec)
+
+        # Environnement performs the action
+        x=self.agent.pos[0]
+        y=self.agent.pos[1]
+        if action == 0 : #north
+            x -= 1
+        elif action == 1 : #east
+            y += 1
+        elif action == 2 : #south
+            x += 1
+        elif action == 3 : #west
+            y -= 1
+        else :
+            print("(update_q) ERROR, unknown action " + str(action))
+
+        #Performs one environnement step
+        #print("Action="+str(action))
+        status, reward, new_input_vec = self.step(x,y)
+
+        #Agent adjusts its network
+        self.agent.adjust_network(new_input_vec,reward)
+
+
+        """
+        Replay part
+        """
+        max_stock = 100
+        nb_replay = 8
+
+        #Save experiences into lesson
+        self.lessons.append((input_vec,action,new_input_vec,reward))
+
+        #Keep last 100 lessons
+        n = len(self.lessons)
+        if (n > max_stock):
+             self.lessons.remove(1)
+
+        #Choose some past lessons
+        if n > nb_replay:
+            n = nb_replay
+        replayed_lessons = random.sample(self.lessons,n)
+
+        #For each lesson
+        for r in replayed_lessons:
+            #Test on policy
+            if self.agent.is_on_policy(input_vec,action):
+                #Give lesson to adjust_network_replay
+                self.agent.adjust_network_replay(input_vec,action,new_input_vec,reward)
+
+                
+
+
 
         return status
 
