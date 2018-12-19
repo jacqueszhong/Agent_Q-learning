@@ -41,7 +41,9 @@ class Simulator:
 
 			game_state = self.env.update_q_replay()
 			time.sleep(delay)
+
 		self.env.save_lesson()
+		self.env.replay_lessons()
 
 	def load_quicksave(self):
 		save_path = self.save_path + "experimentrun/"
@@ -92,7 +94,7 @@ class Simulator:
 				print("Step="+str(step)+"Foods = "+str(food_array))
 				mean_food.append(np.mean(food_array))
 				std_food.append(np.std(food_array))
-				time.sleep(2)
+				#time.sleep(2)
 
 			#Load corresponding map
 			m = self.train_map_path+str(step)+".txt"

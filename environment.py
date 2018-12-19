@@ -13,17 +13,22 @@ DEBUG = 0
 DEBUG_REPLAY = 0
 HARDCORE_LEVEL = 0
 
+def lesson_selector(n):
+    w = min([3,1+0.02*n])
+    r = random.random()
+    k = n * math.log10(1 + r*(math.exp(w)-1)/w)
+    return int(k)
+
+
 class Environment:
 
     """
-
     Environment class with:
         - self.size: size of the square map
         - self.agent: agent
         - self.map: 2D-array representing the map with the obstacles
         - self.food: list of 2-uplets representing the food elements
         - self.ennemies: list of 2-uplets representing the enemies
-
     """
 
     def __init__(self): #constructor
@@ -37,6 +42,11 @@ class Environment:
 
         self.lesson_bank = []
         self.current_lesson = []
+        self.nb_lesson = 100
+        self.nb_replay = 12
+        self.step_replay = 0.5
+        self.min_nb_replay = 4
+        self.exp_stock = 40
 
     def init_map(self):
         """Initialize a clean map of size 25x25 with just obstacles"""
@@ -236,17 +246,14 @@ class Environment:
 
         return status
 
+
+    """Replay"""
     def update_q_replay(self):
         """
-        Complete Qlearning algorithm with experience replay
-        TO BE DONE
+        Q learning adapted for replay
         """
         status = 0 # 0=nothing special, -1=dead, 1=got all food
-        
 
-        """
-        Action part
-        """
         # Agent selects an action
         if not (self.agent.brain._input_vectors):
             input_vec = self.agent.compute_input_vec(self.map, self.size,self.enemies)
@@ -279,33 +286,41 @@ class Environment:
         self.agent.adjust_network(new_input_vec,reward)
         new_input_vecs = self.agent.brain._input_vectors
 
-        """
-        Replay part
-        """
-        max_stock = 8
-        nb_replay = 0
-
         #Save experiences into lesson
         self.current_lesson.append((input_vecs,action,new_input_vecs,reward))     
         n = len(self.current_lesson)
-        if (n > max_stock):
+        if (n > self.exp_stock):
              self.current_lesson.pop(0)
 
-        #Choose some past lessons
-        m = len(self.lesson_bank)
-        if m > nb_replay:
-            m = nb_replay
+        return status
 
-        replayed_lessons = random.sample(self.lesson_bank,m)
+    def replay_lessons(self):
+        """
+        Replay part
+        """
+
+        #Choose some past lessons
+        l = len(self.lesson_bank)
+        if l > self.nb_replay:
+            n = int(self.nb_replay)
+        else :
+            n = l
+
+        index = []
+        for i in range(0,n):
+            index.append(l-1 - lesson_selector(l))
+        
+        #replayed_lessons = random.sample(self.lesson_bank,m)
 
         #print("replayed="+str(replayed_lessons))
         if DEBUG_REPLAY :
-            print("Replaying "+str(m)+" lessons, on "+str(len(self.lesson_bank))+" available.")
+            print("Replaying "+str(index)+", on "+str(l)+" available.")
 
         #Learn on pas lessons
-        for lesson in replayed_lessons:
+        for i in index:
             #print("Replaying : " + str(r))
             #print(str(type(r[0]))+","+str(type(r[1])))
+            lesson = self.lesson_bank[i]
 
             for exp in reversed(lesson):
                 #print("Replaying : "+str(exp))
@@ -317,12 +332,18 @@ class Environment:
                     #Give lesson to adjust_network_replay
                     self.agent.adjust_network_replay(exp[0],exp[1],exp[2],exp[3])
 
-        return status
+        self.nb_replay -= self.step_replay
+        if self.nb_replay < self.min_nb_replay:
+            self.nb_replay = self.min_nb_replay
+
 
     def save_lesson(self):
         #print("Saving lesson : "+str(self.current_lesson))
         self.lesson_bank.append(self.current_lesson)
         self.current_lesson = []
+
+        if len(self.lesson_bank) > self.nb_lesson :
+            self.lesson_bank.pop(0)
 
 
     """ Environnement simulation """
@@ -363,43 +384,17 @@ class Environment:
 
         return (status,reward, new_input_vec)
 
-        
-    def move_all_ennemies(self):
+
+    def move_all_enemies(self):
         """
         Move all the enemies of the environment toward the agent
         """
-        a=self.agent.pos
-        action=[[1,0],[0,1],[-1,0],[0,-1]]
         for e in self.enemies:
-            prob=random.random()
-            if prob<0.8:
-                dist=vect.dist(a,e)
-                P=[]
-                for ac in action:
-                    tmp=[e[0]+ac[0],e[1]+ac[1]]
-                    if tmp==self.agent.pos:
-                        return -1
-                    elif self.is_outside_map(tmp):
-                        P.append(0)
-
-                    elif self.map[tmp[0]][tmp[1]]!='O':
-                        angle=vect.angle(ac,[a[0]-e[0],a[1]-e[1]])
-                        w=(180-abs(angle))/180
-                        P.append(math.exp(0.33*w*t(dist)))
-                    else:
-                        P.append(0)
-                sum=0
-                #print(P)
-                for p in P:
-                    sum=sum+p
-                for i in range(len(P)):
-                    P[i]=P[i]/sum
-                #print(P)
-                #move=P.index(max(P))
-                move = int( np.random.choice(len(P), 1, p=P) )
-
-                e[0]+=action[move][0]
-                e[1]+=action[move][1]
+            prob = random.random()
+            if prob < 0.8:
+                self.move_enemy(e)
+                if e == self.agent.pos:
+                    return -1
         return 0
 
     def is_outside_map(self,pos):
@@ -411,34 +406,41 @@ class Environment:
 
         return False
 
-    def move_ennemy(self,n):
+    def move_enemy(self, e):
         """
-        Int -> null
-        Generate the motion of enemy number n
+        [Int,Int] -> null
+        Generate the motion of enemy in coordinates e
         """
         a=self.agent.pos
-        action=[[1,0],[0,1],[-1,0],[0,-1]] # south east north west 
-        e=self.enemies[n]
-        dist=vect.dist(a,e)
+        action = [[1, 0], [0, 1], [-1, 0], [0, -1]]  # south east north west
+        dist=vect.dist(a, e)
         P=[]
         for ac in action:
-            tmp=[e[0]+ac[0],e[1]+ac[1]]
-            if self.map[tmp[0]][tmp[1]]!='O':
-                angle=vect.angle(ac,[a[0]-e[0],a[1]-e[1]])
-                print(angle)
-                w=(180-abs(angle))/180
-                P.append(math.exp(0.33*w*t(dist)))
+            tmp = [e[0]+ac[0], e[1]+ac[1]]
+            if not(self.is_outside_map(tmp)):
+                if self.map[tmp[0]][tmp[1]] != 'O':
+                    angle=vect.angle(ac, [a[0]-e[0], a[1]-e[1]])
+                    w=(180-abs(angle))/180
+                    P.append(math.exp(0.33*w*t(dist)))
+                else:
+                    P.append(0)
             else:
                 P.append(0)
-        sum=0
-        print(P)
+        sum = 0
         for p in P:
-            sum=sum+p
+            sum = sum+p
         for i in range(len(P)):
-            P[i]=P[i]/sum
-        move=P.index(max(P))
-        self.enemies[n][0]=e[0]+action[move][0]
-        self.enemies[n][1]=e[1]+action[move][1]
+            P[i] = P[i]/sum
+        if DEBUG:
+            print("Probabilities action of enemy in position "+str(e))
+            print(P)
+        if HARDCORE_LEVEL:
+            move = P.index(max(P))
+        else:
+            move = int(np.random.choice(len(P), 1, p=P))
+        e[0] += action[move][0]
+        e[1] += action[move][1]
+
     
 def t(dist):
     """

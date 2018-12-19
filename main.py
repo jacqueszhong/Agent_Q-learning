@@ -11,15 +11,11 @@ import cProfile
 
 sim = Simulator()
 
-
-
-
-
 i=0
 while(i<1):
-	#sim.load_quicksave()
+	sim.load_quicksave()
 
-	#sim.env.agent.brain._lr = 0.01 + i*0.01
-
-	sim.experiment_run(replay=False, delay = 0.0, nomap=True,nb_test=50)
-	i += 1	
+	sim.experiment_run(replay=True, delay = 0.0, nomap=True)
+	#cProfile.run(sim.experiment_run(replay=False, delay = 0.0, nomap=True))
+	
+	i += 1

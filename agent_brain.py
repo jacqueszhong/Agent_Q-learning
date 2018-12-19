@@ -50,7 +50,7 @@ class AgentBrain :
 	_T_inv_max = 60 # Max value of the inverse of temperature
 	_discount = 0.9
 	_momentum = 0.9 # Momentum factor of the backpropagation algorithm
-	_lr = 0.05 # Learning rate of the backpropagation algorithm
+	_lr = 0.01 # Learning rate of the backpropagation algorithm
 	_r_w = 0.1 # Range of the initial weights
 
 	_learning = True
@@ -353,8 +353,7 @@ class AgentBrain :
 		"""
 		Network adjusting for experience replay
 		"""
-
-
+		
 		#Compute qmax of new state
 		merits = np.zeros(4)
 		for i,vec in enumerate(new_input_vecs) :
