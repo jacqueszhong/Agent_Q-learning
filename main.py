@@ -10,10 +10,42 @@ from simulator import *
 
 sim = Simulator()
 
-#sim.test_run(10)
+
+
+
+
 i=0
-while(i<2):
-	sim.experiment_run()
+while(i<1):
+	sim.load_quicksave()
+	sim.experiment_run(replay=False, delay = 0.0, nomap=True)	
+
+"""
+
+
+#sim.test_run(10)
+i=1
+while(i<20):
+	#Parameter to change
+	sim.env.agent.brain._lr = 0.01 + i*0.01	
+
+	#sim.load_quicksave()
+	sim.experiment_run(replay=False, delay = 0.0, nomap=True)
+	sim = Simulator()
+	
+
 	i+=1
 #sim.generate_maps(301,50)
 
+i=1
+while(i<10):
+	#Parameter to change
+	sim.env.agent.brain._lr = 0.01 - i*0.001	
+
+	#sim.load_quicksave()
+	sim.experiment_run(replay=False, delay = 0.0, nomap=True)
+	sim = Simulator()
+	
+
+	i+=1
+
+"""

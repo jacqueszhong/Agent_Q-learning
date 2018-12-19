@@ -32,7 +32,8 @@ class Environment:
         self.init_map()
         self.enemies = [[1,12],[6,12],[6,6],[6,18]]
 
-        self.lessons = []
+        self.lesson_bank = []
+        self.current_lesson = []
 
     def init_map(self):
         """Initialize a clean map of size 25x25 with just obstacles"""
@@ -163,8 +164,6 @@ class Environment:
         self.enemies = [[1,12],[6,12],[6,6],[6,18]]
         self.agent.reset()
 
-        self.lessons = []
-
 
     """ Meta functions """
     def update_manual(self,direction):
@@ -205,7 +204,7 @@ class Environment:
         
         # Agent selects an action
         input_vec = self.agent.compute_input_vec(self.map, self.size,self.enemies)
-        action = self.agent.select_action(input_vec)
+        action= self.agent.select_action(input_vec)
 
         # Environnement performs the action
         x=self.agent.pos[0]
@@ -244,6 +243,7 @@ class Environment:
         # Agent selects an action
         input_vec = self.agent.compute_input_vec(self.map, self.size,self.enemies)
         action = self.agent.select_action(input_vec)
+        input_vecs = self.agent.brain._input_vectors
 
         # Environnement performs the action
         x=self.agent.pos[0]
@@ -265,38 +265,50 @@ class Environment:
 
         #Agent adjusts its network
         self.agent.adjust_network(new_input_vec,reward)
-
+        new_input_vecs = self.agent.brain._input_vectors
 
         """
         Replay part
         """
-        max_stock = 100
-        nb_replay = 8
+        max_stock = 6
+        nb_replay = 2
 
         #Save experiences into lesson
-        self.lessons.append((input_vec,action,new_input_vec,reward))
-
-        #Keep last 100 lessons
-        n = len(self.lessons)
+        self.current_lesson.append((input_vecs,action,new_input_vecs,reward))     
+        n = len(self.current_lesson)
         if (n > max_stock):
-             self.lessons.remove(1)
+             self.current_lesson.pop(0)
 
         #Choose some past lessons
-        if n > nb_replay:
-            n = nb_replay
-        replayed_lessons = random.sample(self.lessons,n)
+        m = len(self.lesson_bank)
+        if m > nb_replay:
+            m = nb_replay
+        replayed_lessons = random.sample(self.lesson_bank,m)
 
-        #For each lesson
-        for r in replayed_lessons:
-            #Test on policy
-            if self.agent.is_on_policy(input_vec,action):
-                #Give lesson to adjust_network_replay
-                self.agent.adjust_network_replay(input_vec,action,new_input_vec,reward)
+        #print("replayed="+str(replayed_lessons))
+        print("Replaying "+str(m)+" lessons, on "+str(len(self.lesson_bank))+" available.")
 
+        #Learn on pas lessons
+        for lesson in replayed_lessons:
+            #print("Replaying : " + str(r))
+            #print(str(type(r[0]))+","+str(type(r[1])))
 
+            for exp in reversed(lesson):
+                #print("Replaying : "+str(exp))
+                on_policy = self.agent.is_on_policy(exp[0],exp[1])
 
+                #print("on_policy="+str(on_policy))
+                #Test on policy
+                if on_policy :
+                    #Give lesson to adjust_network_replay
+                    self.agent.adjust_network_replay(exp[0],exp[1],exp[2],exp[3])
 
         return status
+
+    def save_lesson(self):
+        #print("Saving lesson : "+str(self.current_lesson))
+        self.lesson_bank.append(self.current_lesson)
+        self.current_lesson = []
 
 
     """ Environnement simulation """
@@ -336,7 +348,7 @@ class Environment:
             print("LEAVING environment.step : \n\t status={0}\n\t reward={1}\n\tnew_input_vec={2}".format(status,reward,new_input_vec))
 
         return (status,reward, new_input_vec)
-       
+
         
     def move_all_ennemies(self):
         """
@@ -369,7 +381,9 @@ class Environment:
                 for i in range(len(P)):
                     P[i]=P[i]/sum
                 #print(P)
-                move=P.index(max(P))
+                #move=P.index(max(P))
+                move = int( np.random.choice(len(P), 1, p=P) )
+
                 e[0]+=action[move][0]
                 e[1]+=action[move][1]
         return 0

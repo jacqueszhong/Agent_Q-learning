@@ -43,7 +43,7 @@ class AgentBrain :
 
 	#Tunable parameters
 	_T_inv_min = 20 # Inverse of temperature
-	_T_inv_max = 20 # Max value of the inverse of temperature
+	_T_inv_max = 60 # Max value of the inverse of temperature
 	_discount = 0.9
 	_momentum = 0.9 # Momentum factor of the backpropagation algorithm
 	_lr = 0.01 # Learning rate of the backpropagation algorithm
@@ -92,10 +92,9 @@ class AgentBrain :
 		#sgd = optimizers.SGD(momentum = self._momentum, nesterov=True)
 		sgd = optimizers.SGD(lr = self._lr, momentum = self._momentum)
 
-		model.compile(loss='mae', optimizer=sgd, metrics=['mae'])
+		model.compile(loss='mse', optimizer=sgd, metrics=['mse'])
 
 		return model
-
 
 	""" NN save/load functions """
 	def save(self, name):
@@ -107,7 +106,6 @@ class AgentBrain :
 		start = time.time()
 		self._model = models.load_model(name)
 		print("Load time : " + str(time.time() - start))
-
 
 	def savew(self, name):
 		start = time.time()
@@ -249,10 +247,10 @@ class AgentBrain :
 
 		if not self._learning :
 			# Choose action with maximum merit
+			self._action = np.argmax(merits)
 			if DEBUG: 
 				print("CHOOSE MAX ACTION")
-			self._action = np.argmax(merits)
-
+				print("LEAVING agent_brain.select_action : \n\t Merits={0}\n\tAction={1}\n".format(merits,self._action))
 		else : 
 			# Choose action with a stochastic selector
 			sum = 0.0
@@ -267,8 +265,8 @@ class AgentBrain :
 
 			if DEBUG :
 				print("LEAVING agent_brain.select_action : \n\t Merits={0}\n\tProba={1}\n\tAction={2}".format(merits,proba,self._action))
-		
-		return self._action 	
+
+		return self._action
 
 
 	def adjust_network(self, new_input_vec, reward):
@@ -309,13 +307,13 @@ class AgentBrain :
 
 		if self._learning :
 			# try to fit the utilities before and after performing the action.
-			self._model.fit(prev_input_vec.reshape(1,self._nbInput),np.array(target), epochs=1, verbose=0)
+			self._model.fit(prev_input_vec.reshape(1,self._nbInput),target, epochs=1, batch_size=1,verbose=0)
 		else:
 			if DEBUG :
 				print("NO LEARNING IN ADJUST WEIGHTS")
 
 
-	def is_on_policy(self,input_vec,action):
+	def is_on_policy(self,input_vecs,action):
 		"""
 		Tells if action is on policy considering the input vector and current NN weights.
 		"""
@@ -324,8 +322,7 @@ class AgentBrain :
 
 		# Compute utilities
 		merits = np.zeros(4)
-		vectors = self.compute_input_vectors(input_vec)
-		for i,vec in enumerate(vectors) :
+		for i,vec in enumerate(input_vecs) :
 			merits[i] = self.predict(vec)
 
 		# Test action probability
@@ -337,21 +334,25 @@ class AgentBrain :
 		for m in merits :
 			proba.append( np.exp(m*self._T_inv)/sum )
 
-		if proba[action] >= 0.01:
+		if proba[action] >= 0.001:
 			on_policy = True
 
 		if DEBUG :
-			print("LEAVING agent_brain.select_action : \n\t Merits={0}\n\tProba={1}\n\tAction={2}".format(merits,proba,action))
-		
+			print("LEAVING is_on_policy : \n\t Merits={0}\n\tProba={1}\n\tAction={2}".format(merits,proba,action))
+			
+
 		return on_policy
 
 
-	def adjust_network_replay(self,input_vec,action,new_input_vec,reward):
-		
+	def adjust_network_replay(self,input_vecs,action,new_input_vecs,reward):
+		"""
+		Network adjusting for experience replay
+		"""
+
+
 		#Compute qmax of new state
 		merits = np.zeros(4)
-		self._input_vectors = self.compute_input_vectors(new_input_vec)
-		for i,vec in enumerate(self._input_vectors) :
+		for i,vec in enumerate(new_input_vecs) :
 			merits[i] = self.predict(vec)
 
 		#Compute expected output
@@ -363,7 +364,7 @@ class AgentBrain :
 		target = np.array(target).reshape(1,1)
 
 		#Fit previous state prediction with new state target
-		self._model.fit(input_vec.reshape(1,self._nbInput),np.array(target), epochs=1, verbose=0)
+		self._model.fit(input_vecs[action].reshape(1,self._nbInput),np.array(target), epochs=1, verbose=0)
 
 
 

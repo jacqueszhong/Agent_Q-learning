@@ -101,9 +101,8 @@ class Agent:
         self.brain.adjust_network(new_input_vec, reward)
 
     def is_on_policy(self,input_vec,action):
-        
-        is_on_policy = self.brain.select_action_replay(input_vec,action)
-        return is_on_policy
+
+        return self.brain.is_on_policy(input_vec,action)
 
     def adjust_network_replay(self,input_vec,action,new_input_vec,reward):
         """
