@@ -31,6 +31,10 @@ def truncated_output(x):
 
 	return x
 
+def my_loss(ytrue,ypred):
+	"""Loss function described in article. """
+
+	return (ytrue - ypred)*(ytrue - ypred)
 
 class AgentBrain :
 
@@ -46,7 +50,7 @@ class AgentBrain :
 	_T_inv_max = 60 # Max value of the inverse of temperature
 	_discount = 0.9
 	_momentum = 0.9 # Momentum factor of the backpropagation algorithm
-	_lr = 0.01 # Learning rate of the backpropagation algorithm
+	_lr = 0.05 # Learning rate of the backpropagation algorithm
 	_r_w = 0.1 # Range of the initial weights
 
 	_learning = True
@@ -71,6 +75,7 @@ class AgentBrain :
 
 		get_custom_objects().update({'centered_sigmoid_double': layers.Activation(centered_sigmoid_double)})
 		get_custom_objects().update({'centered_sigmoid': layers.Activation(centered_sigmoid)})
+		#get_custom_objects().update({'my_loss':layers.Loss(my_loss)})
 		#get_custom_objects().update({'truncated_output': layers.Activation(truncated_output)})
 		randUnif = initializers.RandomUniform(minval=-0.1, maxval=0.1)
 
@@ -92,7 +97,7 @@ class AgentBrain :
 		#sgd = optimizers.SGD(momentum = self._momentum, nesterov=True)
 		sgd = optimizers.SGD(lr = self._lr, momentum = self._momentum)
 
-		model.compile(loss='mse', optimizer=sgd, metrics=['mse'])
+		model.compile(loss=my_loss, optimizer=sgd, metrics=['mse'])
 
 		return model
 
@@ -334,7 +339,7 @@ class AgentBrain :
 		for m in merits :
 			proba.append( np.exp(m*self._T_inv)/sum )
 
-		if proba[action] >= 0.001:
+		if proba[action] >= 0.01:
 			on_policy = True
 
 		if DEBUG :
@@ -365,7 +370,6 @@ class AgentBrain :
 
 		#Fit previous state prediction with new state target
 		self._model.fit(input_vecs[action].reshape(1,self._nbInput),np.array(target), epochs=1, verbose=0)
-
 
 
 	def reduce_temperature(self):

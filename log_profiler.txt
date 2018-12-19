@@ -1,0 +1,2015 @@
+Initializing Simulator
+Initialization of AgentBrain
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense (Dense)                (None, 30)                4380      
+_________________________________________________________________
+activation_2 (Activation)    (None, 30)                0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 1)                 31        
+_________________________________________________________________
+activation_3 (Activation)    (None, 1)                 0         
+=================================================================
+Total params: 4,411
+Trainable params: 4,411
+Non-trainable params: 0
+_________________________________________________________________
+Builded NN model : None
+Couldn't load last quicksave. Create new
+Step=0Foods = [0. 0.]
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Replaying 0 lessons, on 0 available.
+Save time : 0.011455535888671875
+Save time : 0.004377126693725586
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Replaying 1 lessons, on 1 available.
+Save time : 0.004575252532958984
+Save time : 0.004260063171386719
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Replaying 2 lessons, on 2 available.
+Save time : 0.004675626754760742
+Save time : 0.0043218135833740234
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Replaying 3 lessons, on 3 available.
+Save time : 0.004517555236816406
+Save time : 0.00421905517578125
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Replaying 4 lessons, on 4 available.
+Save time : 0.004525899887084961
+Save time : 0.004218101501464844
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Replaying 5 lessons, on 5 available.
+Save time : 0.004527568817138672
+Save time : 0.004233121871948242
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Replaying 6 lessons, on 6 available.
+Save time : 0.004421710968017578
+Save time : 0.0042209625244140625
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Replaying 7 lessons, on 7 available.
+Save time : 0.004426717758178711
+Save time : 0.004186391830444336
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Replaying 8 lessons, on 8 available.
+Save time : 0.004426479339599609
+Save time : 0.0041768550872802734
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Replaying 8 lessons, on 9 available.
+Save time : 0.004427909851074219
+Save time : 0.004185676574707031
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Replaying 8 lessons, on 10 available.
+Save time : 0.004715442657470703
+Save time : 0.004664897918701172
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Replaying 8 lessons, on 11 available.
+Save time : 0.004425764083862305
+Save time : 0.004189491271972656
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Replaying 8 lessons, on 12 available.
+Save time : 0.004473447799682617
+Save time : 0.004207611083984375
+Replaying 8 lessons, on 13 available.
+Replaying 8 lessons, on 13 available.
+Replaying 8 lessons, on 13 available.
+Replaying 8 lessons, on 13 available.
+Replaying 8 lessons, on 13 available.
+Replaying 8 lessons, on 13 available.
+Replaying 8 lessons, on 13 available.
+Replaying 8 lessons, on 13 available.
+Replaying 8 lessons, on 13 available.
+Replaying 8 lessons, on 13 available.
+Replaying 8 lessons, on 13 available.
+Replaying 8 lessons, on 13 available.
+Replaying 8 lessons, on 13 available.
+Replaying 8 lessons, on 13 available.
+Replaying 8 lessons, on 13 available.
+Replaying 8 lessons, on 13 available.
+Replaying 8 lessons, on 13 available.
+Replaying 8 lessons, on 13 available.
+Save time : 0.0045931339263916016
+Save time : 0.004349470138549805
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Replaying 8 lessons, on 14 available.
+Save time : 0.004590272903442383
+Save time : 0.004410505294799805
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Replaying 8 lessons, on 15 available.
+Save time : 0.0046842098236083984
+Save time : 0.004199981689453125
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Replaying 8 lessons, on 16 available.
+Save time : 0.004733562469482422
+Save time : 0.004386425018310547
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Replaying 8 lessons, on 17 available.
+Save time : 0.00450587272644043
+Save time : 0.004297971725463867
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Replaying 8 lessons, on 18 available.
+Save time : 0.004500627517700195
+Save time : 0.004228353500366211
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Replaying 8 lessons, on 19 available.
+Save time : 0.004597663879394531
+Save time : 0.004366397857666016
+Step=20Foods = [0. 0.]
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Replaying 8 lessons, on 20 available.
+Save time : 0.00451207160949707
+Save time : 0.00436711311340332
+         140760695 function calls (137368681 primitive calls) in 196.707 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+      343    0.000    0.000    0.001    0.000 <frozen importlib._bootstrap>:996(_handle_fromlist)
+        1    0.000    0.000  196.974  196.974 <string>:1(<module>)
+        1    0.000    0.000    0.000    0.000 <string>:12(__new__)
+        7    0.000    0.000    0.000    0.000 <string>:16(_make)
+       69    0.000    0.000    0.000    0.000 __init__.py:1330(log)
+       69    0.000    0.000    0.000    0.000 __init__.py:1501(getEffectiveLevel)
+       69    0.000    0.000    0.000    0.000 __init__.py:1515(isEnabledFor)
+       52    0.000    0.000    0.000    0.000 _bootlocale.py:23(getpreferredencoding)
+      165    0.000    0.000    0.000    0.000 _collections_abc.py:308(__subclasshook__)
+        1    0.000    0.000    0.000    0.000 _collections_abc.py:592(get)
+      208    0.000    0.000    0.000    0.000 _collections_abc.py:611(items)
+      208    0.000    0.000    0.000    0.000 _collections_abc.py:631(__init__)
+      517    0.001    0.000    0.001    0.000 _collections_abc.py:675(__iter__)
+        6    0.000    0.000    0.000    0.000 _datasource.py:166(_load)
+        5    0.000    0.000    0.000    0.000 _datasource.py:199(keys)
+        1    0.000    0.000    0.000    0.000 _datasource.py:218(__getitem__)
+        1    0.000    0.000    0.000    0.000 _datasource.py:224(open)
+        1    0.000    0.000    0.000    0.000 _datasource.py:314(__init__)
+        1    0.000    0.000    0.000    0.000 _datasource.py:324(__del__)
+        3    0.000    0.000    0.000    0.000 _datasource.py:329(_iszip)
+        1    0.000    0.000    0.000    0.000 _datasource.py:346(_splitzipext)
+        2    0.000    0.000    0.000    0.000 _datasource.py:359(_possible_names)
+        3    0.000    0.000    0.000    0.000 _datasource.py:368(_isurl)
+        1    0.000    0.000    0.000    0.000 _datasource.py:423(_findfile)
+        1    0.000    0.000    0.000    0.000 _datasource.py:454(abspath)
+        2    0.000    0.000    0.000    0.000 _datasource.py:499(_sanitize_relative_path)
+        1    0.000    0.000    0.000    0.000 _datasource.py:513(exists)
+        1    0.000    0.000    0.000    0.000 _datasource.py:572(open)
+    83482    0.089    0.000    0.089    0.000 _internal.py:247(__init__)
+    83482    0.016    0.000    0.016    0.000 _internal.py:272(get_data)
+        1    0.000    0.000    0.000    0.000 _iotools.py:46(_is_string_like)
+        2    0.000    0.000    0.000    0.000 _methods.py:138(_std)
+        5    0.000    0.000    0.000    0.000 _methods.py:45(_all)
+    83486    0.119    0.000    0.143    0.000 _methods.py:48(_count_reduce_items)
+    83484    0.548    0.000    1.428    0.000 _methods.py:58(_mean)
+        2    0.000    0.000    0.000    0.000 _methods.py:91(_var)
+   423074    0.283    0.000    0.283    0.000 _weakrefset.py:16(__init__)
+   423074    0.461    0.000    0.572    0.000 _weakrefset.py:20(__enter__)
+   423074    0.494    0.000    0.801    0.000 _weakrefset.py:26(__exit__)
+   422915    0.860    0.000    0.860    0.000 _weakrefset.py:36(__init__)
+   423074    0.203    0.000    0.203    0.000 _weakrefset.py:52(_commit_removals)
+  5495440    1.948    0.000    3.604    0.000 _weakrefset.py:58(__iter__)
+     3412    0.003    0.000    0.003    0.000 _weakrefset.py:70(__contains__)
+      169    0.000    0.000    0.000    0.000 _weakrefset.py:81(add)
+     1974    0.004    0.000    0.009    0.000 abc.py:178(__instancecheck__)
+       36    0.000    0.000    0.000    0.000 abc.py:192(<genexpr>)
+   200/31    0.001    0.000    0.002    0.000 abc.py:194(__subclasscheck__)
+     1030    0.002    0.000    1.817    0.002 agent.py:103(select_action)
+     1030    0.002    0.000    5.471    0.005 agent.py:110(adjust_network)
+    52340    0.083    0.000   81.440    0.002 agent.py:116(is_on_policy)
+    40871    0.058    0.000  102.528    0.003 agent.py:120(adjust_network_replay)
+       21    0.000    0.000    0.193    0.009 agent.py:128(save_nn)
+       25    0.000    0.000    0.000    0.000 agent.py:152(reset)
+      874    0.001    0.000    0.001    0.000 agent.py:160(move)
+        6    0.000    0.000    0.000    0.000 agent.py:168(eat)
+     1055    0.062    0.000    1.001    0.001 agent.py:175(detect)
+     1055    0.027    0.000    1.033    0.001 agent.py:48(compute_input_vec)
+       42    0.000    0.000    0.193    0.005 agent_brain.py:110(savew)
+       25    0.000    0.000    0.000    0.000 agent_brain.py:120(reset)
+   381084    0.935    0.000  144.355    0.000 agent_brain.py:125(predict)
+     9495    0.578    0.000    2.564    0.000 agent_brain.py:141(rotate_sensors)
+     1055    0.052    0.000    2.759    0.003 agent_brain.py:179(compute_input_vectors)
+     3165    0.010    0.000    0.112    0.000 agent_brain.py:208(rotate_action)
+     1030    0.037    0.000    1.815    0.002 agent_brain.py:227(select_action)
+     1030    0.028    0.000    5.469    0.005 agent_brain.py:272(adjust_network)
+    52340    1.920    0.000   81.356    0.002 agent_brain.py:316(is_on_policy)
+    40871    0.754    0.000  102.470    0.003 agent_brain.py:347(adjust_network_replay)
+     1030    0.002    0.000    0.002    0.000 agent_brain.py:371(reduce_temperature)
+       21    0.000    0.000    0.000    0.000 agent_brain.py:380(get_nbHidden)
+        5    0.000    0.000    0.002    0.000 array_ops.py:1506(_constant_if_small)
+        5    0.000    0.000    0.004    0.001 array_ops.py:1516(zeros)
+        1    0.000    0.000    0.001    0.001 array_ops.py:1568(zeros_like)
+       20    0.000    0.000    0.014    0.001 array_ops.py:198(shape)
+       20    0.000    0.000    0.014    0.001 array_ops.py:224(shape_internal)
+        2    0.000    0.000    0.002    0.001 array_ops.py:2576(where)
+        1    0.000    0.000    0.001    0.001 array_ops.py:271(size)
+        1    0.000    0.000    0.001    0.001 array_ops.py:302(size_internal)
+        2    0.000    0.000    0.000    0.000 array_ops.py:928(_get_dtype_from_nested_lists)
+        2    0.000    0.000    0.000    0.000 array_ops.py:958(_autopacking_conversion_function)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:1457(array_str)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:348(_get_formatdict)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:357(<lambda>)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:401(_get_format_function)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:453(wrapper)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:470(_array2string)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:499(array2string)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:67(_make_options_dict)
+        4    0.000    0.000    0.000    0.000 arrayprint.py:671(_extendLine)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:685(_formatArray)
+      6/2    0.000    0.000    0.000    0.000 arrayprint.py:694(recurser)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:72(<dictcomp>)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:803(_none_or_positive_arg)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:812(__init__)
+        2    0.000    0.000    0.000    0.000 arrayprint.py:839(fillFormat)
+        6    0.000    0.000    0.000    0.000 arrayprint.py:889(<genexpr>)
+        6    0.000    0.000    0.000    0.000 arrayprint.py:894(<genexpr>)
+        6    0.000    0.000    0.000    0.000 arrayprint.py:898(<genexpr>)
+        6    0.000    0.000    0.000    0.000 arrayprint.py:899(<genexpr>)
+        4    0.000    0.000    0.000    0.000 arrayprint.py:923(__call__)
+      294    0.017    0.000    0.037    0.000 attrs.py:102(create)
+      294    0.000    0.000    0.000    0.000 attrs.py:51(__init__)
+      294    0.002    0.000    0.041    0.000 attrs.py:87(__setitem__)
+        4    0.000    0.000    0.018    0.004 backend.py:1009(zeros)
+       42    0.000    0.000    0.000    0.000 backend.py:115(backend)
+        4    0.000    0.000    0.000    0.000 backend.py:164(floatx)
+      168    0.000    0.000    0.043    0.000 backend.py:2712(batch_get_value)
+        2    0.000    0.000    0.002    0.001 backend.py:2834(__init__)
+        2    0.000    0.000    0.000    0.000 backend.py:2870(<listcomp>)
+        2    0.000    0.000    0.066    0.033 backend.py:2889(_make_callable)
+   422825    0.627    0.000    0.627    0.000 backend.py:2938(_call_fetch_callbacks)
+   422825    6.013    0.000  105.290    0.000 backend.py:2943(__call__)
+        2    0.000    0.000    0.002    0.001 backend.py:2991(function)
+        1    0.000    0.000    0.101    0.101 backend.py:3017(gradients)
+   422909    1.898    0.000   28.912    0.000 backend.py:442(get_session)
+        1    0.000    0.000    0.000    0.000 backend.py:484(get_default_session_config)
+   464566    0.286    0.000    0.436    0.000 backend.py:586(is_sparse)
+        4    0.000    0.000    0.013    0.003 backend.py:640(variable)
+        4    0.000    0.000    0.000    0.000 backend.py:701(track_variable)
+   422909    1.698    0.000    4.059    0.000 backend.py:711(_get_variables)
+   422909    2.359    0.000   11.828    0.000 backend.py:720(_initialize_variables)
+        2    0.000    0.000    0.007    0.003 backend.py:731(<listcomp>)
+        8    0.000    0.000    0.000    0.000 backend.py:897(int_shape)
+      162    0.000    0.000    0.000    0.000 backprop.py:123(_record_gradient)
+      336    0.000    0.000    0.000    0.000 base.py:103(_lcpl)
+     1638    0.002    0.000    0.005    0.000 base.py:109(_e)
+   506307    0.187    0.000    0.250    0.000 base.py:1187(isspmatrix)
+      336    0.002    0.000    0.002    0.000 base.py:119(get_lcpl)
+     2856    0.000    0.000    0.000    0.000 base.py:236(id)
+      168    0.001    0.000    0.001    0.000 base.py:262(attrs)
+      504    0.000    0.000    0.000    0.000 base.py:269(__init__)
+      294    0.001    0.000    0.001    0.000 base.py:43(guess_dtype)
+      294    0.000    0.000    0.000    0.000 base.py:97(_lapl)
+        3    0.000    0.000    0.000    0.000 base_layer.py:1089(_get_node_attribute_at_index)
+        3    0.000    0.000    0.000    0.000 base_layer.py:1243(get_input_at)
+      336    0.000    0.000    0.000    0.000 base_layer.py:222(name)
+  2323228    0.696    0.000    0.696    0.000 base_layer.py:236(trainable_weights)
+  2114523    0.373    0.000    0.373    0.000 base_layer.py:240(non_trainable_weights)
+  2114523    1.458    0.000    2.493    0.000 base_layer.py:255(weights)
+  2114355    0.777    0.000    3.270    0.000 base_layer.py:264(variables)
+       12    0.000    0.000    0.000    0.000 base_layer.py:273(updates)
+        2    0.000    0.000    0.016    0.008 base_layer.py:331(get_updates_for)
+        1    0.000    0.000    0.000    0.000 base_layer.py:352(<listcomp>)
+      944    0.001    0.000    0.003    0.000 c_api_util.py:141(tf_buffer)
+     1524    0.002    0.000    0.018    0.000 c_api_util.py:174(tf_output)
+   422827    0.395    0.000    0.776    0.000 c_api_util.py:32(__init__)
+   422827    0.412    0.000    0.635    0.000 c_api_util.py:35(__del__)
+    41741    0.062    0.000    0.080    0.000 callbacks.py:171(__init__)
+    41741    0.018    0.000    0.018    0.000 callbacks.py:173(<listcomp>)
+    41741    0.057    0.000    0.072    0.000 callbacks.py:181(set_params)
+    41741    0.069    0.000    0.088    0.000 callbacks.py:186(set_model)
+    41741    0.204    0.000    0.230    0.000 callbacks.py:191(on_epoch_begin)
+    41741    0.089    0.000    0.377    0.000 callbacks.py:205(on_epoch_end)
+    41741    0.232    0.000    4.511    0.000 callbacks.py:216(on_batch_begin)
+    41741    0.357    0.000    5.691    0.000 callbacks.py:236(on_batch_end)
+    41741    0.070    0.000    0.098    0.000 callbacks.py:258(on_train_begin)
+    41741    0.059    0.000    0.072    0.000 callbacks.py:268(on_train_end)
+    83482    0.046    0.000    0.046    0.000 callbacks.py:310(__init__)
+    83482    0.015    0.000    0.015    0.000 callbacks.py:314(set_params)
+    83482    0.019    0.000    0.019    0.000 callbacks.py:317(set_model)
+    41741    0.008    0.000    0.008    0.000 callbacks.py:320(on_epoch_begin)
+    83482    0.011    0.000    0.011    0.000 callbacks.py:326(on_batch_begin)
+    41741    0.009    0.000    0.009    0.000 callbacks.py:329(on_batch_end)
+    41741    0.009    0.000    0.009    0.000 callbacks.py:332(on_train_begin)
+    83482    0.013    0.000    0.013    0.000 callbacks.py:335(on_train_end)
+    41741    0.076    0.000    0.095    0.000 callbacks.py:352(__init__)
+    41741    0.017    0.000    0.017    0.000 callbacks.py:356(on_epoch_begin)
+    41741    0.842    0.000    0.866    0.000 callbacks.py:360(on_batch_end)
+    41741    0.122    0.000    0.122    0.000 callbacks.py:377(on_epoch_end)
+    41741    0.019    0.000    0.019    0.000 callbacks.py:489(on_train_begin)
+    41741    0.122    0.000    0.166    0.000 callbacks.py:493(on_epoch_end)
+    41741    0.515    0.000    1.875    0.000 callbacks.py:58(configure_callbacks)
+        2    0.000    0.000    0.000    0.000 codecs.py:185(__init__)
+       50    0.000    0.000    0.000    0.000 codecs.py:259(__init__)
+       50    0.000    0.000    0.000    0.000 codecs.py:308(__init__)
+      100    0.000    0.000    0.000    0.000 codecs.py:318(decode)
+       16    0.000    0.000    0.000    0.000 common_shapes.py:31(has_fully_defined_shape)
+        2    0.000    0.000    0.000    0.000 common_shapes.py:36(rank)
+       42    0.000    0.000    0.000    0.000 compat.py:103(filename_encode)
+       42    0.000    0.000    0.000    0.000 compat.py:13(fspath)
+      778    0.001    0.000    0.001    0.000 compat.py:42(as_bytes)
+     1089    0.000    0.000    0.001    0.000 compat.py:64(as_text)
+       29    0.000    0.000    0.017    0.001 constant_op.py:117(constant)
+        8    0.000    0.000    0.005    0.001 constant_op.py:226(_constant_tensor_conversion_function)
+        1    0.000    0.000    0.000    0.000 constant_op.py:242(_tensor_shape_tensor_conversion_function)
+   423475    0.619    0.000    1.286    0.000 context.py:122(push)
+   423475    0.283    0.000    0.364    0.000 context.py:138(pop)
+   846950    0.843    0.000    0.843    0.000 context.py:343(_mode)
+  2579710    0.876    0.000    0.876    0.000 context.py:364(executing_eagerly)
+   846958    0.169    0.000    0.169    0.000 context.py:606(context_switches)
+  3850471    0.688    0.000    0.688    0.000 context.py:628(context)
+  2579390    1.653    0.000    2.981    0.000 context.py:655(executing_eagerly)
+   423475    0.409    0.000    1.136    0.000 context.py:671(graph_mode)
+      224    0.000    0.000    0.000    0.000 context.py:794(_tmp_in_graph_mode)
+  1271581    0.849    0.000    3.067    0.000 contextlib.py:131(helper)
+  1271581    1.932    0.000    2.219    0.000 contextlib.py:37(__init__)
+1271581/424518    0.577    0.000    7.528    0.000 contextlib.py:57(__enter__)
+1271581/424518    1.224    0.000    4.665    0.000 contextlib.py:63(__exit__)
+        1    0.000    0.000    0.000    0.000 control_flow_ops.py:1426(MaybeCreateControlFlowState)
+        3    0.000    0.000    0.003    0.001 control_flow_ops.py:3378(_GroupControlDeps)
+        4    0.000    0.000    0.006    0.002 control_flow_ops.py:3388(group)
+      283    0.000    0.000    0.000    0.000 control_flow_util.py:139(GetOutputContext)
+      283    0.000    0.000    0.000    0.000 control_flow_util.py:225(CheckInputFromValidContext)
+       27    0.000    0.000    0.000    0.000 control_flow_util.py:51(IsSwitch)
+       53    0.000    0.000    0.000    0.000 control_flow_util.py:66(IsLoopExit)
+    41741    0.030    0.000    0.030    0.000 copy.py:125(_copy_with_constructor)
+        1    0.000    0.000    0.000    0.000 copy.py:137(deepcopy)
+        1    0.000    0.000    0.000    0.000 copy.py:192(_deepcopy_atomic)
+       23    0.000    0.000    0.000    0.000 copy.py:269(_reconstruct)
+    41764    0.062    0.000    0.104    0.000 copy.py:67(copy)
+       23    0.000    0.000    0.000    0.000 copyreg.py:87(__newobj__)
+    83482    0.052    0.000    0.078    0.000 core.py:6200(isMaskedArray)
+    83484    0.088    0.000    0.121    0.000 data_structures.py:55(_wrap_or_unwrap)
+    83484    0.090    0.000    0.228    0.000 data_structures.py:75(sticky_attribute_assignment)
+   422825    0.407    0.000    2.434    0.000 data_utils.py:97(is_generator_or_sequence)
+      336    0.003    0.000    0.003    0.000 dataset.py:221(shape)
+      672    0.004    0.000    0.004    0.000 dataset.py:238(dtype)
+      168    0.005    0.000    0.006    0.000 dataset.py:317(__init__)
+      168    0.009    0.000    0.028    0.000 dataset.py:508(__setitem__)
+      168    0.000    0.000    0.000    0.000 dataset.py:519(<genexpr>)
+      336    0.000    0.000    0.000    0.000 dataset.py:520(<genexpr>)
+      168    0.007    0.000    0.011    0.000 dataset.py:53(make_new_dset)
+  224/206    0.002    0.000    0.099    0.000 deprecation.py:454(new_func)
+       16    0.000    0.000    0.000    0.000 deprecation.py:560(deprecated_argument_lookup)
+       23    0.000    0.000    0.000    0.000 device.py:103(job)
+       69    0.000    0.000    0.000    0.000 device.py:110(replica)
+       23    0.000    0.000    0.000    0.000 device.py:114(replica)
+       69    0.000    0.000    0.000    0.000 device.py:121(task)
+       23    0.000    0.000    0.000    0.000 device.py:125(task)
+       23    0.000    0.000    0.000    0.000 device.py:132(parse_from_string)
+       23    0.000    0.000    0.000    0.000 device.py:150(<listcomp>)
+       23    0.000    0.000    0.000    0.000 device.py:179(merge_from)
+       46    0.000    0.000    0.000    0.000 device.py:196(to_string)
+       23    0.000    0.000    0.000    0.000 device.py:217(from_string)
+       23    0.000    0.000    0.000    0.000 device.py:237(__hash__)
+       23    0.000    0.000    0.000    0.000 device.py:274(merge_device)
+       23    0.000    0.000    0.001    0.000 device.py:313(_device_function)
+       23    0.000    0.000    0.000    0.000 device.py:68(__init__)
+       23    0.000    0.000    0.000    0.000 device.py:92(_clear)
+       69    0.000    0.000    0.000    0.000 device.py:99(job)
+     1404    0.000    0.000    0.001    0.000 dtypes.py:102(base_dtype)
+       38    0.000    0.000    0.000    0.000 dtypes.py:121(is_numpy_compatible)
+   464610    0.221    0.000    0.221    0.000 dtypes.py:125(as_numpy_dtype)
+     2271    0.000    0.000    0.000    0.000 dtypes.py:130(as_datatype_enum)
+       15    0.000    0.000    0.000    0.000 dtypes.py:146(is_floating)
+        2    0.000    0.000    0.000    0.000 dtypes.py:153(is_complex)
+      593    0.001    0.000    0.001    0.000 dtypes.py:242(is_compatible_with)
+      814    0.001    0.000    0.001    0.000 dtypes.py:265(__eq__)
+      237    0.000    0.000    0.000    0.000 dtypes.py:275(__ne__)
+       12    0.000    0.000    0.000    0.000 dtypes.py:279(name)
+       56    0.000    0.000    0.000    0.000 dtypes.py:293(__hash__)
+   466988    0.199    0.000    0.246    0.000 dtypes.py:661(as_dtype)
+     1425    0.000    0.000    0.000    0.000 dtypes.py:89(_is_ref_dtype)
+        2    0.000    0.000    0.000    0.000 environment.py:127(activate_learning)
+        2    0.000    0.000    0.000    0.000 environment.py:131(desactivate_learning)
+       25    0.000    0.000    0.004    0.000 environment.py:162(reset)
+      160    0.001    0.000    1.200    0.008 environment.py:200(update_q)
+      870    0.155    0.000  191.562    0.220 environment.py:238(update_q_replay)
+       21    0.000    0.000    0.000    0.000 environment.py:320(save_lesson)
+     1030    0.007    0.000    1.291    0.001 environment.py:327(step)
+     1009    0.062    0.000    0.280    0.000 environment.py:365(move_all_ennemies)
+       25    0.001    0.000    0.004    0.000 environment.py:40(init_map)
+    12862    0.006    0.000    0.006    0.000 environment.py:403(is_outside_map)
+    11265    0.005    0.000    0.005    0.000 environment.py:441(t)
+       25    0.002    0.000    0.003    0.000 environment.py:64(load_map)
+       21    0.000    0.000    0.193    0.009 environment.py:82(save_nn)
+       25    0.001    0.000    0.001    0.000 environment.py:93(charge_food)
+      169    0.000    0.000    0.001    0.000 errors_impl.py:242(__init__)
+      169    0.000    0.000    0.000    0.000 errors_impl.py:42(__init__)
+   422827    0.496    0.000    1.272    0.000 errors_impl.py:518(__enter__)
+   422827    1.429    0.000    2.522    0.000 errors_impl.py:522(__exit__)
+      169    0.000    0.000    0.000    0.000 errors_impl.py:64(message)
+      169    0.000    0.000    0.000    0.000 errors_impl.py:95(__str__)
+       10    0.000    0.000    0.000    0.000 execute.py:107(make_str)
+       25    0.000    0.000    0.000    0.000 execute.py:114(make_bool)
+       46    0.000    0.000    0.000    0.000 execute.py:121(make_type)
+        4    0.000    0.000    0.000    0.000 execute.py:131(make_shape)
+       42    0.008    0.000    0.008    0.000 files.py:122(make_fid)
+      126    0.001    0.000    0.004    0.000 files.py:189(attrs)
+       42    0.000    0.000    0.010    0.000 files.py:273(__init__)
+       42    0.007    0.000    0.007    0.000 files.py:321(close)
+       42    0.000    0.000    0.000    0.000 files.py:333(<listcomp>)
+       42    0.000    0.000    0.000    0.000 files.py:334(<listcomp>)
+       42    0.000    0.000    0.000    0.000 files.py:353(__enter__)
+       42    0.000    0.000    0.008    0.000 files.py:357(__exit__)
+       42    0.001    0.000    0.001    0.000 files.py:89(make_fapl)
+      168    0.001    0.000    0.001    0.000 filters.py:209(get_filters)
+      168    0.002    0.000    0.002    0.000 filters.py:73(generate_dcpl)
+      336    0.000    0.000    0.000    0.000 filters.py:88(rq_tuple)
+    41901    0.098    0.000    0.600    0.000 fromnumeric.py:2227(amax)
+     4859    0.009    0.000    0.066    0.000 fromnumeric.py:2478(prod)
+    83484    0.256    0.000    1.684    0.000 fromnumeric.py:2817(mean)
+        2    0.000    0.000    0.000    0.000 fromnumeric.py:2923(std)
+      756    0.001    0.000    0.011    0.000 fromnumeric.py:3163(product)
+        2    0.000    0.000    0.000    0.000 fromnumeric.py:404(repeat)
+      582    0.001    0.000    0.001    0.000 fromnumeric.py:49(_wrapfunc)
+      420    0.000    0.000    0.001    0.000 fromnumeric.py:506(swapaxes)
+    83482    0.172    0.000    0.903    0.000 fromnumeric.py:601(partition)
+    46760    0.158    0.000    0.559    0.000 fromnumeric.py:64(_wrapreduction)
+      160    0.000    0.000    0.001    0.000 fromnumeric.py:976(argmax)
+    83482    0.320    0.000    8.457    0.000 function_base.py:3199(_ureduce)
+    83482    0.182    0.000    8.639    0.000 function_base.py:3254(median)
+    83482    0.967    0.000    7.111    0.000 function_base.py:3342(_median)
+        3    0.000    0.000    0.003    0.001 gen_array_ops.py:2939(fill)
+       17    0.000    0.000    0.014    0.001 gen_array_ops.py:6408(reshape)
+        7    0.000    0.000    0.005    0.001 gen_array_ops.py:657(broadcast_gradient_args)
+       12    0.000    0.000    0.008    0.001 gen_array_ops.py:7222(shape)
+        3    0.000    0.000    0.002    0.001 gen_array_ops.py:8782(tile)
+        4    0.000    0.000    0.003    0.001 gen_control_flow_ops.py:487(no_op)
+        1    0.000    0.000    0.001    0.001 gen_data_flow_ops.py:662(dynamic_stitch)
+        1    0.000    0.000    0.001    0.001 gen_math_ops.py:1640(cast)
+        5    0.000    0.000    0.003    0.001 gen_math_ops.py:282(add)
+        2    0.000    0.000    0.001    0.001 gen_math_ops.py:3062(floor_div)
+        1    0.000    0.000    0.001    0.001 gen_math_ops.py:3122(floor_mod)
+        4    0.000    0.000    0.003    0.001 gen_math_ops.py:4527(mat_mul)
+        2    0.000    0.000    0.003    0.001 gen_math_ops.py:4688(maximum)
+       19    0.000    0.000    0.013    0.001 gen_math_ops.py:5025(mul)
+        4    0.000    0.000    0.002    0.001 gen_math_ops.py:5085(neg)
+        2    0.000    0.000    0.002    0.001 gen_math_ops.py:5336(prod)
+        1    0.000    0.000    0.001    0.001 gen_math_ops.py:5823(_range)
+        5    0.000    0.000    0.003    0.001 gen_math_ops.py:5970(real_div)
+        2    0.000    0.000    0.002    0.001 gen_math_ops.py:6941(select)
+        2    0.000    0.000    0.001    0.001 gen_math_ops.py:7098(sigmoid_grad)
+        4    0.000    0.000    0.002    0.001 gen_math_ops.py:8301(sub)
+       14    0.000    0.000    0.011    0.001 gen_math_ops.py:8361(_sum)
+        2    0.000    0.000    0.001    0.001 gen_nn_ops.py:735(bias_add_grad)
+        4    0.000    0.000    0.003    0.001 gen_resource_variable_ops.py:1167(var_handle_op)
+       16    0.000    0.000    0.008    0.000 gen_resource_variable_ops.py:1250(var_is_initialized_op)
+       12    0.000    0.000    0.007    0.001 gen_resource_variable_ops.py:140(assign_variable_op)
+        1    0.000    0.000    0.001    0.001 gen_resource_variable_ops.py:28(assign_add_variable_op)
+       29    0.000    0.000    0.018    0.001 gen_resource_variable_ops.py:485(read_variable_op)
+   422825    3.502    0.000    4.176    0.000 generic_utils.py:457(make_batches)
+   422825    0.423    0.000    0.675    0.000 generic_utils.py:468(<listcomp>)
+   422825    1.047    0.000    6.409    0.000 generic_utils.py:472(slice_arrays)
+   422825    4.783    0.000    4.783    0.000 generic_utils.py:505(<listcomp>)
+        3    0.000    0.000    0.000    0.000 genericpath.py:111(_splitext)
+        1    0.000    0.000    0.000    0.000 genericpath.py:16(exists)
+     4085    0.007    0.000    0.008    0.000 getlimits.py:376(__new__)
+       27    0.000    0.000    0.000    0.000 gradients_impl.py:1032(_AggregatedGrads)
+       27    0.000    0.000    0.000    0.000 gradients_impl.py:1077(<listcomp>)
+        1    0.000    0.000    0.001    0.001 gradients_impl.py:122(_MarkReachedOps)
+        1    0.000    0.000    0.002    0.002 gradients_impl.py:142(_PendingCount)
+        2    0.000    0.000    0.000    0.000 gradients_impl.py:172(<genexpr>)
+       25    0.000    0.000    0.000    0.000 gradients_impl.py:206(_AsList)
+        1    0.000    0.000    0.003    0.003 gradients_impl.py:210(_DefaultGradYs)
+       45    0.000    0.000    0.000    0.000 gradients_impl.py:296(_IsTrainable)
+       45    0.000    0.000    0.000    0.000 gradients_impl.py:303(_IsBackpropagatable)
+       23    0.000    0.000    0.000    0.000 gradients_impl.py:310(_VerifyGeneratedGradients)
+        1    0.000    0.000    0.000    0.000 gradients_impl.py:326(_StopOps)
+        1    0.000    0.000    0.000    0.000 gradients_impl.py:356(<genexpr>)
+       56    0.000    0.000    0.002    0.000 gradients_impl.py:360(_maybe_colocate_with)
+       27    0.000    0.000    0.000    0.000 gradients_impl.py:370(_IsPartitionedCall)
+       23    0.000    0.000    0.089    0.004 gradients_impl.py:393(_MaybeCompile)
+      117    0.000    0.000    0.000    0.000 gradients_impl.py:454(_IsFunction)
+      116    0.000    0.000    0.000    0.000 gradients_impl.py:488(_NonEagerInputs)
+       35    0.000    0.000    0.001    0.000 gradients_impl.py:521(_Consumers)
+        1    0.000    0.000    0.101    0.101 gradients_impl.py:540(gradients)
+        1    0.001    0.001    0.101    0.101 gradients_impl.py:633(_GradientsHelper)
+        1    0.000    0.000    0.000    0.000 gradients_impl.py:677(<listcomp>)
+        1    0.000    0.000    0.000    0.000 gradients_impl.py:694(<listcomp>)
+        1    0.000    0.000    0.000    0.000 gradients_impl.py:695(<listcomp>)
+        1    0.000    0.000    0.000    0.000 gradients_impl.py:696(<listcomp>)
+       54    0.000    0.000    0.000    0.000 gradients_impl.py:751(<genexpr>)
+       23    0.000    0.000    0.088    0.004 gradients_impl.py:814(<lambda>)
+        1    0.000    0.000    0.000    0.000 gradients_impl.py:859(<listcomp>)
+       27    0.000    0.000    0.000    0.000 gradients_impl.py:874(_UpdatePendingAndEnqueueReady)
+       37    0.000    0.000    0.000    0.000 gradients_impl.py:912(_SetGrad)
+       37    0.000    0.000    0.000    0.000 gradients_impl.py:917(<listcomp>)
+        4    0.000    0.000    0.000    0.000 gradients_impl.py:927(_GetGrad)
+       27    0.000    0.000    0.000    0.000 gradients_impl.py:939(_GetGrads)
+       23    0.000    0.000    0.001    0.000 gradients_impl.py:966(_LogOpGradients)
+       63    0.000    0.000    0.000    0.000 gradients_impl.py:970(_FilterGrad)
+       23    0.000    0.000    0.000    0.000 gradients_impl.py:979(<listcomp>)
+       23    0.000    0.000    0.000    0.000 gradients_impl.py:981(<listcomp>)
+      126    0.003    0.000    0.003    0.000 group.py:168(__getitem__)
+      168    0.005    0.000    0.007    0.000 group.py:258(__setitem__)
+      336    0.001    0.000    0.001    0.000 group.py:34(__init__)
+      168    0.006    0.000    0.009    0.000 group.py:48(create_group)
+      168    0.003    0.000    0.026    0.000 group.py:63(create_dataset)
+      228    0.004    0.000    0.016    0.000 inspect.py:1052(getfullargspec)
+      456    0.000    0.000    0.000    0.000 inspect.py:158(isfunction)
+   422825    0.259    0.000    0.315    0.000 inspect.py:189(isgenerator)
+      228    0.004    0.000    0.010    0.000 inspect.py:2065(_signature_from_function)
+      228    0.001    0.000    0.011    0.000 inspect.py:2146(_signature_from_callable)
+     2198    0.002    0.000    0.002    0.000 inspect.py:2399(__init__)
+     4396    0.000    0.000    0.000    0.000 inspect.py:2434(name)
+     3534    0.000    0.000    0.000    0.000 inspect.py:2438(default)
+     2198    0.000    0.000    0.000    0.000 inspect.py:2442(annotation)
+     2198    0.000    0.000    0.000    0.000 inspect.py:2446(kind)
+      228    0.002    0.000    0.003    0.000 inspect.py:2664(__init__)
+     2426    0.001    0.000    0.001    0.000 inspect.py:2709(<genexpr>)
+      228    0.000    0.000    0.000    0.000 inspect.py:2739(parameters)
+      228    0.000    0.000    0.000    0.000 inspect.py:2743(return_annotation)
+      224    0.000    0.000    0.000    0.000 inspect.py:80(ismethod)
+  2114355    1.099    0.000    6.096    0.000 layer_utils.py:25(is_layer)
+    83484    0.028    0.000    0.077    0.000 layer_utils.py:33(has_weights)
+   422871    1.184    0.000    7.607    0.000 layer_utils.py:40(filter_empty_layer_containers)
+    41741    0.121    0.000    0.162    0.000 layer_utils.py:53(gather_trainable_weights)
+    41741    0.008    0.000    0.008    0.000 layer_utils.py:72(<listcomp>)
+      299    0.000    0.000    0.001    0.000 lock_util.py:106(_another_group_active)
+      598    0.000    0.000    0.000    0.000 lock_util.py:108(<genexpr>)
+      897    0.000    0.000    0.000    0.000 lock_util.py:110(_validate_group_id)
+      299    0.000    0.000    0.000    0.000 lock_util.py:119(__init__)
+      299    0.000    0.000    0.002    0.000 lock_util.py:123(__enter__)
+      299    0.000    0.000    0.002    0.000 lock_util.py:126(__exit__)
+      299    0.000    0.000    0.001    0.000 lock_util.py:74(group)
+      299    0.001    0.000    0.002    0.000 lock_util.py:86(acquire)
+      299    0.001    0.000    0.002    0.000 lock_util.py:96(release)
+        1    0.000    0.000    0.003    0.003 math_grad.py:1112(_SelectGrad)
+        2    0.000    0.000    0.003    0.002 math_grad.py:1121(_MatMulGrad)
+        2    0.000    0.000    0.025    0.012 math_grad.py:116(_MeanGrad)
+        2    0.000    0.000    0.004    0.002 math_grad.py:33(_safe_shape_div)
+        1    0.000    0.000    0.002    0.002 math_grad.py:437(_SquareGrad)
+        3    0.000    0.000    0.019    0.006 math_grad.py:50(_SumGrad)
+        2    0.000    0.000    0.001    0.001 math_grad.py:779(_SigmoidGrad)
+        7    0.000    0.000    0.001    0.000 math_grad.py:888(_ShapesFullySpecifiedAndEqual)
+        3    0.000    0.000    0.018    0.006 math_grad.py:913(_SubGrad)
+        4    0.000    0.000    0.022    0.005 math_grad.py:928(_MulGrad)
+        1    0.000    0.000    0.009    0.009 math_grad.py:992(_RealDivGrad)
+        2    0.000    0.000    0.001    0.001 math_ops.py:1002(truediv)
+        2    0.000    0.000    0.002    0.001 math_ops.py:1085(floordiv)
+        9    0.000    0.000    0.006    0.001 math_ops.py:1127(_mul_dispatch)
+        1    0.000    0.000    0.002    0.002 math_ops.py:1180(range)
+        4    0.000    0.000    0.000    0.000 math_ops.py:1242(<genexpr>)
+        1    0.000    0.000    0.000    0.000 math_ops.py:1244(<listcomp>)
+       16    0.000    0.000    0.001    0.000 math_ops.py:1255(_ReductionDims)
+       16    0.000    0.000    0.000    0.000 math_ops.py:1278(_may_reduce_to_scalar)
+       14    0.000    0.000    0.012    0.001 math_ops.py:1286(reduce_sum)
+        2    0.000    0.000    0.003    0.001 math_ops.py:1498(reduce_prod)
+        2    0.000    0.000    0.002    0.001 math_ops.py:201(multiply)
+       15    0.000    0.000    0.000    0.000 math_ops.py:2480(conj)
+        1    0.000    0.000    0.008    0.008 math_ops.py:2532(reduced_shape)
+        7    0.000    0.000    0.001    0.000 math_ops.py:620(cast)
+        2    0.000    0.000    0.000    0.000 math_ops.py:753(to_int32)
+       21    0.000    0.000    0.018    0.001 math_ops.py:863(binary_op_wrapper)
+        2    0.000    0.000    0.001    0.001 math_ops.py:958(_truediv_python3)
+       42    0.002    0.000    0.192    0.005 network.py:1365(save_weights)
+       42    0.000    0.000    0.000    0.000 network.py:1647(_is_hdf5_filepath)
+    83484    0.444    0.000    0.810    0.000 network.py:390(__setattr__)
+   422827    0.395    0.000    0.861    0.000 network.py:441(uses_learning_phase)
+   422827    0.267    0.000    0.399    0.000 network.py:444(<listcomp>)
+   422825    0.756    0.000   10.644    0.000 network.py:446(stateful)
+   422825    0.539    0.000    0.773    0.000 network.py:448(<listcomp>)
+        1    0.000    0.000    0.000    0.000 network.py:456(state_updates)
+   422871    0.360    0.000    7.967    0.000 network.py:514(layers)
+        3    0.000    0.000    0.000    0.000 network.py:552(_unfiltered_updates)
+        3    0.000    0.000    0.012    0.004 network.py:574(updates)
+        3    0.000    0.000    0.000    0.000 network.py:645(<listcomp>)
+        3    0.000    0.000    0.000    0.000 network.py:647(<listcomp>)
+    41741    0.053    0.000    0.215    0.000 network.py:688(trainable_weights)
+        2    0.000    0.000    0.001    0.001 nn_grad.py:265(_BiasAddGrad)
+        1    0.000    0.000    0.000    0.000 npyio.py:1152(savetxt)
+        1    0.000    0.000    0.000    0.000 npyio.py:1279(WriteWrap)
+6330/3165    0.073    0.000    0.102    0.000 numeric.py:1318(roll)
+     3165    0.002    0.000    0.002    0.000 numeric.py:1387(<dictcomp>)
+   170129    0.650    0.000    0.908    0.000 numeric.py:1468(normalize_axis_tuple)
+   340258    0.125    0.000    0.195    0.000 numeric.py:1515(<genexpr>)
+    83482    0.501    0.000    1.694    0.000 numeric.py:1524(moveaxis)
+    83482    0.040    0.000    0.040    0.000 numeric.py:1586(<listcomp>)
+        6    0.000    0.000    0.000    0.000 numeric.py:2389(array_equal)
+   465552    0.536    0.000    2.641    0.000 numeric.py:433(asarray)
+   340266    0.270    0.000    1.235    0.000 numeric.py:504(asanyarray)
+   333958    0.293    0.000    0.480    0.000 numerictypes.py:619(issubclass_)
+   166979    0.284    0.000    0.783    0.000 numerictypes.py:687(issubdtype)
+        1    0.000    0.000    0.000    0.000 op_def_library.py:147(_MakeInt)
+       10    0.000    0.000    0.000    0.000 op_def_library.py:158(_MakeStr)
+       25    0.000    0.000    0.000    0.000 op_def_library.py:165(_MakeBool)
+      211    0.000    0.000    0.001    0.000 op_def_library.py:172(_MakeType)
+        4    0.000    0.000    0.000    0.000 op_def_library.py:183(_MakeShape)
+      358    0.000    0.000    0.000    0.000 op_def_library.py:248(_MaybeColocateWith)
+      179    0.009    0.000    0.115    0.001 op_def_library.py:339(_apply_op_helper)
+      166    0.000    0.000    0.000    0.000 op_def_library.py:37(_Attr)
+      149    0.000    0.000    0.000    0.000 op_def_library.py:45(_AttrValue)
+        6    0.000    0.000    0.000    0.000 op_def_library.py:457(<genexpr>)
+        2    0.000    0.000    0.000    0.000 op_def_library.py:487(<listcomp>)
+      376    0.001    0.000    0.001    0.000 op_def_library.py:52(_SatisfiesTypeConstraint)
+      281    0.000    0.000    0.000    0.000 op_def_library.py:550(<listcomp>)
+        2    0.000    0.000    0.000    0.000 op_def_library.py:572(<listcomp>)
+      281    0.000    0.000    0.000    0.000 op_def_library.py:63(_IsListParameter)
+      179    0.000    0.000    0.000    0.000 op_def_library.py:781(<listcomp>)
+      368    0.000    0.000    0.000    0.000 op_def_library.py:79(_IsListValue)
+      179    0.000    0.000    0.001    0.000 op_def_library.py:83(_Flatten)
+      179    0.000    0.000    0.000    0.000 op_def_library.py:86(<listcomp>)
+      179    0.000    0.000    0.000    0.000 op_def_library.py:88(<listcomp>)
+  330/326    0.001    0.000    0.010    0.000 ops.py:1057(internal_convert_to_tensor)
+        2    0.000    0.000    0.000    0.000 ops.py:1167(internal_convert_n_to_tensor)
+       14    0.000    0.000    0.000    0.000 ops.py:1272(internal_convert_to_tensor_or_indexed_slices)
+        3    0.000    0.000    0.000    0.000 ops.py:1310(internal_convert_n_to_tensor_or_indexed_slices)
+        2    0.000    0.000    0.000    0.000 ops.py:1352(convert_n_to_tensor_or_indexed_slices)
+      334    0.000    0.000    0.001    0.000 ops.py:137(_as_graph_element)
+       23    0.000    0.000    0.000    0.000 ops.py:1547(_device_string)
+      208    0.003    0.000    0.004    0.000 ops.py:1554(_NodeDef)
+  1983488    0.647    0.000    1.869    0.000 ops.py:156(is_dense_tensor_like)
+      208    0.003    0.000    0.017    0.000 ops.py:1589(_create_c_op)
+        2    0.000    0.000    0.000    0.000 ops.py:1611(<listcomp>)
+      208    0.004    0.000    0.043    0.000 ops.py:1657(__init__)
+       29    0.000    0.000    0.000    0.000 ops.py:1740(<listcomp>)
+      462    0.000    0.000    0.001    0.000 ops.py:1743(<genexpr>)
+      208    0.001    0.000    0.003    0.000 ops.py:1797(<listcomp>)
+      208    0.000    0.000    0.001    0.000 ops.py:1800(<listcomp>)
+      208    0.001    0.000    0.005    0.000 ops.py:1809(_control_flow_post_processing)
+      208    0.001    0.000    0.001    0.000 ops.py:1820(_reconstruct_sequence_inputs)
+      140    0.001    0.000    0.006    0.000 ops.py:1855(colocation_groups)
+       21    0.000    0.000    0.000    0.000 ops.py:1868(<listcomp>)
+      570    0.000    0.000    0.000    0.000 ops.py:1880(_get_control_flow_context)
+      946    0.000    0.000    0.001    0.000 ops.py:1896(name)
+      624    0.000    0.000    0.000    0.000 ops.py:1901(_id)
+      225    0.000    0.000    0.000    0.000 ops.py:1906(device)
+       23    0.000    0.000    0.000    0.000 ops.py:2021(_set_device)
+      198    0.000    0.000    0.000    0.000 ops.py:204(uid)
+     1263    0.000    0.000    0.000    0.000 ops.py:2102(outputs)
+      208    0.000    0.000    0.000    0.000 ops.py:2112(__init__)
+      332    0.000    0.000    0.000    0.000 ops.py:2115(__iter__)
+       27    0.000    0.000    0.000    0.000 ops.py:2118(__len__)
+       23    0.000    0.000    0.000    0.000 ops.py:2121(__bool__)
+       35    0.000    0.000    0.000    0.000 ops.py:2127(__getitem__)
+      579    0.001    0.000    0.003    0.000 ops.py:2132(inputs)
+      208    0.000    0.000    0.002    0.000 ops.py:2139(<listcomp>)
+        6    0.000    0.000    0.000    0.000 ops.py:2169(control_inputs)
+        6    0.000    0.000    0.000    0.000 ops.py:2186(<listcomp>)
+      692    0.000    0.000    0.001    0.000 ops.py:2191(_control_outputs)
+      692    0.000    0.000    0.000    0.000 ops.py:2205(<listcomp>)
+     1043    0.000    0.000    0.001    0.000 ops.py:2229(type)
+     2360    0.000    0.000    0.000    0.000 ops.py:2234(graph)
+        6    0.000    0.000    0.000    0.000 ops.py:2239(node_def)
+      131    0.000    0.000    0.002    0.000 ops.py:2297(_set_attr)
+      437    0.004    0.000    0.012    0.000 ops.py:2308(get_attr)
+       23    0.000    0.000    0.001    0.000 ops.py:2454(get_gradient_function)
+      257    0.000    0.000    0.000    0.000 ops.py:2732(_name_from_scope_name)
+      632    0.000    0.000    0.000    0.000 ops.py:2912(_check_not_finalized)
+      208    0.001    0.000    0.002    0.000 ops.py:2921(_add_op)
+      496    0.000    0.000    0.000    0.000 ops.py:2947(_c_graph)
+       88    0.000    0.000    0.000    0.000 ops.py:2953(version)
+      216    0.000    0.000    0.000    0.000 ops.py:3022(_get_control_flow_context)
+       16    0.000    0.000    0.000    0.000 ops.py:3030(_set_control_flow_context)
+      198    0.001    0.000    0.001    0.000 ops.py:304(__init__)
+       27    0.000    0.000    0.000    0.000 ops.py:3127(_is_function)
+   423949    0.097    0.000    0.097    0.000 ops.py:3187(building_function)
+      208    0.003    0.000    0.070    0.000 ops.py:3193(create_op)
+      208    0.000    0.000    0.000    0.000 ops.py:3261(<listcomp>)
+      208    0.004    0.000    0.017    0.000 ops.py:3340(_create_op_helper)
+     2763    0.000    0.000    0.000    0.000 ops.py:336(op)
+   465647    0.113    0.000    0.113    0.000 ops.py:341(dtype)
+      218    0.000    0.000    0.002    0.000 ops.py:3457(as_graph_element)
+     1624    0.001    0.000    0.001    0.000 ops.py:346(graph)
+      218    0.000    0.000    0.001    0.000 ops.py:3492(_as_graph_element_locked)
+       86    0.000    0.000    0.000    0.000 ops.py:351(name)
+       38    0.000    0.000    0.000    0.000 ops.py:358(device)
+     1263    0.001    0.000    0.001    0.000 ops.py:3620(_get_operation_by_name_unsafe)
+      171    0.000    0.000    0.002    0.000 ops.py:363(shape)
+      283    0.000    0.000    0.001    0.000 ops.py:3643(_get_operation_by_tf_operation)
+      283    0.001    0.000    0.001    0.000 ops.py:3668(_get_tensor_by_tf_output)
+      208    0.000    0.000    0.000    0.000 ops.py:3684(_next_id)
+       29    0.000    0.000    0.001    0.000 ops.py:3695(_get_op_def)
+   423475    0.485    0.000    2.069    0.000 ops.py:3706(as_default)
+        8    0.000    0.000    0.000    0.000 ops.py:3753(add_to_collection)
+        4    0.000    0.000    0.000    0.000 ops.py:3771(add_to_collections)
+       46    0.000    0.000    0.000    0.000 ops.py:3870(_original_op)
+     1068    0.000    0.000    0.001    0.000 ops.py:3895(_name_stack)
+      582    0.000    0.000    0.000    0.000 ops.py:3902(_name_stack)
+      582    0.001    0.000    0.004    0.000 ops.py:3907(name_scope)
+      247    0.001    0.000    0.001    0.000 ops.py:4022(unique_name)
+        8    0.000    0.000    0.000    0.000 ops.py:4074(get_name_scope)
+      106    0.000    0.000    0.002    0.000 ops.py:4091(_colocate_with_for_gradient)
+      106    0.000    0.000    0.002    0.000 ops.py:4104(colocate_with)
+       27    0.000    0.000    0.001    0.000 ops.py:4180(_add_device_to_stack)
+       54    0.000    0.000    0.001    0.000 ops.py:4187(device)
+      208    0.000    0.000    0.003    0.000 ops.py:4251(_apply_device_functions)
+       25    0.000    0.000    0.000    0.000 ops.py:4323(__init__)
+       72    0.000    0.000    0.002    0.000 ops.py:434(_c_api_shape)
+       25    0.000    0.000    0.000    0.000 ops.py:4358(__enter__)
+       25    0.000    0.000    0.000    0.000 ops.py:4368(__exit__)
+       27    0.000    0.000    0.000    0.000 ops.py:4376(control_inputs)
+       41    0.000    0.000    0.000    0.000 ops.py:4380(add_op)
+       32    0.000    0.000    0.000    0.000 ops.py:4383(op_in_group)
+       25    0.000    0.000    0.000    0.000 ops.py:4386(_push_control_dependencies_controller)
+       25    0.000    0.000    0.000    0.000 ops.py:4389(_pop_control_dependencies_controller)
+       17    0.000    0.000    0.000    0.000 ops.py:4393(_current_control_dependencies)
+      208    0.000    0.000    0.000    0.000 ops.py:4400(_control_dependencies_for_inputs)
+       60    0.000    0.000    0.000    0.000 ops.py:442(<listcomp>)
+       26    0.000    0.000    0.000    0.000 ops.py:4431(<listcomp>)
+      208    0.000    0.000    0.000    0.000 ops.py:4434(_record_op_seen_by_control_dependencies)
+       25    0.000    0.000    0.001    0.000 ops.py:4443(control_dependencies)
+        8    0.000    0.000    0.000    0.000 ops.py:4554(_attr_scope)
+       29    0.000    0.000    0.001    0.000 ops.py:472(_shape_as_list)
+       29    0.000    0.000    0.000    0.000 ops.py:474(<listcomp>)
+        3    0.000    0.000    0.000    0.000 ops.py:4746(prevent_feeding)
+      182    0.000    0.000    0.000    0.000 ops.py:4758(is_fetchable)
+       29    0.000    0.000    0.001    0.000 ops.py:478(_shape_tuple)
+      539    0.000    0.000    0.000    0.000 ops.py:4782(_device_function_stack)
+      208    0.000    0.000    0.001    0.000 ops.py:4803(_snapshot_device_function_stack_metadata)
+      122    0.000    0.000    0.000    0.000 ops.py:4820(_device_function_stack)
+      633    0.000    0.000    0.000    0.000 ops.py:4829(_colocation_stack)
+        2    0.000    0.000    0.000    0.000 ops.py:484(_rank)
+      208    0.000    0.000    0.001    0.000 ops.py:4844(_snapshot_colocation_stack_metadata)
+      208    0.000    0.000    0.001    0.000 ops.py:4847(<dictcomp>)
+       32    0.000    0.000    0.000    0.000 ops.py:4849(_colocation_stack)
+      516    0.000    0.000    0.000    0.000 ops.py:4858(_control_dependencies_stack)
+       16    0.000    0.000    0.000    0.000 ops.py:4870(_control_dependencies_stack)
+      209    0.000    0.000    0.001    0.000 ops.py:4889(_mutation_lock)
+       90    0.000    0.000    0.000    0.000 ops.py:4896(_session_run_lock)
+       27    0.000    0.000    0.000    0.000 ops.py:4908(device)
+       69    0.000    0.000    0.001    0.000 ops.py:492(get_shape)
+       53    0.000    0.000    0.000    0.000 ops.py:4952(_colocate_with_for_gradient)
+       32    0.000    0.000    0.001    0.000 ops.py:496(set_shape)
+       25    0.000    0.000    0.000    0.000 ops.py:4970(colocate_with)
+       25    0.000    0.000    0.001    0.000 ops.py:4975(control_dependencies)
+   846891    0.640    0.000    0.747    0.000 ops.py:5015(get_default)
+   846950    0.843    0.000    1.069    0.000 ops.py:5032(get_controller)
+   422909    0.460    0.000    0.835    0.000 ops.py:5102(get_default_session)
+   423982    0.390    0.000    0.761    0.000 ops.py:5202(get_default)
+        6    0.000    0.000    0.000    0.000 ops.py:5209(_GetGlobalDefaultGraph)
+   846950    3.425    0.000   11.219    0.000 ops.py:5222(get_controller)
+       16    0.000    0.000    0.001    0.000 ops.py:5240(init_scope)
+   423982    0.277    0.000    1.038    0.000 ops.py:5545(get_default_graph)
+        9    0.000    0.000    0.000    0.000 ops.py:5563(has_default_graph)
+      154    0.000    0.000    0.000    0.000 ops.py:5588(_assert_same_graph)
+      470    0.001    0.000    0.004    0.000 ops.py:5603(_get_graph_from_inputs)
+     1373    0.000    0.000    0.000    0.000 ops.py:563(value_index)
+      759    0.001    0.000    0.011    0.000 ops.py:568(consumers)
+      759    0.001    0.000    0.002    0.000 ops.py:578(<listcomp>)
+        4    0.000    0.000    0.000    0.000 ops.py:5857(add_to_collections)
+      291    0.000    0.000    0.001    0.000 ops.py:5968(__init__)
+      291    0.001    0.000    0.012    0.000 ops.py:5982(__enter__)
+     1326    0.002    0.000    0.017    0.000 ops.py:602(_as_tf_output)
+      291    0.000    0.000    0.004    0.000 ops.py:6033(__exit__)
+       12    0.000    0.000    0.001    0.000 ops.py:615(__repr__)
+     2527    0.001    0.000    0.001    0.000 ops.py:619(__hash__)
+       18    0.000    0.000    0.000    0.000 ops.py:623(__eq__)
+       27    0.000    0.000    0.000    0.000 ops.py:82(__init__)
+      318    0.000    0.000    0.001    0.000 ops.py:978(_TensorTensorConversionFunction)
+       47    0.000    0.000    0.005    0.000 ops.py:995(convert_to_tensor)
+        1    0.000    0.000    0.153    0.153 optimizers.py:177(get_updates)
+        1    0.000    0.000    0.000    0.000 optimizers.py:187(<listcomp>)
+        1    0.000    0.000    0.018    0.018 optimizers.py:188(<listcomp>)
+        1    0.000    0.000    0.101    0.101 optimizers.py:69(get_gradients)
+        1    0.000    0.000    0.000    0.000 os.py:720(__getitem__)
+        1    0.000    0.000    0.000    0.000 os.py:796(encode)
+       42    0.000    0.000    0.000    0.000 os.py:851(fsencode)
+        8    0.000    0.000    0.000    0.000 parse.py:100(_coerce_args)
+        4    0.000    0.000    0.000    0.000 parse.py:288(urlparse)
+        4    0.000    0.000    0.000    0.000 parse.py:321(urlsplit)
+        8    0.000    0.000    0.000    0.000 parse.py:89(_noop)
+        3    0.000    0.000    0.000    0.000 posixpath.py:115(splitext)
+        3    0.000    0.000    0.000    0.000 posixpath.py:128(splitdrive)
+        3    0.000    0.000    0.000    0.000 posixpath.py:318(normpath)
+        1    0.000    0.000    0.000    0.000 posixpath.py:355(abspath)
+        3    0.000    0.000    0.000    0.000 posixpath.py:39(_get_sep)
+        1    0.000    0.000    0.000    0.000 posixpath.py:61(isabs)
+        2    0.000    0.000    0.000    0.000 posixpath.py:71(join)
+        1    0.000    0.000    0.000    0.000 py3k.py:37(asstr)
+        1    0.000    0.000    0.000    0.000 py3k.py:94(is_pathlib_path)
+     4855    0.001    0.000    0.008    0.000 pywrap_tensorflow_internal.py:1038(<lambda>)
+     1524    0.001    0.000    0.003    0.000 pywrap_tensorflow_internal.py:1040(<lambda>)
+     1524    0.004    0.000    0.010    0.000 pywrap_tensorflow_internal.py:1051(__init__)
+     1807    0.000    0.000    0.000    0.000 pywrap_tensorflow_internal.py:1058(<lambda>)
+        1    0.000    0.000    0.000    0.000 pywrap_tensorflow_internal.py:1656(TF_NewSessionOptions)
+   422829    0.300    0.000    1.087    0.000 pywrap_tensorflow_internal.py:2124(Flatten)
+     5460    0.004    0.000    0.006    0.000 pywrap_tensorflow_internal.py:39(_swig_setattr_nondynamic)
+     5460    0.002    0.000    0.007    0.000 pywrap_tensorflow_internal.py:58(_swig_setattr)
+     1524    0.002    0.000    0.002    0.000 pywrap_tensorflow_internal.py:62(_swig_getattr_nondynamic)
+     1524    0.001    0.000    0.003    0.000 pywrap_tensorflow_internal.py:73(_swig_getattr)
+      605    0.000    0.000    0.001    0.000 pywrap_tensorflow_internal.py:894(<lambda>)
+      605    0.000    0.000    0.000    0.000 pywrap_tensorflow_internal.py:918(<lambda>)
+     5234    0.005    0.000    0.007    0.000 random.py:220(_randbelow)
+      870    0.009    0.000    0.026    0.000 random.py:280(sample)
+     1048    0.000    0.000    0.000    0.000 random.py:342(uniform)
+       23    0.000    0.000    0.000    0.000 registry.py:78(lookup)
+       18    0.000    0.000    0.000    0.000 resource_variable_ops.py:102(_handle_graph)
+        4    0.000    0.000    0.003    0.001 resource_variable_ops.py:1206(_dense_var_to_tensor)
+        4    0.000    0.000    0.003    0.001 resource_variable_ops.py:1257(_dense_var_to_tensor)
+        9    0.000    0.000    0.005    0.001 resource_variable_ops.py:1267(__init__)
+        9    0.000    0.000    0.005    0.001 resource_variable_ops.py:1304(read_value)
+        9    0.000    0.000    0.005    0.001 resource_variable_ops.py:1307(_read_variable_op)
+        4    0.000    0.000    0.000    0.000 resource_variable_ops.py:1445(_ReadGrad)
+        4    0.000    0.000    0.000    0.000 resource_variable_ops.py:1509(is_resource_variable)
+        4    0.000    0.000    0.013    0.003 resource_variable_ops.py:220(__init__)
+        4    0.000    0.000    0.013    0.003 resource_variable_ops.py:300(_init_from_args)
+        2    0.000    0.000    0.000    0.000 resource_variable_ops.py:549(_assign_dependencies)
+        4    0.000    0.000    0.003    0.001 resource_variable_ops.py:58(eager_safe_variable_handle)
+       43    0.000    0.000    0.000    0.000 resource_variable_ops.py:586(dtype)
+       18    0.000    0.000    0.000    0.000 resource_variable_ops.py:591(device)
+        8    0.000    0.000    0.000    0.000 resource_variable_ops.py:596(graph)
+      504    0.000    0.000    0.000    0.000 resource_variable_ops.py:601(name)
+        4    0.000    0.000    0.000    0.000 resource_variable_ops.py:606(shape)
+       34    0.000    0.000    0.000    0.000 resource_variable_ops.py:633(handle)
+       16    0.000    0.000    0.011    0.001 resource_variable_ops.py:638(value)
+      194    0.000    0.000    0.000    0.000 resource_variable_ops.py:646(_as_graph_element)
+       12    0.000    0.000    0.000    0.000 resource_variable_ops.py:650(initializer)
+        4    0.000    0.000    0.000    0.000 resource_variable_ops.py:662(constraint)
+       20    0.000    0.000    0.013    0.001 resource_variable_ops.py:723(_read_variable_op)
+       12    0.000    0.000    0.008    0.001 resource_variable_ops.py:821(_AsTensor)
+       12    0.000    0.000    0.019    0.002 resource_variable_ops.py:843(_run_op)
+       12    0.000    0.000    0.006    0.001 resource_variable_ops.py:858(is_initialized)
+        1    0.000    0.000    0.002    0.002 resource_variable_ops.py:898(assign_add)
+        9    0.000    0.000    0.005    0.001 resource_variable_ops.py:922(_lazy_read)
+        8    0.000    0.000    0.010    0.001 resource_variable_ops.py:931(assign)
+       42    0.009    0.000    0.171    0.004 saving.py:711(save_weights_to_hdf5_group)
+       42    0.000    0.000    0.000    0.000 saving.py:721(<listcomp>)
+      210    0.002    0.000    0.041    0.000 saving.py:874(save_attributes_to_hdf5_group)
+      210    0.000    0.000    0.000    0.000 saving.py:891(<listcomp>)
+      210    0.000    0.000    0.000    0.000 saving.py:906(<listcomp>)
+      168    0.001    0.000    0.001    0.000 selections.py:147(__init__)
+     1008    0.000    0.000    0.000    0.000 selections.py:163(shape)
+      168    0.000    0.000    0.000    0.000 selections.py:168(nselect)
+      168    0.000    0.000    0.002    0.000 selections.py:244(__init__)
+      168    0.001    0.000    0.004    0.000 selections.py:250(__getitem__)
+      420    0.000    0.000    0.000    0.000 selections.py:267(<genexpr>)
+      168    0.001    0.000    0.006    0.000 selections.py:27(select)
+      336    0.002    0.000    0.005    0.000 selections.py:272(broadcast)
+      420    0.000    0.000    0.000    0.000 selections.py:303(<genexpr>)
+      168    0.001    0.000    0.001    0.000 selections.py:406(_expand_ellipsis)
+      168    0.000    0.000    0.000    0.000 selections.py:409(<genexpr>)
+      168    0.001    0.000    0.002    0.000 selections.py:429(_handle_simple)
+      252    0.000    0.000    0.000    0.000 selections.py:475(_translate_slice)
+   130820    0.647    0.000    0.938    0.000 sensor.py:26(detect)
+   777279    0.259    0.000    0.259    0.000 sensor.py:60(detect_xy)
+   422871    0.985    0.000    9.003    0.000 sequential.py:110(layers)
+       88    0.001    0.000    0.100    0.001 session.py:1063(_run)
+      182    0.000    0.000    0.000    0.000 session.py:127(<lambda>)
+       88    0.001    0.000    0.085    0.001 session.py:1288(_do_run)
+       88    0.000    0.000    0.000    0.000 session.py:1310(<genexpr>)
+       88    0.000    0.000    0.003    0.000 session.py:1311(<listcomp>)
+       88    0.000    0.000    0.000    0.000 session.py:1312(<listcomp>)
+       88    0.000    0.000    0.080    0.001 session.py:1315(_run_fn)
+       88    0.000    0.000    0.080    0.001 session.py:1332(_do_call)
+       90    0.000    0.000    0.021    0.000 session.py:1350(_extend_graph)
+       88    0.000    0.000    0.000    0.000 session.py:1377(_update_with_movers)
+       88    0.000    0.000    0.059    0.001 session.py:1403(_call_tf_sessionrun)
+        2    0.000    0.000    0.065    0.033 session.py:1417(__init__)
+   422825    2.072    0.000   64.067    0.000 session.py:1429(__call__)
+        2    0.000    0.000    0.065    0.033 session.py:1460(_make_callable_from_options)
+        1    0.000    0.000    0.004    0.004 session.py:1529(__init__)
+      182    0.000    0.000    0.000    0.000 session.py:194(_is_attrs_instance)
+   268/88    0.001    0.000    0.007    0.000 session.py:242(for_fetch)
+      182    0.000    0.000    0.002    0.000 session.py:280(__init__)
+      182    0.000    0.000    0.000    0.000 session.py:313(unique_fetches)
+      182    0.000    0.000    0.000    0.000 session.py:316(build_results)
+       86    0.000    0.000    0.001    0.000 session.py:324(_uniquify_fetches)
+       86    0.000    0.000    0.006    0.000 session.py:363(__init__)
+       86    0.000    0.000    0.005    0.000 session.py:370(<listcomp>)
+       86    0.000    0.000    0.000    0.000 session.py:373(unique_fetches)
+       86    0.001    0.000    0.001    0.000 session.py:376(build_results)
+      180    0.000    0.000    0.000    0.000 session.py:380(<listcomp>)
+       88    0.001    0.000    0.012    0.000 session.py:458(__init__)
+       88    0.000    0.000    0.000    0.000 session.py:492(<listcomp>)
+      182    0.000    0.000    0.000    0.000 session.py:494(_assert_fetchable)
+       88    0.000    0.000    0.000    0.000 session.py:499(fetches)
+       88    0.000    0.000    0.000    0.000 session.py:507(targets)
+       88    0.001    0.000    0.002    0.000 session.py:515(build_results)
+        1    0.000    0.000    0.004    0.004 session.py:625(__init__)
+   422997    0.113    0.000    0.113    0.000 session.py:746(graph)
+       88    0.000    0.000    0.101    0.001 session.py:819(run)
+        1    0.000    0.000    0.000    0.000 shape_base.py:291(stack)
+        1    0.000    0.000    0.000    0.000 shape_base.py:347(<listcomp>)
+        3    0.000    0.000    0.000    0.000 shape_base.py:351(<genexpr>)
+        1    0.000    0.000    0.000    0.000 shape_base.py:359(<listcomp>)
+      210    0.002    0.000    0.005    0.000 shape_base.py:656(array_split)
+        1    0.000    0.000    0.000    0.000 simulator.py:138(toCSV2)
+        4    0.000    0.000    1.201    0.300 simulator.py:21(run_simulation)
+       21    0.003    0.000  191.567    9.122 simulator.py:33(run_simulation_replay)
+        1    0.000    0.000  196.974  196.974 simulator.py:57(experiment_run)
+      236    0.000    0.000    0.000    0.000 six.py:586(iteritems)
+       12    0.000    0.000    0.006    0.001 state_ops.py:115(is_variable_initialized)
+        1    0.000    0.000    0.002    0.002 state_ops.py:163(assign_add)
+        8    0.000    0.000    0.010    0.001 state_ops.py:192(assign)
+       29    0.000    0.000    0.000    0.000 tape.py:58(variable_accessed)
+       16    0.000    0.000    0.000    0.000 tape.py:68(stop_recording)
+       20    0.000    0.000    0.000    0.000 tape.py:82(record_operation)
+       83    0.000    0.000    0.000    0.000 tensor_shape.py:30(__init__)
+       95    0.000    0.000    0.000    0.000 tensor_shape.py:466(as_dimension)
+      106    0.000    0.000    0.001    0.000 tensor_shape.py:507(__init__)
+       94    0.000    0.000    0.000    0.000 tensor_shape.py:542(<listcomp>)
+       12    0.000    0.000    0.000    0.000 tensor_shape.py:548(__str__)
+       12    0.000    0.000    0.000    0.000 tensor_shape.py:554(<genexpr>)
+      109    0.000    0.000    0.000    0.000 tensor_shape.py:556(dims)
+       81    0.000    0.000    0.000    0.000 tensor_shape.py:566(ndims)
+        6    0.000    0.000    0.000    0.000 tensor_shape.py:576(__len__)
+        7    0.000    0.000    0.000    0.000 tensor_shape.py:589(__iter__)
+        1    0.000    0.000    0.000    0.000 tensor_shape.py:640(num_elements)
+        8    0.000    0.000    0.000    0.000 tensor_shape.py:788(is_compatible_with)
+      201    0.000    0.000    0.000    0.000 tensor_shape.py:83(value)
+        8    0.000    0.000    0.000    0.000 tensor_shape.py:835(assert_is_compatible_with)
+       12    0.000    0.000    0.000    0.000 tensor_shape.py:88(is_compatible_with)
+       40    0.000    0.000    0.000    0.000 tensor_shape.py:880(is_fully_defined)
+       44    0.000    0.000    0.000    0.000 tensor_shape.py:882(<genexpr>)
+       25    0.000    0.000    0.000    0.000 tensor_shape.py:894(as_list)
+       25    0.000    0.000    0.000    0.000 tensor_shape.py:905(<listcomp>)
+       33    0.000    0.000    0.000    0.000 tensor_shape.py:907(as_proto)
+       33    0.000    0.000    0.000    0.000 tensor_shape.py:913(<listcomp>)
+       45    0.000    0.000    0.000    0.000 tensor_shape.py:942(as_shape)
+       12    0.000    0.000    0.000    0.000 tensor_shape.py:950(unknown_shape)
+       28    0.000    0.000    0.000    0.000 tensor_util.py:185(GetFromNumpyDTypeDict)
+       28    0.000    0.000    0.000    0.000 tensor_util.py:193(GetNumpyAppendFn)
+    28/26    0.000    0.000    0.000    0.000 tensor_util.py:218(_GetDenseDimensions)
+       38    0.000    0.000    0.000    0.000 tensor_util.py:253(_FirstNotNone)
+    19/16    0.000    0.000    0.000    0.000 tensor_util.py:283(_FilterInt)
+       12    0.000    0.000    0.000    0.000 tensor_util.py:285(<listcomp>)
+        7    0.000    0.000    0.000    0.000 tensor_util.py:290(_FilterFloat)
+        3    0.000    0.000    0.000    0.000 tensor_util.py:317(_FilterNotTensor)
+       26    0.000    0.000    0.000    0.000 tensor_util.py:345(_AssertCompatible)
+       26    0.000    0.000    0.000    0.000 tensor_util.py:347(<listcomp>)
+       29    0.001    0.000    0.003    0.000 tensor_util.py:356(make_tensor_proto)
+        4    0.000    0.000    0.000    0.000 tensor_util.py:485(<listcomp>)
+        3    0.000    0.000    0.000    0.000 tensor_util.py:547(MakeNdarray)
+        3    0.000    0.000    0.000    0.000 tensor_util.py:563(<listcomp>)
+        3    0.000    0.000    0.000    0.000 tensor_util.py:676(_ConstantValue)
+        3    0.000    0.000    0.000    0.000 tensor_util.py:787(constant_value)
+  1984211    2.114    0.000    5.470    0.000 tensor_util.py:941(is_tensor)
+   423277    0.494    0.000    1.121    0.000 tf_decorator.py:104(unwrap)
+      228    0.001    0.000    0.018    0.000 tf_inspect.py:199(getfullargspec)
+      228    0.000    0.000    0.000    0.000 tf_inspect.py:214(<genexpr>)
+      224    0.002    0.000    0.021    0.000 tf_inspect.py:219(getcallargs)
+      224    0.000    0.000    0.000    0.000 tf_inspect.py:240(<listcomp>)
+   422825    0.545    0.000    1.980    0.000 tf_inspect.py:328(isgenerator)
+      224    0.000    0.000    0.001    0.000 tf_inspect.py:333(ismethod)
+       69    0.000    0.000    0.000    0.000 tf_logging.py:157(vlog)
+       69    0.000    0.000    0.000    0.000 tf_logging.py:45(_get_logger)
+       12    0.000    0.000    0.000    0.000 tf_should_use.py:106(_get_wrapper)
+       12    0.000    0.000    0.001    0.000 tf_should_use.py:135(_add_should_use_warning)
+       12    0.000    0.000    0.007    0.001 tf_should_use.py:188(wrapped)
+       12    0.000    0.000    0.000    0.000 tf_should_use.py:38(__init__)
+      204    0.000    0.000    0.000    0.000 tf_should_use.py:45(sate)
+       12    0.000    0.000    0.000    0.000 tf_should_use.py:52(__del__)
+       12    0.000    0.000    0.000    0.000 tf_should_use.py:70(_new__init__)
+       24    0.000    0.000    0.000    0.000 tf_should_use.py:76(_new__setattr__)
+      204    0.000    0.000    0.000    0.000 tf_should_use.py:84(_new__getattribute__)
+      272    0.006    0.000    0.007    0.000 tf_stack.py:31(extract_stack)
+     7212    0.000    0.000    0.000    0.000 tf_stack.py:53(<lambda>)
+        4    0.003    0.001    0.016    0.004 tf_utils.py:89(get_reachable_from_inputs)
+      180    0.000    0.000    0.000    0.000 threading.py:252(_is_owned)
+      180    0.000    0.000    0.001    0.000 threading.py:332(notify)
+      180    0.000    0.000    0.001    0.000 threading.py:355(notify_all)
+       64    0.000    0.000    0.000    0.000 traceable_stack.py:108(pop_obj)
+      335    0.000    0.000    0.000    0.000 traceable_stack.py:112(peek_objs)
+      335    0.000    0.000    0.000    0.000 traceable_stack.py:114(<listcomp>)
+      416    0.000    0.000    0.000    0.000 traceable_stack.py:116(peek_traceable_objs)
+      208    0.000    0.000    0.000    0.000 traceable_stack.py:120(__len__)
+      227    0.000    0.000    0.000    0.000 traceable_stack.py:30(__init__)
+       64    0.000    0.000    0.002    0.000 traceable_stack.py:35(set_filename_and_line_from_caller)
+      163    0.000    0.000    0.000    0.000 traceable_stack.py:72(copy_metadata)
+       69    0.000    0.000    0.000    0.000 traceable_stack.py:80(__init__)
+       64    0.000    0.000    0.002    0.000 traceable_stack.py:89(push_obj)
+    41741    0.050    0.000    0.099    0.000 training.py:1163(<listcomp>)
+    41741    0.368    0.000   40.208    0.001 training.py:1340(fit)
+   381084    1.974    0.000  143.041    0.000 training.py:1778(predict)
+    41741    0.026    0.000    0.068    0.000 training.py:2300(_get_callback_model)
+    41741    0.072    0.000    0.303    0.000 training.py:666(_check_trainable_weights_consistency)
+    41741    0.048    0.000    0.529    0.000 training.py:685(_make_train_function)
+   381084    0.214    0.000    0.290    0.000 training.py:731(_make_predict_function)
+   422825    1.358    0.000   25.622    0.000 training.py:861(_standardize_user_data)
+   422825    2.179    0.000   20.183    0.000 training.py:995(_standardize_weights)
+   381084    7.891    0.000  116.934    0.000 training_arrays.py:246(predict_loop)
+    41741    1.308    0.000   35.401    0.001 training_arrays.py:39(fit_loop)
+   422825    2.248    0.000    4.219    0.000 training_utils.py:1018(__init__)
+   422825    0.591    0.000    0.591    0.000 training_utils.py:1031(<listcomp>)
+   422825    0.097    0.000    0.097    0.000 training_utils.py:1100(as_list)
+   422825    0.726    0.000    5.075    0.000 training_utils.py:173(check_num_samples)
+   464566    0.470    0.000    0.535    0.000 training_utils.py:215(standardize_single_array)
+   464566    3.089    0.000    5.376    0.000 training_utils.py:226(standardize_input_data)
+   464566    0.354    0.000    0.890    0.000 training_utils.py:284(<listcomp>)
+    83482    0.048    0.000    0.069    0.000 training_utils.py:336(standardize_sample_or_class_weights)
+    83482    0.021    0.000    0.021    0.000 training_utils.py:352(<listcomp>)
+    41741    0.018    0.000    0.044    0.000 training_utils.py:380(standardize_class_weights)
+    41741    0.029    0.000    0.073    0.000 training_utils.py:385(standardize_sample_weights)
+    41741    0.153    0.000    0.526    0.000 training_utils.py:390(check_array_lengths)
+   125223    0.114    0.000    0.363    0.000 training_utils.py:402(set_of_lengths)
+   125223    0.074    0.000    0.249    0.000 training_utils.py:408(<listcomp>)
+    41741    0.152    0.000    0.243    0.000 training_utils.py:438(check_loss_and_target_compatibility)
+    41741    0.038    0.000    0.048    0.000 training_utils.py:643(standardize_weights)
+   845650    0.770    0.000    6.548    0.000 training_utils.py:739(has_symbolic_tensors)
+   845650    1.037    0.000    4.573    0.000 training_utils.py:745(has_tensors)
+   929132    0.427    0.000    1.707    0.000 training_utils.py:747(<genexpr>)
+   845650    1.356    0.000    8.177    0.000 training_utils.py:860(check_steps_argument)
+        1    0.000    0.000    0.000    0.000 type_check.py:250(iscomplexobj)
+    83482    0.887    0.000    2.659    0.000 utils.py:1119(_median_nancheck)
+      294    0.002    0.000    0.002    0.000 uuid.py:106(__init__)
+      294    0.000    0.000    0.000    0.000 uuid.py:280(hex)
+      294    0.001    0.000    0.004    0.000 uuid.py:601(uuid4)
+       29    0.000    0.000    0.000    0.000 variables.py:1617(trainable)
+       13    0.000    0.000    0.019    0.001 variables.py:181(__call__)
+        4    0.000    0.000    0.000    0.000 variables.py:2132(_try_guard_against_uninitialized_dependencies)
+      6/4    0.000    0.000    0.000    0.000 variables.py:2161(has_cycle)
+      6/4    0.000    0.000    0.000    0.000 variables.py:2179(_safe_initial_value_from_tensor)
+      6/4    0.000    0.000    0.000    0.000 variables.py:2199(_safe_initial_value_from_op)
+        2    0.000    0.000    0.005    0.002 variables.py:2809(variables_initializer)
+        2    0.000    0.000    0.000    0.000 variables.py:2831(<listcomp>)
+       12    0.000    0.000    0.006    0.001 variables.py:2887(is_variable_initialized)
+     3219    0.004    0.000    0.006    0.000 vect.py:10(dist)
+    11265    0.018    0.000    0.036    0.000 vect.py:16(angle)
+    22530    0.010    0.000    0.014    0.000 vect.py:3(len)
+        4    0.000    0.000    0.000    0.000 weakref.py:364(__getitem__)
+   422909    0.291    0.000    0.379    0.000 weakref.py:399(get)
+        4    0.000    0.000    0.000    0.000 weakref.py:402(__contains__)
+   422909    0.485    0.000    0.680    0.000 weakref.py:455(setdefault)
+   423738    0.276    0.000    0.276    0.000 {built-in method __new__ of type object at 0xa3ede0}
+      100    0.000    0.000    0.000    0.000 {built-in method _codecs.utf_8_decode}
+       52    0.000    0.000    0.000    0.000 {built-in method _locale.nl_langinfo}
+   170129    0.023    0.000    0.023    0.000 {built-in method _operator.index}
+       90    0.019    0.000    0.019    0.000 {built-in method _pywrap_tensorflow_internal.ExtendSession}
+   422829    0.786    0.000    0.787    0.000 {built-in method _pywrap_tensorflow_internal.Flatten}
+      208    0.001    0.000    0.001    0.000 {built-in method _pywrap_tensorflow_internal.GetOperationInputs}
+      131    0.001    0.000    0.001    0.000 {built-in method _pywrap_tensorflow_internal.SetAttr}
+       23    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.SetRequestedDevice}
+      162    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TFE_Py_RecordGradient}
+       20    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TFE_Py_TapeSetRecordOperation}
+        8    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TFE_Py_TapeSetRestartOnThread}
+        8    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TFE_Py_TapeSetStopOnThread}
+       29    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TFE_Py_TapeVariableAccessed}
+      198    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TFE_Py_UID}
+       34    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TF_AddControlInput}
+        2    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TF_AddInputList}
+      279    0.001    0.000    0.001    0.000 {built-in method _pywrap_tensorflow_internal.TF_AddInput}
+      605    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TF_DeleteBuffer}
+        1    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TF_DeleteSessionOptions}
+   422827    0.223    0.000    0.223    0.000 {built-in method _pywrap_tensorflow_internal.TF_DeleteStatus}
+      208    0.004    0.000    0.004    0.000 {built-in method _pywrap_tensorflow_internal.TF_FinishOperation}
+      303    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TF_GetBuffer}
+   422827    0.458    0.000    0.458    0.000 {built-in method _pywrap_tensorflow_internal.TF_GetCode}
+       29    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TF_GraphGetOpDef}
+       72    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TF_GraphGetTensorShapeHelper}
+       32    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TF_GraphSetTensorShape_wrapper}
+      133    0.000    0.000    0.001    0.000 {built-in method _pywrap_tensorflow_internal.TF_NewBufferFromString}
+      472    0.001    0.000    0.002    0.000 {built-in method _pywrap_tensorflow_internal.TF_NewBuffer}
+      208    0.001    0.000    0.001    0.000 {built-in method _pywrap_tensorflow_internal.TF_NewOperation}
+        1    0.004    0.004    0.004    0.004 {built-in method _pywrap_tensorflow_internal.TF_NewSessionRef}
+   422827    0.381    0.000    0.381    0.000 {built-in method _pywrap_tensorflow_internal.TF_NewStatus}
+      225    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TF_OperationDevice}
+      437    0.002    0.000    0.002    0.000 {built-in method _pywrap_tensorflow_internal.TF_OperationGetAttrValueProto}
+        6    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TF_OperationGetControlInputs_wrapper}
+      692    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TF_OperationGetControlOutputs_wrapper}
+     1313    0.001    0.000    0.001    0.000 {built-in method _pywrap_tensorflow_internal.TF_OperationName}
+      208    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TF_OperationNumOutputs}
+     1043    0.001    0.000    0.001    0.000 {built-in method _pywrap_tensorflow_internal.TF_OperationOpType}
+      759    0.001    0.000    0.001    0.000 {built-in method _pywrap_tensorflow_internal.TF_OperationOutputConsumers_wrapper}
+      198    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TF_OperationOutputType}
+        6    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal.TF_OperationToNodeDef}
+     1524    0.001    0.000    0.001    0.000 {built-in method _pywrap_tensorflow_internal.TF_Output_index_set}
+     1524    0.001    0.000    0.001    0.000 {built-in method _pywrap_tensorflow_internal.TF_Output_oper_set}
+        2    0.065    0.033    0.065    0.033 {built-in method _pywrap_tensorflow_internal.TF_SessionMakeCallable}
+   422825   58.115    0.000   58.115    0.000 {built-in method _pywrap_tensorflow_internal.TF_SessionRunCallable}
+       88    0.059    0.001    0.059    0.001 {built-in method _pywrap_tensorflow_internal.TF_SessionRun_wrapper}
+      309    0.001    0.000    0.001    0.000 {built-in method _pywrap_tensorflow_internal.TF_SetAttrValueProto}
+        1    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal._TF_NewSessionOptions}
+        1    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal._TF_SetConfig}
+        1    0.000    0.000    0.000    0.000 {built-in method _pywrap_tensorflow_internal._TF_SetTarget}
+     1524    0.001    0.000    0.001    0.000 {built-in method _pywrap_tensorflow_internal.new_TF_Output}
+        2    0.000    0.000    0.000    0.000 {built-in method _thread.allocate_lock}
+        2    0.000    0.000    0.000    0.000 {built-in method _thread.get_ident}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.__build_class__}
+    28145    0.002    0.000    0.002    0.000 {built-in method builtins.abs}
+      239    0.000    0.000    0.001    0.000 {built-in method builtins.all}
+  1269363    0.524    0.000    2.232    0.000 {built-in method builtins.any}
+      506    0.000    0.000    0.000    0.000 {built-in method builtins.callable}
+      210    0.000    0.000    0.000    0.000 {built-in method builtins.divmod}
+        1    0.000    0.000  196.974  196.974 {built-in method builtins.exec}
+6899122/6899110    1.143    0.000    1.143    0.000 {built-in method builtins.getattr}
+ 12551851    4.329    0.000    7.599    0.000 {built-in method builtins.hasattr}
+       23    0.000    0.000    0.000    0.000 {built-in method builtins.hash}
+     2589    0.000    0.000    0.000    0.000 {built-in method builtins.id}
+ 18057390    3.584    0.000    3.592    0.000 {built-in method builtins.isinstance}
+668256/668084    0.237    0.000    0.239    0.000 {built-in method builtins.issubclass}
+      893    0.000    0.000    0.000    0.000 {built-in method builtins.iter}
+8086731/8086704    0.795    0.000    0.795    0.000 {built-in method builtins.len}
+        2    0.000    0.000    0.000    0.000 {built-in method builtins.locals}
+      218    0.000    0.000    0.000    0.000 {built-in method builtins.max}
+   422825    0.252    0.000    0.252    0.000 {built-in method builtins.min}
+2543221/849095    1.002    0.000   11.600    0.000 {built-in method builtins.next}
+      914    0.003    0.000    0.003    0.000 {built-in method builtins.print}
+       12    0.000    0.000    0.001    0.000 {built-in method builtins.repr}
+    83609    0.122    0.000    0.122    0.000 {built-in method builtins.sorted}
+      168    0.000    0.000    0.000    0.000 {built-in method builtins.sum}
+      294    0.000    0.000    0.000    0.000 {built-in method from_bytes}
+      756    0.004    0.000    0.004    0.000 {built-in method h5py.h5t.py_create}
+       52    0.002    0.000    0.002    0.000 {built-in method io.open}
+    11265    0.003    0.000    0.003    0.000 {built-in method math.acos}
+      589    0.001    0.000    0.001    0.000 {built-in method math.ceil}
+    11265    0.001    0.000    0.001    0.000 {built-in method math.degrees}
+    11265    0.002    0.000    0.002    0.000 {built-in method math.exp}
+      589    0.001    0.000    0.001    0.000 {built-in method math.log}
+    25749    0.005    0.000    0.005    0.000 {built-in method math.sqrt}
+   422830    0.920    0.000    0.920    0.000 {built-in method numpy.core.multiarray.arange}
+   891993    3.197    0.000    3.197    0.000 {built-in method numpy.core.multiarray.array}
+        1    0.000    0.000    0.000    0.000 {built-in method numpy.core.multiarray.concatenate}
+     9495    0.211    0.000    0.211    0.000 {built-in method numpy.core.multiarray.dot}
+        8    0.000    0.000    0.000    0.000 {built-in method numpy.core.multiarray.dragon4_positional}
+     3165    0.002    0.000    0.002    0.000 {built-in method numpy.core.multiarray.empty_like}
+        1    0.000    0.000    0.000    0.000 {built-in method numpy.core.multiarray.fromiter}
+   170130    0.071    0.000    0.071    0.000 {built-in method numpy.core.multiarray.normalize_axis_index}
+   477412    1.076    0.000    1.076    0.000 {built-in method numpy.core.multiarray.zeros}
+        1    0.000    0.000    0.000    0.000 {built-in method posix.getcwd}
+        1    0.000    0.000    0.000    0.000 {built-in method posix.stat}
+      294    0.001    0.000    0.001    0.000 {built-in method posix.urandom}
+      453    0.000    0.000    0.000    0.000 {built-in method sys.exc_info}
+     1032    4.007    0.004    4.007    0.004 {built-in method time.sleep}
+   250552    0.066    0.000    0.066    0.000 {built-in method time.time}
+      416    0.001    0.000    0.001    0.000 {method 'ByteSize' of 'google.protobuf.pyext._message.CMessage' objects}
+      342    0.001    0.000    0.001    0.000 {method 'CopyFrom' of 'google.protobuf.pyext._message.CMessage' objects}
+     2281    0.001    0.000    0.001    0.000 {method 'HasField' of 'google.protobuf.pyext._message.CMessage' objects}
+      303    0.001    0.000    0.001    0.000 {method 'ParseFromString' of 'google.protobuf.pyext._message.CMessage' objects}
+      443    0.001    0.000    0.001    0.000 {method 'SerializeToString' of 'google.protobuf.pyext._message.CMessage' objects}
+      268    0.000    0.000    0.000    0.000 {method 'WhichOneof' of 'google.protobuf.pyext._message.CMessage' objects}
+       23    0.000    0.000    0.000    0.000 {method '__reduce_ex__' of 'object' objects}
+      165    0.000    0.000    0.000    0.000 {method '__subclasses__' of 'type' objects}
+      778    0.000    0.000    0.000    0.000 {method 'acquire' of '_thread.lock' objects}
+   424826    0.111    0.000    0.111    0.000 {method 'add' of 'set' objects}
+        5    0.000    0.000    0.000    0.000 {method 'all' of 'numpy.ndarray' objects}
+    83549    0.011    0.000    0.011    0.000 {method 'append' of 'collections.deque' objects}
+        8    0.000    0.000    0.000    0.000 {method 'append' of 'google.protobuf.pyext._message.RepeatedScalarContainer' objects}
+  5162464    0.939    0.000    0.939    0.000 {method 'append' of 'list' objects}
+      160    0.000    0.000    0.000    0.000 {method 'argmax' of 'numpy.ndarray' objects}
+        1    0.000    0.000    0.000    0.000 {method 'astype' of 'numpy.generic' objects}
+        5    0.000    0.000    0.000    0.000 {method 'astype' of 'numpy.ndarray' objects}
+     5234    0.001    0.000    0.001    0.000 {method 'bit_length' of 'int' objects}
+     4085    0.158    0.000    0.221    0.000 {method 'choice' of 'mtrand.RandomState' objects}
+       52    0.000    0.000    0.000    0.000 {method 'close' of '_io.TextIOWrapper' objects}
+      226    0.000    0.000    0.000    0.000 {method 'copy' of 'dict' objects}
+      294    0.000    0.000    0.000    0.000 {method 'count' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 {method 'count' of 'str' objects}
+      210    0.001    0.000    0.001    0.000 {method 'cumsum' of 'numpy.ndarray' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        2    0.000    0.000    0.000    0.000 {method 'discard' of 'set' objects}
+     2531    0.001    0.000    0.001    0.000 {method 'encode' of 'str' objects}
+       45    0.000    0.000    0.000    0.000 {method 'endswith' of 'str' objects}
+       37    0.000    0.000    0.000    0.000 {method 'extend' of 'collections.deque' objects}
+      702    0.000    0.000    0.000    0.000 {method 'extend' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 {method 'find' of 'str' objects}
+    83482    0.126    0.000    0.126    0.000 {method 'flatten' of 'numpy.ndarray' objects}
+  1067003    0.221    0.000    0.221    0.000 {method 'get' of 'dict' objects}
+     8373    0.001    0.000    0.001    0.000 {method 'getrandbits' of '_random.Random' objects}
+   392460    1.747    0.000    1.747    0.000 {method 'index' of 'list' objects}
+      252    0.000    0.000    0.000    0.000 {method 'indices' of 'slice' objects}
+    84894    0.050    0.000    0.050    0.000 {method 'insert' of 'list' objects}
+     2198    0.000    0.000    0.000    0.000 {method 'isidentifier' of 'str' objects}
+   134264    0.030    0.000    0.030    0.000 {method 'items' of 'dict' objects}
+       61    0.000    0.000    0.000    0.000 {method 'join' of 'str' objects}
+        5    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+      247    0.000    0.000    0.000    0.000 {method 'lower' of 'str' objects}
+       12    0.000    0.000    0.000    0.000 {method 'lstrip' of 'str' objects}
+      499    0.001    0.000    0.001    0.000 {method 'match' of '_sre.SRE_Pattern' objects}
+    83482    0.541    0.000    0.541    0.000 {method 'partition' of 'numpy.ndarray' objects}
+      380    0.000    0.000    0.000    0.000 {method 'pop' of 'dict' objects}
+   849367    0.253    0.000    0.253    0.000 {method 'pop' of 'list' objects}
+      120    0.000    0.000    0.000    0.000 {method 'popleft' of 'collections.deque' objects}
+     5078    0.001    0.000    0.001    0.000 {method 'random' of '_random.Random' objects}
+        1    0.000    0.000    0.000    0.000 {method 'ravel' of 'numpy.generic' objects}
+     3192    0.002    0.000    0.002    0.000 {method 'ravel' of 'numpy.ndarray' objects}
+       50    0.001    0.000    0.001    0.000 {method 'readlines' of '_io._IOBase' objects}
+   130253    0.950    0.000    0.950    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+      598    0.000    0.000    0.000    0.000 {method 'release' of '_thread.lock' objects}
+   423107    0.104    0.000    0.104    0.000 {method 'remove' of 'set' objects}
+        2    0.000    0.000    0.000    0.000 {method 'repeat' of 'numpy.ndarray' objects}
+       45    0.000    0.000    0.000    0.000 {method 'replace' of 'str' objects}
+   467894    0.443    0.000    0.443    0.000 {method 'reshape' of 'numpy.ndarray' objects}
+      440    0.000    0.000    0.000    0.000 {method 'reverse' of 'list' objects}
+        6    0.000    0.000    0.000    0.000 {method 'rfind' of 'str' objects}
+       25    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
+   506391    0.211    0.000    0.211    0.000 {method 'setdefault' of 'dict' objects}
+    41741    0.828    0.000    0.934    0.000 {method 'shuffle' of 'mtrand.RandomState' objects}
+       53    0.000    0.000    0.000    0.000 {method 'split' of 'str' objects}
+       21    0.000    0.000    0.000    0.000 {method 'startswith' of 'bytes' objects}
+      258    0.000    0.000    0.000    0.000 {method 'startswith' of 'str' objects}
+      420    0.000    0.000    0.000    0.000 {method 'swapaxes' of 'numpy.ndarray' objects}
+      169    0.000    0.000    0.000    0.000 {method 'throw' of 'generator' objects}
+   422825    0.243    0.000    0.243    0.000 {method 'tolist' of 'numpy.ndarray' objects}
+        1    0.000    0.000    0.000    0.000 {method 'tostring' of 'numpy.ndarray' objects}
+    83482    0.077    0.000    0.077    0.000 {method 'transpose' of 'numpy.ndarray' objects}
+      249    0.000    0.000    0.000    0.000 {method 'update' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {method 'update' of 'set' objects}
+       46    0.000    0.000    0.000    0.000 {method 'upper' of 'str' objects}
+      179    0.000    0.000    0.000    0.000 {method 'values' of 'dict' objects}
+      228    0.000    0.000    0.000    0.000 {method 'values' of 'mappingproxy' objects}
+        2    0.000    0.000    0.000    0.000 {method 'write' of '_io.TextIOWrapper' objects}
+        8    0.000    0.000    0.000    0.000 {tensorflow.python.framework.fast_tensor_util.AppendFloat32ArrayToTensorProto}
+       19    0.000    0.000    0.000    0.000 {tensorflow.python.framework.fast_tensor_util.AppendInt32ArrayToTensorProto}
+        1    0.000    0.000    0.000    0.000 {tensorflow.python.framework.fast_tensor_util.AppendInt64ArrayToTensorProto}
+
+

@@ -72,10 +72,23 @@ class Agent:
             i+=1
 
         #Energy input units
+        e_l = 11
+        e_pas = 10
+
+        for i in range(0,16):
+            val = i*10
+            if abs(val - self.energy) <= e_l:
+                input_vec[124 + i] = 1
+
+        #print("Energy="+str(self.energy)+", vec="+str(input_vec[124:140]))
+
+        """
         ind = floor((self.energy+3)/7)
         if ind > 15:
             ind = 15
         input_vec[124 + ind] = 1
+        """
+
 
         #History input units. N->E->S->W
         if self.action != -1 :
