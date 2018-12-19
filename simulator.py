@@ -29,6 +29,7 @@ class Simulator:
 
 			game_state = self.env.update_q()
 			time.sleep(delay)
+		return game_state
 
 	def run_simulation_replay(self, nomap = False, delay = 0):
 		"""
@@ -54,9 +55,18 @@ class Simulator:
 			print("Couldn't load last quicksave. Create new")
 		time.sleep(1)
 
+	def load_good_save(self):
+		save_path = self.save_path + "trained/"
+		try:
+			self.env.load_nn(save_path + "good.h5")
+			print("Successfully loaded good network! ")
+		except:
+			print("Couldn't load good network.")
+			return -1
+		time.sleep(1)
+		return 0
 
-
-	def experiment_run(self, replay=False, nb_train=300,nb_test=50,period_test=20,delay = 0, nomap=False):
+	def experiment_run(self, replay=False, nb_train=300, nb_test=50, period_test=20, delay=0, nomap=False):
 		save_path = self.save_path + "experimentrun/"
 		mean_food = []
 		std_food = []
@@ -64,49 +74,47 @@ class Simulator:
 		no_map = nomap
 
 		step=0
-		while (step<=nb_train):
+		while step <= nb_train:
 
-			#Run tests every 'period_test' steps
-			if (step % period_test == 0):
+			# Run tests every 'period_test' steps
+			if step % period_test == 0:
 				food_array = np.zeros(nb_test)
 				
 				self.env.desactivate_learning()
 				for i in range(0,nb_test):
 
-					#Load corresponding map
+					# Load corresponding map
 					m = self.test_map_path+str(i)+".txt"
 					if DEBUG:
 						print("##Test "+str(i)+" of step "+str(step)+"##")
 						print("Loading : "+m)
 					self.env.load_map(m)
 
+					# Run one simulation turn
+					self.run_simulation(delay=delay ,nomap=no_map)
 
-					#Run one simulation turn
-					self.run_simulation(delay=delay,nomap=no_map)
-
-					#Save and reset
+					# Save and reset
 					food_array[i] = (15-self.env.food_counter)
 					self.env.reset()
 
-					
-				#Retrieve mean food
+				# Retrieve mean food
 				self.env.activate_learning()
 				print("Step="+str(step)+"Foods = "+str(food_array))
 				mean_food.append(np.mean(food_array))
 				std_food.append(np.std(food_array))
 				#time.sleep(2)
 
-			#Load corresponding map
+			# Load corresponding map
 			m = self.train_map_path+str(step)+".txt"
 			self.env.load_map(m)
 			if DEBUG :
 				print("Loaded : "+m)
 
-			#Run one simulation turn
+			# Run one simulation turn
 			if not replay:
-				self.run_simulation(delay=delay,nomap=no_map)
-			else :
-				self.run_simulation_replay(delay=0.0,nomap=no_map)
+				self.run_simulation(delay=delay, nomap=no_map)
+			else:
+				self.run_simulation_replay(delay=0.0, nomap=no_map)
 
 			#Save and reset
 			name = "exp_step"+str(step)+"_"
@@ -116,7 +124,33 @@ class Simulator:
 
 			step += 1
 
-		self.toCSV2("exp",mean_food,std_food)
+		self.toCSV2("exp", mean_food, std_food)
+
+	def saved_experiment_run(self):
+
+		state=self.load_good_save()
+		if state==-1:
+			print("No good network saved. Exit")
+			return
+
+		self.env.desactivate_learning()
+
+		# Load corresponding map
+		self.ask_load_map()
+
+		# Run one simulation turn
+		game_state = self.run_simulation(delay=0.1, nomap=False)
+
+		if game_state ==1:
+			print("Winner !")
+		else:
+			print("Loser ...")
+
+	def ask_load_map(self):
+		print("Choose a map by entering a number between 1 and 300:")
+		n = input()
+		m = self.train_map_path + str(n) + ".txt"
+		self.env.load_map(m)
 
 
 	def toCSV(self,name,mean_food):
@@ -178,8 +212,8 @@ class Simulator:
 			step += 1
 
 	def manual_run(self):
-		env.run_manual()
-		env.reset()
+		self.env.run_manual()
+		self.env.reset()
 
 	def generate_maps(self,nb_train,nb_test):
 		"""

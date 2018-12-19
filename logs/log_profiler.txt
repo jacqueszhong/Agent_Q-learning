@@ -1195,7 +1195,7 @@ Save time : 0.00436711311340332
       870    0.155    0.000  191.562    0.220 environment.py:238(update_q_replay)
        21    0.000    0.000    0.000    0.000 environment.py:320(save_lesson)
      1030    0.007    0.000    1.291    0.001 environment.py:327(step)
-     1009    0.062    0.000    0.280    0.000 environment.py:365(move_all_ennemies)
+     1009    0.062    0.000    0.280    0.000 environment.py:365(move_all_enemies)
        25    0.001    0.000    0.004    0.000 environment.py:40(init_map)
     12862    0.006    0.000    0.006    0.000 environment.py:403(is_outside_map)
     11265    0.005    0.000    0.005    0.000 environment.py:441(t)

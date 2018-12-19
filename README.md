@@ -4,7 +4,13 @@ Self-learning agent based on Q-learning
 This project is based on the article "Self-Improving Reactive Agent Based on Reinforcement Learning" by Long-Ji Lin (1992).
 Coded in Python.
 
-We developped this project as part of our master's degree in AI in 2018.
+We developed this project as part of our master's degree in AI in 2018.
+
+## Packages required
+keras
+tensorFlow
+numpy
+gym
 
 ## Getting Started
 
@@ -16,10 +22,18 @@ Your initial energy level is 40 and you earn 15 every time you eat.
 Once the game is running no more food can appear on the map.
 If one ennemy is on the same place than you or if you run out of energy you die.
 
-To run the simulation as a game just run the main.py file
+To start the simulator run the main.py file
 ```
 python main.py
 ```
+
+You have to choose between 4 modes:
+- Manual mode -> you control the agent
+- Smart mode -> using Q-learning, the agent use its policy to move itself in the environment and learn from its experiences
+- Learning mode 
+- Learning mode + action replay
+
+## Manual Mode
 
 To move the agent use:
 'z' to move north
@@ -28,10 +42,7 @@ To move the agent use:
 'd' to move east
 
 To exit use:
-'x'
-
-## Minor bugs
-* Fix the nparray / list conflict 
+'x' 
 
 ## Authors
 

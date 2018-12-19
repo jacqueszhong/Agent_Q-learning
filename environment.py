@@ -31,7 +31,7 @@ class Environment:
         - self.ennemies: list of 2-uplets representing the enemies
     """
 
-    def __init__(self): #constructor
+    def __init__(self):  #constructor
 
         self.size = 25
         self.agent = Agent()
@@ -145,65 +145,62 @@ class Environment:
 
 
     """ Meta meta functions """
+
     def run_manual(self):
-        #Variable to save the input of the player
-        c_input=''
-        #Variable to follow the state of the game
-        game_state=0
+        # Variable to save the input of the player
+        c_input = ''
+        # Variable to follow the state of the game
+        game_state = 0
 
-        #Loop of the game
-        while c_input!='x' and game_state==0:
-            #Show the map on the terminal
+        # Loop of the game
+        while c_input != 'x' and game_state == 0:
+            # Show the map on the terminal
             self.show()
-            #Ask the player
+            # Ask the player
             print("Press z, q, s or d to move or x to exit:")
-            c_input=input()
-            #Update the simulation
-            if c_input in ['z','q','s','d']:
-                #game_state=env.update_manual(c_input)
-                game_state = self.update_manual()
+            c_input = input()
+            # Update the simulation
+            if c_input in ['z', 'q', 's', 'd']:
+                game_state = self.update_manual(c_input)
 
-        #End of the game
-        if game_state==-1:
+        # End of the game
+        if game_state == -1:
             print("Loser")
-        if game_state==1:
-            print("Winner")   
-
+        if game_state == 1:
+            print("Winner")
 
     def reset(self):
         self.map = []
-        self.food_counter=0
+        self.food_counter = 0
         self.init_map()
-        self.enemies = [[1,12],[6,12],[6,6],[6,18]]
+        self.enemies = [[1, 12], [6, 12], [6, 6], [6, 18]]
         self.agent.reset()
 
-
     """ Meta functions """
-    def update_manual(self,direction):
+
+    def update_manual(self, direction):
         """
         Char->Int
         Update all the elements of the environment
         Return 0 if the game can continue, 1 if the agent won or -1 if he lost
         """
-        x=self.agent.pos[0]
-        y=self.agent.pos[1]
-        state=True
-        #print("x: {0} y: {1}".format(x,y))
-        if direction == "q": #move west
+        x = self.agent.pos[0]
+        y = self.agent.pos[1]
+        if direction == "q":  # move west
             self.agent.action = 3
             y -= 1
-        elif direction == "d": #move east
+        elif direction == "d":  # move east
             self.agent.action = 1
             y += 1
-        elif direction == "z": #move north
+        elif direction == "z":  # move north
             self.agent.action = 0
             x -= 1
-        elif direction == "s": #move south
+        elif direction == "s":  # move south
             self.agent.action = 2
             x += 1
-        #print("x: {0} y: {1}".format(x,y))   
+        # print("x: {0} y: {1}".format(x,y))
 
-        status, reward, new_input_vec = self.step(x,y)
+        status, reward, new_input_vec = self.step(x, y)
 
         return status
 
@@ -372,7 +369,7 @@ class Environment:
         elif self.food_counter==0:
             status = 1
         else:
-            status = self.move_all_ennemies()
+            status = self.move_all_enemies()
             if status == -1:
                 reward = -1
 
